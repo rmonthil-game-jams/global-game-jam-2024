@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://bfo0n2gerr7h2"]
+
+[ext_resource type="Script" path="res://modules/remi/game/game.gd" id="1_uo4oq"]
+[ext_resource type="PackedScene" uid="uid://ds80bewvipu15" path="res://modules/remi/player/player_keyboard_left.tscn" id="2_nkp6u"]
+[ext_resource type="PackedScene" uid="uid://b7friuadtnkwy" path="res://modules/remi/pigeon/pigeon.tscn" id="2_vruvg"]
+[ext_resource type="PackedScene" uid="uid://b6eqmsu57y3fm" path="res://modules/remi/player/player_keyboard_right.tscn" id="3_aaxfp"]
+
+[node name="Game" type="Node"]
+script = ExtResource("1_uo4oq")
+
+[node name="Players" type="Node" parent="."]
+
+[node name="PlayerKeyboardLeft" parent="Players" instance=ExtResource("2_nkp6u")]
+pigeon_path = NodePath("../../World/Pigeon")
+
+[node name="PlayerKeyboardRight" parent="Players" instance=ExtResource("3_aaxfp")]
+pigeon_path = NodePath("../../World/Pigeon")
+
+[node name="World" type="Node2D" parent="."]
+
+[node name="Pigeon" parent="World" instance=ExtResource("2_vruvg")]
+
+[node name="Env" type="Node2D" parent="."]
+
+[node name="Camera2D" type="Camera2D" parent="Env"]
+zoom = Vector2(2, 2)

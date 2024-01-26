@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://b6eqmsu57y3fm"]
+
+[ext_resource type="Script" path="res://modules/remi/player/player_keyboard_right.gd" id="1_d2fxq"]
+
+[node name="PlayerKeyboardRight" type="Node"]
+script = ExtResource("1_d2fxq")
+
+[node name="TimerHit" type="Timer" parent="."]
+
+[node name="TimeHitCooldown" type="Timer" parent="."]
+
+[connection signal="timeout" from="TimerHit" to="." method="_on_timer_hit_timeout"]
+[connection signal="timeout" from="TimeHitCooldown" to="." method="_on_time_hit_cooldown_timeout"]

@@ -1,0 +1,89 @@
+[gd_scene load_steps=5 format=3 uid="uid://b7friuadtnkwy"]
+
+[ext_resource type="Script" path="res://modules/remi/pigeon/pigeon.gd" id="1_skmlw"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kcqlp"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4p63o"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nttcv"]
+
+[node name="Pigeon" type="Node2D"]
+script = ExtResource("1_skmlw")
+
+[node name="ForearmLeft" type="RigidBody2D" parent="."]
+position = Vector2(-32, 0)
+rotation = 1.5708
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ForearmLeft"]
+shape = SubResource("CapsuleShape2D_kcqlp")
+
+[node name="Marker2DAnchorLeft" type="Marker2D" parent="ForearmLeft"]
+position = Vector2(0, 8)
+
+[node name="Polygon2D" type="Polygon2D" parent="ForearmLeft"]
+color = Color(1, 0.141176, 0, 1)
+polygon = PackedVector2Array(3, -14, 9, -10, 10, -2, 9, 9, 3, 15, -4, 14, -10, 7, -10, -6, -4, -14)
+
+[node name="ArmLeft" type="RigidBody2D" parent="."]
+position = Vector2(-16, 0)
+rotation = -1.5708
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ArmLeft"]
+shape = SubResource("CapsuleShape2D_4p63o")
+
+[node name="Polygon2D" type="Polygon2D" parent="ArmLeft"]
+polygon = PackedVector2Array(3, -14, 9, -10, 10, -2, 9, 9, 3, 15, -4, 14, -10, 7, -10, -6, -4, -14)
+
+[node name="Body" type="RigidBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Body"]
+shape = SubResource("CapsuleShape2D_nttcv")
+
+[node name="Polygon2D" type="Polygon2D" parent="Body"]
+color = Color(0.0352941, 1, 0, 1)
+polygon = PackedVector2Array(3, -14, 9, -10, 10, -2, 9, 9, 3, 15, -4, 14, -10, 7, -10, -6, -4, -14)
+
+[node name="ArmRight" type="RigidBody2D" parent="."]
+position = Vector2(16, 0)
+rotation = 1.5708
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ArmRight"]
+shape = SubResource("CapsuleShape2D_4p63o")
+
+[node name="Polygon2D" type="Polygon2D" parent="ArmRight"]
+polygon = PackedVector2Array(3, -14, 9, -10, 10, -2, 9, 9, 3, 15, -4, 14, -10, 7, -10, -6, -4, -14)
+
+[node name="ForearmRight" type="RigidBody2D" parent="."]
+position = Vector2(32, 0)
+rotation = -1.5708
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ForearmRight"]
+shape = SubResource("CapsuleShape2D_kcqlp")
+
+[node name="Marker2DAnchorRight" type="Marker2D" parent="ForearmRight"]
+position = Vector2(0, 8)
+
+[node name="Polygon2D" type="Polygon2D" parent="ForearmRight"]
+color = Color(0, 0.0352941, 1, 1)
+polygon = PackedVector2Array(3, -14, 9, -10, 10, -2, 9, 9, 3, 15, -4, 14, -10, 7, -10, -6, -4, -14)
+
+[node name="Joint2DBodyArmLeft" type="PinJoint2D" parent="."]
+position = Vector2(-8, 0)
+node_a = NodePath("../Body")
+node_b = NodePath("../ArmLeft")
+
+[node name="Joint2DArmLeftForeArmLeft" type="PinJoint2D" parent="."]
+position = Vector2(-24, 0)
+node_a = NodePath("../ArmLeft")
+node_b = NodePath("../ForearmLeft")
+
+[node name="Joint2DBodyArmRight" type="PinJoint2D" parent="."]
+position = Vector2(8, 0)
+node_a = NodePath("../Body")
+node_b = NodePath("../ArmRight")
+
+[node name="Joint2DArmRightForeArmRight" type="PinJoint2D" parent="."]
+position = Vector2(24, 0)
+node_a = NodePath("../ArmRight")
+node_b = NodePath("../ForearmRight")
