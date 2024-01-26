@@ -36,7 +36,7 @@ func _input(event: InputEvent):
 	if event is InputEventKey:
 		if not event.is_echo():
 			match event.physical_keycode:
-				KEY_LEFT:
+				KEY_UP:
 					if event.pressed:
 						direction.y -= 1.0
 					else:
@@ -46,7 +46,7 @@ func _input(event: InputEvent):
 						direction.x += 1.0
 					else:
 						direction.x -= 1.0
-				KEY_UP:
+				KEY_LEFT:
 					if event.pressed:
 						direction.x -= 1.0
 					else:
