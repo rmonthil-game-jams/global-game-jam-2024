@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=3 uid="uid://d0jbi2nl0tj8w"]
+
+[ext_resource type="Script" path="res://modules/remi/walker/walk_path.gd" id="1_7m72w"]
+
+[sub_resource type="Curve2D" id="Curve2D_4qr7t"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 36, 291, -99.9322, 106.898, 99.9322, -106.898, 84, 105, 210, 240, -210, -240, 134, -262, -246, -284, 246, 284, -204, 358)
+}
+point_count = 4
+
+[node name="WalkPath" type="Node2D"]
+script = ExtResource("1_7m72w")
+LENGTH_INTERVAL = 256.0
+TIME_INTERVAL = 1.0
+
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource("Curve2D_4qr7t")
+
+[node name="PathFollow2DLeft" type="PathFollow2D" parent="Path2D"]
+position = Vector2(-25.9697, 275.008)
+rotation = -1.31824
+v_offset = -64.0
+loop = false
+
+[node name="PathFollow2DRight" type="PathFollow2D" parent="Path2D"]
+position = Vector2(97.9697, 306.992)
+rotation = -1.31824
+v_offset = 64.0
+loop = false
+
+[node name="Camera2D" type="Camera2D" parent="."]

@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://bo5es8oypmu38"]
+
+[ext_resource type="Script" path="res://modules/remi/walker/foot.gd" id="1_r6ydk"]
+[ext_resource type="PackedScene" uid="uid://bjhvvs1wqhrd8" path="res://modules/remi/walker/foot_shadow.tscn" id="2_6smw6"]
+[ext_resource type="PackedScene" uid="uid://bmg6ks0msnwjj" path="res://modules/remi/walker/foot_body.tscn" id="3_esohx"]
+
+[node name="Foot" type="Node2D"]
+script = ExtResource("1_r6ydk")
+
+[node name="FootShadow" parent="." instance=ExtResource("2_6smw6")]
+collision_layer = 16
+collision_mask = 2
+
+[node name="Polygon2D" type="Polygon2D" parent="FootShadow"]
+color = Color(0.25, 0.25, 0.25, 1)
+polygon = PackedVector2Array(-11.7298, 14.1567, -14.5923, -5.66267, 4.91592, -22.5573, 50.0306, -12.7254, 58.4935, 2.55132, 37.6163, 15.5568, 4.66702, 17.6414)
+
+[node name="WeakPoints" type="Node2D" parent="FootShadow"]
+
+[node name="FootBody" parent="." instance=ExtResource("3_esohx")]
+collision_layer = 8
+collision_mask = 6
+
+[node name="Polygon2D" type="Polygon2D" parent="FootBody"]
+polygon = PackedVector2Array(-11.7298, 14.1567, -14.5923, -5.66267, 4.91592, -22.5573, 50.0306, -12.7254, 58.4935, 2.55132, 37.6163, 15.5568, 4.66702, 17.6414)
+
+[node name="WeakPoints" type="Node2D" parent="FootBody"]

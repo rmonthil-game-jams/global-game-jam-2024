@@ -4,10 +4,3 @@
 
 [node name="PlayerKeyboardLeft" type="Node"]
 script = ExtResource("1_pjs8c")
-
-[node name="TimerHit" type="Timer" parent="."]
-
-[node name="TimeHitCooldown" type="Timer" parent="."]
-
-[connection signal="timeout" from="TimerHit" to="." method="_on_timer_hit_timeout"]
-[connection signal="timeout" from="TimeHitCooldown" to="." method="_on_time_hit_cooldown_timeout"]

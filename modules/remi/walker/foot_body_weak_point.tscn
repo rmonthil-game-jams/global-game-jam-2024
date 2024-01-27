@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b78oxskvwpb5c"]
+
+[ext_resource type="Script" path="res://modules/remi/walker/foot_body_weak_point.gd" id="1_xj1e1"]
+
+[node name="FootWeakPoint" type="Area2D"]
+script = ExtResource("1_xj1e1")

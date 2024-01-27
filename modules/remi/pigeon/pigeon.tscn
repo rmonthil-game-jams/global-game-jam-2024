@@ -14,6 +14,8 @@ script = ExtResource("1_skmlw")
 [node name="ForearmLeft" type="RigidBody2D" parent="."]
 position = Vector2(-32, 0)
 rotation = 1.5708
+collision_layer = 4
+collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ForearmLeft"]
 shape = SubResource("CapsuleShape2D_kcqlp")
@@ -28,6 +30,8 @@ polygon = PackedVector2Array(3, -14, 9, -10, 10, -2, 9, 9, 3, 15, -4, 14, -10, 7
 [node name="ArmLeft" type="RigidBody2D" parent="."]
 position = Vector2(-16, 0)
 rotation = -1.5708
+collision_layer = 0
+collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ArmLeft"]
 shape = SubResource("CapsuleShape2D_4p63o")
@@ -36,6 +40,8 @@ shape = SubResource("CapsuleShape2D_4p63o")
 polygon = PackedVector2Array(3, -14, 9, -10, 10, -2, 9, 9, 3, 15, -4, 14, -10, 7, -10, -6, -4, -14)
 
 [node name="Body" type="RigidBody2D" parent="."]
+collision_layer = 2
+collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Body"]
 shape = SubResource("CapsuleShape2D_nttcv")
@@ -47,6 +53,8 @@ polygon = PackedVector2Array(3, -14, 9, -10, 10, -2, 9, 9, 3, 15, -4, 14, -10, 7
 [node name="ArmRight" type="RigidBody2D" parent="."]
 position = Vector2(16, 0)
 rotation = 1.5708
+collision_layer = 0
+collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ArmRight"]
 shape = SubResource("CapsuleShape2D_4p63o")
@@ -57,6 +65,8 @@ polygon = PackedVector2Array(3, -14, 9, -10, 10, -2, 9, 9, 3, 15, -4, 14, -10, 7
 [node name="ForearmRight" type="RigidBody2D" parent="."]
 position = Vector2(32, 0)
 rotation = -1.5708
+collision_layer = 4
+collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ForearmRight"]
 shape = SubResource("CapsuleShape2D_kcqlp")
@@ -87,3 +97,25 @@ node_b = NodePath("../ArmRight")
 position = Vector2(24, 0)
 node_a = NodePath("../ArmRight")
 node_b = NodePath("../ForearmRight")
+
+[node name="TimerHitLeft" type="Timer" parent="."]
+
+[node name="TimerHitRight" type="Timer" parent="."]
+
+[node name="TimerHitLeftCooldown" type="Timer" parent="."]
+
+[node name="TimerHitRightCooldown" type="Timer" parent="."]
+one_shot = true
+
+[node name="TimerStunLeft" type="Timer" parent="."]
+one_shot = true
+
+[node name="TimerStunRight" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="TimerHitLeft" to="." method="_on_timer_hit_left_timeout"]
+[connection signal="timeout" from="TimerHitRight" to="." method="_on_timer_hit_right_timeout"]
+[connection signal="timeout" from="TimerHitLeftCooldown" to="." method="_on_time_hit_left_cooldown_timeout"]
+[connection signal="timeout" from="TimerHitRightCooldown" to="." method="_on_time_hit_right_cooldown_timeout"]
+[connection signal="timeout" from="TimerStunLeft" to="." method="_on_time_stun_left_timeout"]
+[connection signal="timeout" from="TimerStunRight" to="." method="_on_time_stun_right_timeout"]

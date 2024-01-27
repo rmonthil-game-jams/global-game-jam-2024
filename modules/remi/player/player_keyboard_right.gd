@@ -9,17 +9,9 @@ const REACTION_TIME: float = 0.125
 
 @export_node_path("Node2D") var pigeon_path: NodePath
 
-# external signals
-
-signal hold_pressed
-signal hold_released
-signal hit_pressed
-signal hit_released
-
 # internal
 
 var direction: Vector2 = Vector2.ZERO
-var state: StringName = "idle"
 
 var pigeon: Node2D
 var pigeon_body: RigidBody2D
@@ -58,26 +50,23 @@ func _input(event: InputEvent):
 						direction.y -= 1.0
 				KEY_O:
 					if event.pressed:
-						if state == "idle":
-							hold_pressed.emit()
-							state = "holding"
+						if pigeon.state_right == "idle":
+							pigeon.state_right = "holding"
 							pigeon_forearm.freeze = true
 					else:
-						if state == "holding":
-							hold_released.emit()
-							state = "idle"
+						if pigeon.state_right == "holding":
+							pigeon.state_right = "idle"
 							pigeon_forearm.freeze = false
 				KEY_P:
 					if event.pressed:
-						if state == "idle":
-							hit_pressed.emit()
-							state = "hitting"
-							$TimerHit.start()
+						if pigeon.state_right == "idle":
+							pigeon.state_right = "hitting"
+							pigeon.get_node("TimerHitRight").start()
 
 func _physics_process(delta: float):
 	if direction:
 		var impulse: Vector2 = _get_velocity_control_impulse(direction, delta)
-		match state:
+		match pigeon.state_right:
 			"idle":
 				pigeon_forearm.apply_impulse(impulse, pigeon_impulse_anchor.global_position - pigeon_forearm.global_position)
 				pigeon_body.apply_impulse(-0.5*impulse)
@@ -88,17 +77,10 @@ func _physics_process(delta: float):
 				pigeon_forearm.apply_impulse(impulse, pigeon_impulse_anchor.global_position - pigeon_forearm.global_position)
 				pigeon_body.apply_impulse(-0.5*impulse)
 			"holding":
-				pigeon_body.apply_impulse(-0.5*impulse)
+				pigeon_body.apply_impulse(-impulse)
 	else:
 		var impulse: Vector2 = _get_velocity_control_impulse(Vector2.ZERO, delta)
 		pigeon_forearm.apply_impulse(0.5 * impulse)
 
 func _get_velocity_control_impulse(direction: Vector2, delta: float) -> Vector2:
 	return pigeon_forearm.mass * (direction * TARGET_VELOCITY - pigeon_forearm.linear_velocity) * delta / REACTION_TIME
-
-func _on_timer_hit_timeout():
-	state = "cooling"
-	$TimerHitCooldown.start()
-
-func _on_time_hit_cooldown_timeout():
-	state = "idle"
