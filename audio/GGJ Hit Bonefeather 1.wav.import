@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://65egjsmjgqg0"
+path="res://.godot/imported/GGJ Hit Bonefeather 1.wav-0bab7f4570b5edc8e153eee05783f79e.sample"
+
+[deps]
+
+source_file="res://audio/GGJ Hit Bonefeather 1.wav"
+dest_files=["res://.godot/imported/GGJ Hit Bonefeather 1.wav-0bab7f4570b5edc8e153eee05783f79e.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

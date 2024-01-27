@@ -14,7 +14,7 @@ script = ExtResource("1_uo4oq")
 
 [node name="Processes" type="Node" parent="."]
 
-[node name="WalkPathSerie" parent="Processes" instance=ExtResource("2_mmp50")]
+[node name="WalkPathSerie" parent="Processes" groups=["target_to_kill"] instance=ExtResource("2_mmp50")]
 world_path = NodePath("../../World")
 walk_path_scenes = Array[PackedScene]([ExtResource("3_bewwp"), ExtResource("3_bewwp"), ExtResource("3_bewwp"), ExtResource("3_bewwp"), ExtResource("3_bewwp"), ExtResource("3_bewwp")])
 walk_path_delays = Array[float]([0.0, 3.0, 3.0, 3.0, 3.0, 3.0])
@@ -255,3 +255,10 @@ theme_override_font_sizes/font_size = 32
 text = "press any key to try again"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="TimerWinCheck" type="Timer" parent="."]
+wait_time = 4.0
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="TimerWinCheck" to="." method="_on_timer_win_check_timeout"]

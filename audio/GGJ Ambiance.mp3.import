@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b3mhlfots7pv"
+path="res://.godot/imported/GGJ Ambiance.mp3-90bc3c7771f547ed2353e9c689d6b9f0.mp3str"
+
+[deps]
+
+source_file="res://audio/GGJ Ambiance.mp3"
+dest_files=["res://.godot/imported/GGJ Ambiance.mp3-90bc3c7771f547ed2353e9c689d6b9f0.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

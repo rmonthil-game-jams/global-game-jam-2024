@@ -2,7 +2,7 @@ extends Node
 
 func _ready():
 	randomize()
-	$Processes/WalkPathSerie.start()
+	$Processes/q.start()
 	set_process_input(false)
 
 func on_pigeon_just_died():
@@ -58,3 +58,8 @@ func on_key_pressed():
 	await tween_white.finished
 	# restart
 	get_tree().reload_current_scene()
+
+func _on_timer_win_check_timeout():
+	if get_tree().get_nodes_in_group("target_to_kill").is_empty():
+		# victory
+		on_pigeon_just_died()
