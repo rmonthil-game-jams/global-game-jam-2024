@@ -18,7 +18,7 @@ script = ExtResource("1_mxke0")
 [node name="WalkPathSerie" parent="ProcessesGD" instance=ExtResource("2_2wk5a")]
 world_path = NodePath("../../World")
 walk_path_scenes = Array[PackedScene]([ExtResource("3_7swlt"), ExtResource("4_iq45n"), ExtResource("5_ppc4w")])
-walk_path_delays = Array[float]([1.0, 11.0, 0.01])
+walk_path_delays = Array[float]([1.0, 11.0, 0.1])
 
 [node name="Players" type="Node" parent="."]
 
