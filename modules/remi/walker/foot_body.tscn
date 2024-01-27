@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bmg6ks0msnwjj"]
+
+[ext_resource type="Script" path="res://modules/remi/walker/foot_body.gd" id="1_rfo4b"]
+
+[node name="FootBody" type="StaticBody2D"]
+script = ExtResource("1_rfo4b")

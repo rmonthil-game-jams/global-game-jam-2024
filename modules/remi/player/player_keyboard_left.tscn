@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://ds80bewvipu15"]
+
+[ext_resource type="Script" path="res://modules/remi/player/player_keyboard_left.gd" id="1_pjs8c"]
+
+[node name="PlayerKeyboardLeft" type="Node"]
+script = ExtResource("1_pjs8c")
+TARGET_VELOCITY = 128.0
+REACTION_TIME = 0.125

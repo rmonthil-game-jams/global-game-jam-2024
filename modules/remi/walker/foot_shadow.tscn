@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bjhvvs1wqhrd8"]
+
+[ext_resource type="Script" path="res://modules/remi/walker/foot_shadow.gd" id="1_ny2h2"]
+
+[node name="FootShadow" type="Area2D"]
+script = ExtResource("1_ny2h2")

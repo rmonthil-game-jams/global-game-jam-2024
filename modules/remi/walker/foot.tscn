@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://bo5es8oypmu38"]
+
+[ext_resource type="Script" path="res://modules/remi/walker/foot.gd" id="1_r6ydk"]
+[ext_resource type="PackedScene" uid="uid://bjhvvs1wqhrd8" path="res://modules/remi/walker/foot_shadow.tscn" id="2_6smw6"]
+[ext_resource type="PackedScene" uid="uid://bmg6ks0msnwjj" path="res://modules/remi/walker/foot_body.tscn" id="3_esohx"]
+[ext_resource type="Texture2D" uid="uid://3u4sree21d6x" path="res://assets/foot_shadow.png" id="3_wj7wp"]
+
+[node name="Foot" type="Node2D"]
+script = ExtResource("1_r6ydk")
+
+[node name="FootShadow" parent="." instance=ExtResource("2_6smw6")]
+collision_layer = 16
+collision_mask = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="FootShadow"]
+self_modulate = Color(0.25, 0.25, 0.25, 1)
+texture = ExtResource("3_wj7wp")
+
+[node name="WeakPoints" type="Node2D" parent="FootShadow"]
+
+[node name="FootBody" parent="." instance=ExtResource("3_esohx")]
+collision_layer = 8
+collision_mask = 6
+
+[node name="Sprite2D2" type="Sprite2D" parent="FootBody"]
+texture = ExtResource("3_wj7wp")
+
+[node name="Sprite2DHitDove" type="Sprite2D" parent="FootBody"]
+visible = false
+texture = ExtResource("3_wj7wp")
+
+[node name="Sprite2DHitPigeon" type="Sprite2D" parent="FootBody"]
+visible = false
+texture = ExtResource("3_wj7wp")
+
+[node name="WeakPoints" type="Node2D" parent="FootBody"]
