@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://bum86ysc3no0x"]
+
+[node name="PigeonCorps" type="Node2D"]
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+color = Color(1, 0, 0.00784314, 1)
+polygon = PackedVector2Array(149, 72, -6, 148, -188, 4, 3, -210)

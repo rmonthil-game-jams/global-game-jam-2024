@@ -25,4 +25,12 @@ collision_mask = 6
 [node name="Sprite2D2" type="Sprite2D" parent="FootBody"]
 texture = ExtResource("3_wj7wp")
 
+[node name="Sprite2DHitDove" type="Sprite2D" parent="FootBody"]
+visible = false
+texture = ExtResource("3_wj7wp")
+
+[node name="Sprite2DHitPigeon" type="Sprite2D" parent="FootBody"]
+visible = false
+texture = ExtResource("3_wj7wp")
+
 [node name="WeakPoints" type="Node2D" parent="FootBody"]

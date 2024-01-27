@@ -62,3 +62,77 @@ texture = ExtResource("6_mdnv1")
 
 [node name="Camera2D" type="Camera2D" parent="Env"]
 zoom = Vector2(0.35, 0.35)
+
+[node name="CanvasLayerUI" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="Control" type="Control" parent="CanvasLayerUI"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayerUI/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Info" type="Control" parent="CanvasLayerUI/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayerUI/Control/Info"]
+layout_mode = 2
+offset_left = 118.5
+offset_top = 202.0
+offset_right = 1033.5
+offset_bottom = 290.0
+theme_override_constants/separation = 50
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayerUI/Control/Info/HBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="LabelLeft" type="Label" parent="CanvasLayerUI/Control/Info/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 64
+text = "Pain Inflicted"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="ScoreLeft" type="Label" parent="CanvasLayerUI/Control/Info/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "Pain Inflicted"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayerUI/Control/Info/HBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="LabelRight" type="Label" parent="CanvasLayerUI/Control/Info/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 64
+text = "Laugh Brought"
+vertical_alignment = 1
+
+[node name="ScoreRight" type="Label" parent="CanvasLayerUI/Control/Info/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "Laugh Brought"
+vertical_alignment = 1
