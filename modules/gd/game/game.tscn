@@ -43,7 +43,7 @@ script = ExtResource("1_og7jg")
 [node name="WalkPathSerie" parent="Processes" instance=ExtResource("2_dkv1n")]
 world_path = NodePath("../../World")
 walk_path_scenes = Array[PackedScene]([ExtResource("3_1om2q"), ExtResource("4_cthw4"), ExtResource("5_nqlx0"), ExtResource("6_6apd4"), ExtResource("7_bwce5"), ExtResource("3_1om2q"), ExtResource("8_g5ce8"), ExtResource("9_byjuv"), ExtResource("10_toq1s"), ExtResource("11_lh0m0"), ExtResource("12_ml88t"), ExtResource("13_dws05"), ExtResource("6_6apd4"), ExtResource("5_nqlx0"), ExtResource("14_o5dqu"), ExtResource("3_3e61h"), ExtResource("4_rn40a"), ExtResource("17_dhkuo"), ExtResource("13_dws05"), ExtResource("18_eb38p"), ExtResource("19_na6ew"), ExtResource("20_p15sp"), ExtResource("21_xiao5"), ExtResource("22_mr13a"), ExtResource("23_0352w"), ExtResource("24_gvfb6"), ExtResource("13_dws05"), ExtResource("3_1om2q"), ExtResource("26_e2f34"), ExtResource("27_cx5nl"), ExtResource("28_st2wt"), ExtResource("25_7vfwc"), ExtResource("29_wtfxj")])
-walk_path_delays = Array[float]([5.0, 8.0, 7.0, 6.0, 6.0, 4.0, 10.0, 4.0, 6.0, 0.1, 4.0, 1.0, 1.0, 0.0, 0.0, 3.0, 0.01, 10.0, 3.0, 4.0, 1.0, 0.0, 0.0, 1.0, 2.0, 4.0, 1.0, 1.0, 0.0, 5.0, 0.01, 10.0, 40.0])
+walk_path_delays = Array[float]([5.0, 8.0, 7.0, 6.0, 6.0, 4.0, 10.0, 4.0, 6.0, 0.1, 4.0, 1.0, 1.0, 1.0, 1.0, 3.0, 0.01, 10.0, 3.0, 4.0, 1.0, 1.0, 1.0, 1.0, 2.0, 4.0, 1.0, 1.0, 0.0, 5.0, 0.01, 10.0, 40.0])
 
 [node name="Players" type="Node" parent="."]
 
