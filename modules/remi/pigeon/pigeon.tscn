@@ -1,115 +1,141 @@
-[gd_scene load_steps=5 format=3 uid="uid://b7friuadtnkwy"]
+[gd_scene load_steps=8 format=3 uid="uid://b7friuadtnkwy"]
 
 [ext_resource type="Script" path="res://modules/remi/pigeon/pigeon.gd" id="1_skmlw"]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kcqlp"]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4p63o"]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nttcv"]
+[ext_resource type="Texture2D" uid="uid://b17a4frj68tc7" path="res://assets/pigeon_dove_body.png" id="2_ekxjf"]
+[ext_resource type="Texture2D" uid="uid://bx2sl4jc7eag5" path="res://assets/pigeon_wing_1.png" id="2_fjk2f"]
+[ext_resource type="Texture2D" uid="uid://cmoso85gcgj5l" path="res://assets/pigeon_wing_0.png" id="3_vvmfe"]
+[ext_resource type="Texture2D" uid="uid://btadohryl78fy" path="res://assets/pigeon_dove.png" id="4_717jc"]
+[ext_resource type="Texture2D" uid="uid://5yyw3rl68wde" path="res://assets/dove_wing_0.png" id="5_a64py"]
+[ext_resource type="Texture2D" uid="uid://de3bq1nf2vxhl" path="res://assets/dove_wing_1.png" id="5_phlm3"]
 
 [node name="Pigeon" type="Node2D"]
 script = ExtResource("1_skmlw")
 REACTION_TIME = 0.125
 
 [node name="ForearmLeft" type="RigidBody2D" parent="."]
-position = Vector2(-32, 0)
+position = Vector2(-287, -240)
 rotation = 1.5708
 collision_layer = 4
 collision_mask = 8
 max_contacts_reported = 1
 contact_monitor = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ForearmLeft"]
-shape = SubResource("CapsuleShape2D_kcqlp")
-
 [node name="Marker2DAnchorLeft" type="Marker2D" parent="ForearmLeft"]
-position = Vector2(0, 8)
+position = Vector2(-91.9996, 94.0003)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ForearmLeft"]
+polygon = PackedVector2Array(124, -117, 173, 23.9994, 86.0003, 75.9997, -80.9995, 137, -153.999, 166.001, -160, 103.001, -114, 55.0004, -96.0004, -102, -47.0006, -162, 74.9995, -146)
 
 [node name="Polygon2D" type="Polygon2D" parent="ForearmLeft"]
-color = Color(1, 0.141176, 0, 1)
-polygon = PackedVector2Array(3, -14, 9, -10, 10, -2, 9, 9, 3, 15, -4, 14, -10, 7, -10, -6, -4, -14)
+polygon = PackedVector2Array(189, 28.9993, 100, 88.9996, -80.9995, 151, -149.999, 186.001, -192, 110.001, -132, 58.0005, -111, -47.9996, -117, -124, -40.0007, -186, 44.9994, -176, 136, -117)
+
+[node name="Sprite2D" type="Sprite2D" parent="ForearmLeft"]
+rotation = -1.57081
+scale = Vector2(0.17, 0.17)
+texture = ExtResource("2_fjk2f")
 
 [node name="ArmLeft" type="RigidBody2D" parent="."]
-position = Vector2(-16, 0)
+position = Vector2(-166, -128)
 rotation = -1.5708
 collision_layer = 0
 collision_mask = 8
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ArmLeft"]
-shape = SubResource("CapsuleShape2D_4p63o")
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ArmLeft"]
+polygon = PackedVector2Array(-142, 76.9995, -127, -69.0005, -46.9995, -137, 83.0003, -82.9997, 152, 47.0005, 31.9995, 128, -80.0004, 98.9997)
 
 [node name="Polygon2D" type="Polygon2D" parent="ArmLeft"]
-polygon = PackedVector2Array(3, -14, 9, -10, 10, -2, 9, 9, 3, 15, -4, 14, -10, 7, -10, -6, -4, -14)
+polygon = PackedVector2Array(-151, 74.9995, -148, 2.99945, -141, -76.0005, -83.9995, -142, -7.99945, -155, 131, -88.9995, 178, 28.0006, 124, 105, 7.99942, 162, -78.0004, 115, -130, 92.9995)
+
+[node name="Sprite2D" type="Sprite2D" parent="ArmLeft"]
+rotation = 1.57079
+scale = Vector2(0.17, 0.17)
+texture = ExtResource("3_vvmfe")
+
+[node name="ForearmRight" type="RigidBody2D" parent="."]
+position = Vector2(345, -184)
+rotation = 0.0481552
+collision_layer = 4
+collision_mask = 8
+max_contacts_reported = 1
+contact_monitor = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ForearmRight"]
+polygon = PackedVector2Array(-14.3931, 116.828, 37.8235, 99.2944, 79.8591, -4.84979, 131.366, -99.4388, 100.955, -128.008, 36.6683, -90.8705, -94.8779, -57.4996, -136.625, -30.4587, -92.2905, 58.5104)
+
+[node name="Polygon2D" type="Polygon2D" parent="ForearmRight"]
+polygon = PackedVector2Array(-53.1071, 123.7, 42.7936, 140.102, 78.0057, 81.3393, 95.7081, 12.4073, 144.23, -61.0135, 144.856, -131.125, 93.3856, -139.657, 18.8576, -128.056, -60.3156, -88.1989, -165.976, -37.0534, -115.264, 59.6175)
+
+[node name="Marker2DAnchorRight" type="Marker2D" parent="ForearmRight"]
+position = Vector2(97.8382, -88.8126)
+
+[node name="Sprite2D" type="Sprite2D" parent="ForearmRight"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_phlm3")
+
+[node name="ArmRight" type="RigidBody2D" parent="."]
+position = Vector2(167, -104)
+rotation = 0.582111
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ArmRight"]
+scale = Vector2(1, 1)
+polygon = PackedVector2Array(-131.987, 41.3803, -125.895, -51.2203, -33.091, -126.669, 65.8003, -105.562, 129.524, -46.942, 115.291, 15.1017, 70.9652, 100.543, -34.2712, 120.725)
+
+[node name="Polygon2D" type="Polygon2D" parent="ArmRight"]
+scale = Vector2(1, 1)
+polygon = PackedVector2Array(-62.3223, 127.216, 18.0131, 143.776, 84.5306, 104.783, 148.132, -4.11972, 137.919, -59.6508, 40.6162, -162.013, -28.544, -145.225, -116.23, -91.1025, -151.895, -16.1494, -145.109, 56.0028)
+
+[node name="Sprite2D" type="Sprite2D" parent="ArmRight"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_a64py")
 
 [node name="Body" type="RigidBody2D" parent="."]
 collision_layer = 2
 collision_mask = 8
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Body"]
-shape = SubResource("CapsuleShape2D_nttcv")
-
 [node name="Polygon2D" type="Polygon2D" parent="Body"]
-color = Color(0.0352941, 1, 0, 1)
-polygon = PackedVector2Array(3, -14, 9, -10, 10, -2, 9, 9, 3, 15, -4, 14, -10, 7, -10, -6, -4, -14)
+polygon = PackedVector2Array(32, 181, 78, 160, 143, -21, 101, -126, 24, -191, -62, -166, -131, -91, -122, 27, -69, 135)
 
-[node name="ArmRight" type="RigidBody2D" parent="."]
-position = Vector2(16, 0)
-rotation = 1.5708
-collision_layer = 0
-collision_mask = 8
+[node name="Sprite2D" type="Sprite2D" parent="Body"]
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("2_ekxjf")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ArmRight"]
-shape = SubResource("CapsuleShape2D_4p63o")
-
-[node name="Polygon2D" type="Polygon2D" parent="ArmRight"]
-polygon = PackedVector2Array(3, -14, 9, -10, 10, -2, 9, 9, 3, 15, -4, 14, -10, 7, -10, -6, -4, -14)
-
-[node name="ForearmRight" type="RigidBody2D" parent="."]
-position = Vector2(32, 0)
-rotation = -1.5708
-collision_layer = 4
-collision_mask = 8
-max_contacts_reported = 1
-contact_monitor = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ForearmRight"]
-shape = SubResource("CapsuleShape2D_kcqlp")
-
-[node name="Marker2DAnchorRight" type="Marker2D" parent="ForearmRight"]
-position = Vector2(0, 8)
-
-[node name="Polygon2D" type="Polygon2D" parent="ForearmRight"]
-color = Color(0, 0.0352941, 1, 1)
-polygon = PackedVector2Array(3, -14, 9, -10, 10, -2, 9, 9, 3, 15, -4, 14, -10, 7, -10, -6, -4, -14)
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Body"]
+polygon = PackedVector2Array(33, 162, -64, 93, -118, -12, -61, -135, 43, -157, 119, -45, 77, 89)
 
 [node name="Joint2DBodyArmLeft" type="PinJoint2D" parent="."]
-position = Vector2(-8, 0)
+position = Vector2(-94, -72)
 node_a = NodePath("../Body")
 node_b = NodePath("../ArmLeft")
 
 [node name="Joint2DArmLeftForeArmLeft" type="PinJoint2D" parent="."]
-position = Vector2(-24, 0)
+position = Vector2(-220, -177)
 node_a = NodePath("../ArmLeft")
 node_b = NodePath("../ForearmLeft")
 
 [node name="Joint2DBodyArmRight" type="PinJoint2D" parent="."]
-position = Vector2(8, 0)
+position = Vector2(96, -88)
 node_a = NodePath("../Body")
 node_b = NodePath("../ArmRight")
 
 [node name="Joint2DArmRightForeArmRight" type="PinJoint2D" parent="."]
-position = Vector2(24, 0)
+position = Vector2(258, -142)
 node_a = NodePath("../ArmRight")
 node_b = NodePath("../ForearmRight")
 
 [node name="TimerHitLeft" type="Timer" parent="."]
+one_shot = true
 
 [node name="TimerHitRight" type="Timer" parent="."]
+one_shot = true
 
 [node name="TimerHitLeftCooldown" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
 
 [node name="TimerHitRightCooldown" type="Timer" parent="."]
+wait_time = 0.1
 one_shot = true
 
 [node name="TimerStunLeft" type="Timer" parent="."]
@@ -117,6 +143,12 @@ one_shot = true
 
 [node name="TimerStunRight" type="Timer" parent="."]
 one_shot = true
+
+[node name="PigeonDove" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-2.99988, -235)
+scale = Vector2(1.98875, 1.98875)
+texture = ExtResource("4_717jc")
 
 [connection signal="body_entered" from="ForearmLeft" to="." method="_on_forearm_left_body_entered"]
 [connection signal="body_entered" from="ForearmRight" to="." method="_on_forearm_right_body_entered"]

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://da1h1kqc0rgsw"
+path="res://.godot/imported/GGJ Stomp 1 layer.wav-df763d09f0e6197d447e4c57fd294106.sample"
+
+[deps]
+
+source_file="res://audio/GGJ Stomp 1 layer.wav"
+dest_files=["res://.godot/imported/GGJ Stomp 1 layer.wav-df763d09f0e6197d447e4c57fd294106.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

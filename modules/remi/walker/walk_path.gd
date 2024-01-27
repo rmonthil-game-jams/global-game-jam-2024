@@ -7,7 +7,7 @@ extends Node2D
 @export var SLIDE_LENGTH_INTERVAL: Array[float]
 @export var SLIDE_TIME_INTERVAL: Array[float]
 
-@onready var is_left_first: bool = randf_range(0.0, 1.0) <= 0.5
+@onready var is_left_first: bool = true#randf_range(0.0, 1.0) <= 0.5
 
 var step_index: int = 0
 

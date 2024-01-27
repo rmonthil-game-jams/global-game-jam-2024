@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bvnb537vc4hww"
+path="res://.godot/imported/GGJ Hit foot 2.wav-d802b85e15eec36966c2f2a88a461018.sample"
+
+[deps]
+
+source_file="res://audio/GGJ Hit foot 2.wav"
+dest_files=["res://.godot/imported/GGJ Hit foot 2.wav-d802b85e15eec36966c2f2a88a461018.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

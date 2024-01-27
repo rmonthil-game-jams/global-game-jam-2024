@@ -60,6 +60,7 @@ func _input(event: InputEvent):
 						if pigeon.state_left == "idle":
 							pigeon.state_left = "hitting"
 							pigeon.get_node("TimerHitLeft").start()
+							pigeon_forearm.get_node("Polygon2D").modulate = Color.RED
 
 func _physics_process(delta: float):
 	if direction:

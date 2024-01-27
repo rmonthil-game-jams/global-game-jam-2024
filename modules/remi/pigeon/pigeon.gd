@@ -64,6 +64,7 @@ func _on_timer_hit_right_timeout():
 
 func _on_timer_hit_left_timeout():
 	state_left = "cooling"
+	$ForearmLeft.get_node("Polygon2D").modulate = Color.WHITE
 	$TimerHitLeftCooldown.start()
 
 func _on_forearm_left_body_entered(body: StaticBody2D):
