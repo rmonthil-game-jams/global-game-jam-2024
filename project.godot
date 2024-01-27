@@ -34,6 +34,7 @@ movie_writer/fps=27
 2d_physics/layer_5="foot_shadow"
 2d_physics/layer_6="foot_body_weak_point"
 2d_physics/layer_7="foot_shadow_weak_point"
+2d_physics/layer_8="borders"
 
 [physics]
 

@@ -14,20 +14,24 @@ var score_right: int = 0
 func stun_left():
 	state_left = "stunned"
 	$TimerStunLeft.start()
+	$ForearmLeft/AudioStreamPlayer2DStun.play()
 
 func hit_left():
 	state_left = "hitting"
 	$TimerHitLeft.start()
 	$ForearmLeft/Polygon2D.modulate = Color.RED
+	$ForearmLeft/AudioStreamPlayer2DHit.play()
 
 func stun_right():
 	state_right = "stunned"
 	$TimerStunRight.start()
+	$ForearmRight/AudioStreamPlayer2DStun.play()
 
 func hit_right():
 	state_right = "hitting"
 	$TimerHitRight.start()
 	$ForearmRight/Polygon2D.modulate = Color.RED
+	$ForearmRight/AudioStreamPlayer2DHit.play()
 
 func die():
 	player_keyboard_left.queue_free()
@@ -82,8 +86,10 @@ func _on_forearm_left_body_entered(body: StaticBody2D):
 	if state_left == "hitting":
 		score_left += 1
 		body.get_parent().play_hit_pigeon_animation()
+		$ForearmLeft/AudioStreamPlayer2DHitFoot.play()
 
 func _on_forearm_right_body_entered(body):
 	if state_right == "hitting":
 		score_right += 1
 		body.get_parent().play_hit_dove_animation()
+		$ForearmRight/AudioStreamPlayer2DHitFoot.play()

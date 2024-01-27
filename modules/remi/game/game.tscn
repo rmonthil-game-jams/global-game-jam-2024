@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bfo0n2gerr7h2"]
+[gd_scene load_steps=18 format=3 uid="uid://bfo0n2gerr7h2"]
 
 [ext_resource type="Script" path="res://modules/remi/game/game.gd" id="1_uo4oq"]
 [ext_resource type="PackedScene" uid="uid://qnm1p2evqemy" path="res://modules/remi/walker/walk_path_serie.tscn" id="2_mmp50"]
@@ -8,6 +8,25 @@
 [ext_resource type="PackedScene" uid="uid://q1vay7y3lhcb" path="res://modules/remi/walker_instances/basic/walk_path_basic.tscn" id="3_bewwp"]
 [ext_resource type="Texture2D" uid="uid://c6sqkrdec82wh" path="res://assets/background.png" id="6_mdnv1"]
 [ext_resource type="FontFile" uid="uid://bchnvsiohxhtx" path="res://fonts/MaltesPencilRegular-jyVj.otf" id="8_l402d"]
+[ext_resource type="Texture2D" uid="uid://cp8memsu68jls" path="res://assets/intro_dove.png" id="9_78duw"]
+[ext_resource type="Texture2D" uid="uid://betcqgqrhkwqt" path="res://assets/intro_pigeon.png" id="10_15li1"]
+[ext_resource type="AudioStream" uid="uid://b3mhlfots7pv" path="res://audio/GGJ Ambiance.mp3" id="11_hekc4"]
+[ext_resource type="AudioStream" uid="uid://k33bh2lcjfae" path="res://audio/GGJ Lose.wav" id="12_2plbi"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ejv2u"]
+friction = 0.0
+bounce = 1.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_3gsa5"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_sym80"]
+normal = Vector2(0, 1)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_yp3ht"]
+normal = Vector2(1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_yc7uu"]
+normal = Vector2(-1, 0)
 
 [node name="Game" type="Node"]
 script = ExtResource("1_uo4oq")
@@ -28,6 +47,29 @@ pigeon_path = NodePath("../../World/Pigeon")
 [node name="PlayerKeyboardRight" parent="Players" instance=ExtResource("3_aaxfp")]
 TARGET_VELOCITY = 1536.0
 pigeon_path = NodePath("../../World/Pigeon")
+
+[node name="Borders" type="Node2D" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Borders"]
+collision_layer = 128
+collision_mask = 6
+physics_material_override = SubResource("PhysicsMaterial_ejv2u")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/StaticBody2D"]
+position = Vector2(0, 1100)
+shape = SubResource("WorldBoundaryShape2D_3gsa5")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Borders/StaticBody2D"]
+position = Vector2(0, -1100)
+shape = SubResource("WorldBoundaryShape2D_sym80")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Borders/StaticBody2D"]
+position = Vector2(-1800, 0)
+shape = SubResource("WorldBoundaryShape2D_yp3ht")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Borders/StaticBody2D"]
+position = Vector2(1800, 0)
+shape = SubResource("WorldBoundaryShape2D_yc7uu")
 
 [node name="Back" type="Node2D" parent="."]
 
@@ -163,102 +205,30 @@ vertical_alignment = 1
 [node name="CanvasLayerUI2" type="CanvasLayer" parent="."]
 visible = false
 
-[node name="Control" type="Control" parent="CanvasLayerUI2"]
-layout_mode = 3
+[node name="ColorRect" type="ColorRect" parent="CanvasLayerUI2"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ColorRect" type="ColorRect" parent="CanvasLayerUI2/Control"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="IntroDove" type="Sprite2D" parent="CanvasLayerUI2"]
+position = Vector2(887, 367)
+texture = ExtResource("9_78duw")
 
-[node name="Info" type="Control" parent="CanvasLayerUI2/Control"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayerUI2/Control/Info"]
-layout_mode = 2
-offset_left = 118.5
-offset_top = 202.0
-offset_right = 1033.5
-offset_bottom = 290.0
-theme_override_constants/separation = 50
-alignment = 1
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayerUI2/Control/Info/HBoxContainer"]
-layout_mode = 2
-alignment = 1
-
-[node name="LabelLeft" type="Label" parent="CanvasLayerUI2/Control/Info/HBoxContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("8_l402d")
-theme_override_font_sizes/font_size = 64
-text = "Pain Inflicted"
-horizontal_alignment = 2
-vertical_alignment = 1
-
-[node name="ScoreLeft" type="Label" parent="CanvasLayerUI2/Control/Info/HBoxContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("8_l402d")
-theme_override_font_sizes/font_size = 64
-text = "0"
-horizontal_alignment = 2
-vertical_alignment = 1
-
-[node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayerUI2/Control/Info/HBoxContainer"]
-layout_mode = 2
-alignment = 1
-
-[node name="LabelRight" type="Label" parent="CanvasLayerUI2/Control/Info/HBoxContainer/VBoxContainer2"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("8_l402d")
-theme_override_font_sizes/font_size = 64
-text = "Laugh Brought"
-vertical_alignment = 1
-
-[node name="ScoreRight" type="Label" parent="CanvasLayerUI2/Control/Info/HBoxContainer/VBoxContainer2"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("8_l402d")
-theme_override_font_sizes/font_size = 64
-text = "0"
-vertical_alignment = 1
-
-[node name="Label" type="Label" parent="CanvasLayerUI2/Control/Info"]
-visible = false
-layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -57.0
-offset_bottom = -34.0
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("8_l402d")
-theme_override_font_sizes/font_size = 32
-text = "press any key to try again"
-horizontal_alignment = 1
-vertical_alignment = 1
+[node name="IntroPigeon" type="Sprite2D" parent="CanvasLayerUI2"]
+position = Vector2(264, 369)
+texture = ExtResource("10_15li1")
 
 [node name="TimerWinCheck" type="Timer" parent="."]
 wait_time = 4.0
-one_shot = true
 autostart = true
 
+[node name="AudioStreamPlayerAmbiance" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_hekc4")
+
+[node name="AudioStreamPlayerLose" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_2plbi")
+
 [connection signal="timeout" from="TimerWinCheck" to="." method="_on_timer_win_check_timeout"]
+[connection signal="finished" from="AudioStreamPlayerAmbiance" to="." method="_on_audio_stream_player_ambiance_finished"]

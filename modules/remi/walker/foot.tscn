@@ -1,9 +1,22 @@
-[gd_scene load_steps=5 format=3 uid="uid://bo5es8oypmu38"]
+[gd_scene load_steps=9 format=3 uid="uid://bo5es8oypmu38"]
 
 [ext_resource type="Script" path="res://modules/remi/walker/foot.gd" id="1_r6ydk"]
 [ext_resource type="PackedScene" uid="uid://bjhvvs1wqhrd8" path="res://modules/remi/walker/foot_shadow.tscn" id="2_6smw6"]
 [ext_resource type="PackedScene" uid="uid://bmg6ks0msnwjj" path="res://modules/remi/walker/foot_body.tscn" id="3_esohx"]
 [ext_resource type="Texture2D" uid="uid://3u4sree21d6x" path="res://assets/foot_shadow.png" id="3_wj7wp"]
+[ext_resource type="AudioStream" uid="uid://da1h1kqc0rgsw" path="res://audio/GGJ Stomp 1 layer.wav" id="5_l27vw"]
+[ext_resource type="AudioStream" uid="uid://c5u560oo13vbt" path="res://audio/GGJ Stomp 2 layer.wav" id="6_it2rj"]
+[ext_resource type="AudioStream" uid="uid://c23i0d1a1qhib" path="res://audio/GGJ Stomp 3 layer.wav" id="7_pqrdp"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_k6i68"]
+random_pitch = 4.0
+streams_count = 3
+stream_0/stream = ExtResource("5_l27vw")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("6_it2rj")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("7_pqrdp")
+stream_2/weight = 1.0
 
 [node name="Foot" type="Node2D" groups=["target_to_kill"]]
 script = ExtResource("1_r6ydk")
@@ -37,3 +50,6 @@ color = Color(1, 0.0470588, 0, 1)
 polygon = PackedVector2Array(17, 64, -69, 50, -95, -60, 23, -96, 59, -2)
 
 [node name="WeakPoints" type="Node2D" parent="FootBody"]
+
+[node name="AudioStreamPlayer2DStomp" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamRandomizer_k6i68")

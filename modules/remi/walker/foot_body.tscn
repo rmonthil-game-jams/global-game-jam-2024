@@ -1,6 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://bmg6ks0msnwjj"]
+[gd_scene load_steps=3 format=3 uid="uid://bmg6ks0msnwjj"]
 
 [ext_resource type="Script" path="res://modules/remi/walker/foot_body.gd" id="1_rfo4b"]
 
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_c6t5u"]
+friction = 0.0
+bounce = 1.0
+
 [node name="FootBody" type="StaticBody2D"]
+physics_material_override = SubResource("PhysicsMaterial_c6t5u")
 script = ExtResource("1_rfo4b")

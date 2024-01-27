@@ -19,6 +19,8 @@ func end_step():
 	# activating FootBody
 	$FootBody.show()
 	$FootBody.process_mode = Node.PROCESS_MODE_INHERIT
+	# play audio
+	$AudioStreamPlayer2DStomp.play()
 	# empty
 	if not overlapping_bodies.is_empty():
 		var pigeon: Node2D = overlapping_bodies.front().get_parent()

@@ -1,12 +1,83 @@
-[gd_scene load_steps=8 format=3 uid="uid://b7friuadtnkwy"]
+[gd_scene load_steps=26 format=3 uid="uid://b7friuadtnkwy"]
 
 [ext_resource type="Script" path="res://modules/remi/pigeon/pigeon.gd" id="1_skmlw"]
 [ext_resource type="Texture2D" uid="uid://b17a4frj68tc7" path="res://assets/pigeon_dove_body.png" id="2_ekxjf"]
 [ext_resource type="Texture2D" uid="uid://bx2sl4jc7eag5" path="res://assets/pigeon_wing_1.png" id="2_fjk2f"]
+[ext_resource type="AudioStream" uid="uid://bdglbwrdgucpi" path="res://audio/GGJ Hit Feather 1.wav" id="3_0fjep"]
+[ext_resource type="AudioStream" uid="uid://b4yq3tw5k68j4" path="res://audio/GGJ Stun.wav" id="3_4r3l7"]
+[ext_resource type="AudioStream" uid="uid://65egjsmjgqg0" path="res://audio/GGJ Hit Bonefeather 1.wav" id="3_7p16b"]
+[ext_resource type="AudioStream" uid="uid://buboghcdud3gm" path="res://audio/GGJ Hit foot 1.wav" id="3_j4sjg"]
 [ext_resource type="Texture2D" uid="uid://cmoso85gcgj5l" path="res://assets/pigeon_wing_0.png" id="3_vvmfe"]
 [ext_resource type="Texture2D" uid="uid://btadohryl78fy" path="res://assets/pigeon_dove.png" id="4_717jc"]
+[ext_resource type="AudioStream" uid="uid://dkhy6y76acxas" path="res://audio/GGJ Hit Bonefeather 2.wav" id="4_myxv4"]
+[ext_resource type="AudioStream" uid="uid://dltfqjsrsavrd" path="res://audio/GGJ Hit Feather 2.wav" id="4_u4u30"]
+[ext_resource type="AudioStream" uid="uid://bvnb537vc4hww" path="res://audio/GGJ Hit foot 2.wav" id="4_y6sng"]
+[ext_resource type="AudioStream" uid="uid://dxwe3t1pwtstg" path="res://audio/GGJ Hit foot 3.wav" id="5_6ut5h"]
 [ext_resource type="Texture2D" uid="uid://5yyw3rl68wde" path="res://assets/dove_wing_0.png" id="5_a64py"]
+[ext_resource type="AudioStream" uid="uid://bm2ksoagvnro7" path="res://audio/GGJ Hit Bonefeather 3.wav" id="5_o8r74"]
 [ext_resource type="Texture2D" uid="uid://de3bq1nf2vxhl" path="res://assets/dove_wing_1.png" id="5_phlm3"]
+[ext_resource type="AudioStream" uid="uid://d3xklidpmowcf" path="res://audio/GGJ Hit Feather 3.wav" id="5_wnguy"]
+[ext_resource type="AudioStream" uid="uid://c68w636i27o04" path="res://audio/GGJ Hit foot 4.wav" id="6_36k10"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_xytdf"]
+friction = 0.0
+bounce = 1.0
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_emdyc"]
+random_pitch = 4.0
+streams_count = 1
+stream_0/stream = ExtResource("3_4r3l7")
+stream_0/weight = 1.0
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_03h7s"]
+random_pitch = 4.0
+streams_count = 3
+stream_0/stream = ExtResource("3_7p16b")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("4_myxv4")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("5_o8r74")
+stream_2/weight = 1.0
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_4iryb"]
+random_pitch = 4.0
+streams_count = 4
+stream_0/stream = ExtResource("3_j4sjg")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("4_y6sng")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("5_6ut5h")
+stream_2/weight = 1.0
+stream_3/stream = ExtResource("6_36k10")
+stream_3/weight = 1.0
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_lhkv2"]
+random_pitch = 4.0
+streams_count = 1
+stream_0/stream = ExtResource("3_4r3l7")
+stream_0/weight = 1.0
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_oycx2"]
+random_pitch = 4.0
+streams_count = 3
+stream_0/stream = ExtResource("3_0fjep")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("4_u4u30")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("5_wnguy")
+stream_2/weight = 1.0
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_4ketl"]
+random_pitch = 4.0
+streams_count = 4
+stream_0/stream = ExtResource("3_j4sjg")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("4_y6sng")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("5_6ut5h")
+stream_2/weight = 1.0
+stream_3/stream = ExtResource("6_36k10")
+stream_3/weight = 1.0
 
 [node name="Pigeon" type="Node2D"]
 script = ExtResource("1_skmlw")
@@ -16,7 +87,8 @@ REACTION_TIME = 0.125
 position = Vector2(-287, -240)
 rotation = 1.5708
 collision_layer = 4
-collision_mask = 8
+collision_mask = 136
+physics_material_override = SubResource("PhysicsMaterial_xytdf")
 max_contacts_reported = 1
 contact_monitor = true
 
@@ -34,11 +106,21 @@ rotation = -1.57081
 scale = Vector2(0.17, 0.17)
 texture = ExtResource("2_fjk2f")
 
+[node name="AudioStreamPlayer2DStun" type="AudioStreamPlayer2D" parent="ForearmLeft"]
+stream = SubResource("AudioStreamRandomizer_emdyc")
+
+[node name="AudioStreamPlayer2DHit" type="AudioStreamPlayer2D" parent="ForearmLeft"]
+stream = SubResource("AudioStreamRandomizer_03h7s")
+
+[node name="AudioStreamPlayer2DHitFoot" type="AudioStreamPlayer2D" parent="ForearmLeft"]
+stream = SubResource("AudioStreamRandomizer_4iryb")
+
 [node name="ArmLeft" type="RigidBody2D" parent="."]
 position = Vector2(-166, -128)
 rotation = -1.5708
 collision_layer = 0
-collision_mask = 8
+collision_mask = 136
+physics_material_override = SubResource("PhysicsMaterial_xytdf")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ArmLeft"]
 polygon = PackedVector2Array(-142, 76.9995, -127, -69.0005, -46.9995, -137, 83.0003, -82.9997, 152, 47.0005, 31.9995, 128, -80.0004, 98.9997)
@@ -55,7 +137,8 @@ texture = ExtResource("3_vvmfe")
 position = Vector2(345, -184)
 rotation = 0.0481552
 collision_layer = 4
-collision_mask = 8
+collision_mask = 136
+physics_material_override = SubResource("PhysicsMaterial_xytdf")
 max_contacts_reported = 1
 contact_monitor = true
 
@@ -72,18 +155,26 @@ position = Vector2(97.8382, -88.8126)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("5_phlm3")
 
+[node name="AudioStreamPlayer2DStun" type="AudioStreamPlayer2D" parent="ForearmRight"]
+stream = SubResource("AudioStreamRandomizer_lhkv2")
+
+[node name="AudioStreamPlayer2DHit" type="AudioStreamPlayer2D" parent="ForearmRight"]
+stream = SubResource("AudioStreamRandomizer_oycx2")
+
+[node name="AudioStreamPlayer2DHitFoot" type="AudioStreamPlayer2D" parent="ForearmRight"]
+stream = SubResource("AudioStreamRandomizer_4ketl")
+
 [node name="ArmRight" type="RigidBody2D" parent="."]
 position = Vector2(167, -104)
 rotation = 0.582111
 collision_layer = 0
-collision_mask = 8
+collision_mask = 136
+physics_material_override = SubResource("PhysicsMaterial_xytdf")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ArmRight"]
-scale = Vector2(1, 1)
 polygon = PackedVector2Array(-131.987, 41.3803, -125.895, -51.2203, -33.091, -126.669, 65.8003, -105.562, 129.524, -46.942, 115.291, 15.1017, 70.9652, 100.543, -34.2712, 120.725)
 
 [node name="Polygon2D" type="Polygon2D" parent="ArmRight"]
-scale = Vector2(1, 1)
 polygon = PackedVector2Array(-62.3223, 127.216, 18.0131, 143.776, 84.5306, 104.783, 148.132, -4.11972, 137.919, -59.6508, 40.6162, -162.013, -28.544, -145.225, -116.23, -91.1025, -151.895, -16.1494, -145.109, 56.0028)
 
 [node name="Sprite2D" type="Sprite2D" parent="ArmRight"]
@@ -92,7 +183,8 @@ texture = ExtResource("5_a64py")
 
 [node name="Body" type="RigidBody2D" parent="."]
 collision_layer = 2
-collision_mask = 8
+collision_mask = 136
+physics_material_override = SubResource("PhysicsMaterial_xytdf")
 
 [node name="Polygon2D" type="Polygon2D" parent="Body"]
 polygon = PackedVector2Array(32, 181, 78, 160, 143, -21, 101, -126, 24, -191, -62, -166, -131, -91, -122, 27, -69, 135)
