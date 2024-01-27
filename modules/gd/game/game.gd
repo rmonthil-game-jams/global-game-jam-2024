@@ -1,11 +1,16 @@
 extends Node
 
+var is_ending: bool = false
+
 func _ready():
 	randomize()
+	$AudioStreamPlayerAmbiance.play()
 	$Processes/WalkPathSerie.start()
 	set_process_input(false)
 
 func on_pigeon_just_died():
+	is_ending = true
+	$AudioStreamPlayerLose.play()
 	# score
 	var pigeon: Node2D = get_node("World/Pigeon")
 	$CanvasLayerUI/Control/Info/HBoxContainer/VBoxContainer/ScoreLeft.text = str(pigeon.score_left)
@@ -47,7 +52,6 @@ func play_key_pressed_animation():
 	tween_play_key_pressed.tween_property($CanvasLayerUI/Control/Info/Label, "modulate:a", 0.5, 1.0).set_trans(Tween.TRANS_QUAD)
 	tween_play_key_pressed.tween_property($CanvasLayerUI/Control/Info/Label, "modulate:a", 1.0, 1.0).set_trans(Tween.TRANS_QUAD)
 	await tween_play_key_pressed.finished
-	play_key_pressed_animation.call_deferred()
 
 func on_key_pressed():
 	set_process_input(false)
@@ -58,3 +62,15 @@ func on_key_pressed():
 	await tween_white.finished
 	# restart
 	get_tree().reload_current_scene()
+
+func _on_timer_win_check_timeout():
+	if not is_ending and get_tree().get_nodes_in_group("target_to_kill").is_empty():
+		# victory
+		$Players/PlayerKeyboardLeft.queue_free()
+		$Players/PlayerKeyboardRight.queue_free()
+		# kill pigeon
+		on_pigeon_just_died()
+
+func _on_audio_stream_player_ambiance_finished():
+	await get_tree().create_timer(1.0).timeout
+	$AudioStreamPlayerAmbiance.play()

@@ -1,17 +1,42 @@
-[gd_scene load_steps=18 format=3 uid="uid://bfo0n2gerr7h2"]
+[gd_scene load_steps=43 format=3 uid="uid://bfo0n2gerr7h2"]
 
 [ext_resource type="Script" path="res://modules/remi/game/game.gd" id="1_uo4oq"]
 [ext_resource type="PackedScene" uid="uid://qnm1p2evqemy" path="res://modules/remi/walker/walk_path_serie.tscn" id="2_mmp50"]
 [ext_resource type="PackedScene" uid="uid://ds80bewvipu15" path="res://modules/remi/player/player_keyboard_left.tscn" id="2_nkp6u"]
 [ext_resource type="PackedScene" uid="uid://b7friuadtnkwy" path="res://modules/remi/pigeon/pigeon.tscn" id="2_vruvg"]
 [ext_resource type="PackedScene" uid="uid://b6eqmsu57y3fm" path="res://modules/remi/player/player_keyboard_right.tscn" id="3_aaxfp"]
-[ext_resource type="PackedScene" uid="uid://q1vay7y3lhcb" path="res://modules/remi/walker_instances/basic/walk_path_basic.tscn" id="3_bewwp"]
+[ext_resource type="PackedScene" uid="uid://c2vod1jvlj8yn" path="res://modules/gd/WalkStraight/WalkDownMiddle.tscn" id="3_mfnk6"]
+[ext_resource type="PackedScene" uid="uid://b386kso0kdvwu" path="res://modules/gd/WalkStraight/WalkTopMiddle.tscn" id="4_0nsdv"]
+[ext_resource type="PackedScene" uid="uid://dbjgfij280na0" path="res://modules/gd/WalkDiago/WalkDiago225.tscn" id="5_2yrnq"]
+[ext_resource type="PackedScene" uid="uid://br1iih21tpog3" path="res://modules/gd/WalkDiago/WalkDiagoFar45.tscn" id="6_4p6gs"]
 [ext_resource type="Texture2D" uid="uid://c6sqkrdec82wh" path="res://assets/background.png" id="6_mdnv1"]
+[ext_resource type="PackedScene" uid="uid://ejk7vbueatpj" path="res://modules/gd/WalkTurn/WalkTurnDown.tscn" id="7_dmv5s"]
+[ext_resource type="PackedScene" uid="uid://cudof0xqjnj54" path="res://modules/gd/WalkTurn/WalkTurnTopSpe.tscn" id="8_gpylc"]
 [ext_resource type="FontFile" uid="uid://bchnvsiohxhtx" path="res://fonts/MaltesPencilRegular-jyVj.otf" id="8_l402d"]
 [ext_resource type="Texture2D" uid="uid://cp8memsu68jls" path="res://assets/intro_dove.png" id="9_78duw"]
+[ext_resource type="PackedScene" uid="uid://dlnpbla8yj63r" path="res://modules/gd/WalkLoop/WalkLoopTopLeft.tscn" id="9_rtbw8"]
 [ext_resource type="Texture2D" uid="uid://betcqgqrhkwqt" path="res://assets/intro_pigeon.png" id="10_15li1"]
+[ext_resource type="PackedScene" uid="uid://bn5f1uskaxkb4" path="res://modules/gd/WalkJoint/WalkJointLeft_0.tscn" id="10_uok2w"]
 [ext_resource type="AudioStream" uid="uid://b3mhlfots7pv" path="res://audio/GGJ Ambiance.mp3" id="11_hekc4"]
+[ext_resource type="PackedScene" uid="uid://bbygykm7fe0ju" path="res://modules/gd/WalkJoint/WalkJointRight_0.tscn" id="11_ksbo6"]
 [ext_resource type="AudioStream" uid="uid://k33bh2lcjfae" path="res://audio/GGJ Lose.wav" id="12_2plbi"]
+[ext_resource type="PackedScene" uid="uid://dns3u2x8pvygc" path="res://modules/gd/WalkHandicap/WalkHandicapTopRight.tscn" id="12_ovllb"]
+[ext_resource type="PackedScene" uid="uid://yl1e3alnrkt5" path="res://modules/gd/WalkGalop/GalopRight.tscn" id="13_bvktu"]
+[ext_resource type="PackedScene" uid="uid://cxb2is4ulbncr" path="res://modules/gd/WalkTopDown/WalkTopRight.tscn" id="14_c8gwj"]
+[ext_resource type="PackedScene" uid="uid://bff6o7ci3crbm" path="res://modules/gd/Salto/Salto0Left.tscn" id="15_6x7md"]
+[ext_resource type="PackedScene" uid="uid://dadkh7br4xvpe" path="res://modules/gd/Salto/Salto0Right.tscn" id="16_cxj4b"]
+[ext_resource type="PackedScene" path="res://modules/gd/Skate/WalkSkate225.tscn" id="17_2ppq2"]
+[ext_resource type="PackedScene" uid="uid://dgrvlayus361i" path="res://modules/gd/WalkJoint/WalkJointLeft_270.tscn" id="18_wmm8r"]
+[ext_resource type="PackedScene" uid="uid://c21v5tyfka3r3" path="res://modules/gd/WalkTopDown/WalkTopMiddleClose.tscn" id="19_csc53"]
+[ext_resource type="PackedScene" uid="uid://dpe3quca25w67" path="res://modules/gd/WalkTopDown/WalkTopRightFar.tscn" id="20_d3xem"]
+[ext_resource type="PackedScene" uid="uid://d5ww38iday3s" path="res://modules/gd/WalkJoint/WalkJointRight_315.tscn" id="21_inn3d"]
+[ext_resource type="PackedScene" uid="uid://balwsry2hxgxl" path="res://modules/gd/WalkJoint/WalkJointLeft_315.tscn" id="22_174t8"]
+[ext_resource type="PackedScene" path="res://modules/gd/Skate/WalkSkate270.tscn" id="23_v0hfd"]
+[ext_resource type="PackedScene" uid="uid://d08mqhtdcni43" path="res://modules/gd/WalkHandicap/WalkHandicapLeft.tscn" id="24_vkopx"]
+[ext_resource type="PackedScene" uid="uid://djw26uehiyl8e" path="res://modules/gd/WalkGosseDaronne/GrosseDaronne_0.tscn" id="25_3pmyh"]
+[ext_resource type="PackedScene" uid="uid://d3t3ydtnn3r3p" path="res://modules/gd/WalkGosseDaronne/WalkGosseLeft_0.tscn" id="26_yrft0"]
+[ext_resource type="PackedScene" uid="uid://b140j2lkrkcf8" path="res://modules/gd/WalkGosseDaronne/WalkGosseRight_0.tscn" id="27_l75lh"]
+[ext_resource type="PackedScene" uid="uid://c3j3nrt1p3w6q" path="res://modules/gd/WalkLoop/WalkLoopDownRight.tscn" id="28_impa7"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ejv2u"]
 friction = 0.0
@@ -35,8 +60,8 @@ script = ExtResource("1_uo4oq")
 
 [node name="WalkPathSerie" parent="Processes" groups=["target_to_kill"] instance=ExtResource("2_mmp50")]
 world_path = NodePath("../../World")
-walk_path_scenes = Array[PackedScene]([ExtResource("3_bewwp"), ExtResource("3_bewwp"), ExtResource("3_bewwp"), ExtResource("3_bewwp"), ExtResource("3_bewwp"), ExtResource("3_bewwp")])
-walk_path_delays = Array[float]([0.0, 3.0, 3.0, 3.0, 3.0, 3.0])
+walk_path_scenes = Array[PackedScene]([ExtResource("3_mfnk6"), ExtResource("4_0nsdv"), ExtResource("5_2yrnq"), ExtResource("6_4p6gs"), ExtResource("7_dmv5s"), ExtResource("3_mfnk6"), ExtResource("8_gpylc"), ExtResource("9_rtbw8"), ExtResource("10_uok2w"), ExtResource("11_ksbo6"), ExtResource("12_ovllb"), ExtResource("13_bvktu"), ExtResource("6_4p6gs"), ExtResource("5_2yrnq"), ExtResource("14_c8gwj"), ExtResource("15_6x7md"), ExtResource("16_cxj4b"), ExtResource("17_2ppq2"), ExtResource("13_bvktu"), ExtResource("18_wmm8r"), ExtResource("19_csc53"), ExtResource("20_d3xem"), ExtResource("21_inn3d"), ExtResource("22_174t8"), ExtResource("23_v0hfd"), ExtResource("24_vkopx"), ExtResource("13_bvktu"), ExtResource("3_mfnk6"), ExtResource("25_3pmyh"), ExtResource("26_yrft0"), ExtResource("27_l75lh"), ExtResource("28_impa7")])
+walk_path_delays = Array[float]([5.0, 8.0, 7.0, 6.0, 6.0, 4.0, 10.0, 4.0, 6.0, 0.1, 4.0, 1.0, 1.0, 1.0, 1.0, 3.0, 0.01, 10.0, 3.0, 4.0, 1.0, 1.0, 1.0, 1.0, 2.0, 4.0, 1.0, 1.0, 0.0, 5.0, 0.01, 10.0])
 
 [node name="Players" type="Node" parent="."]
 
