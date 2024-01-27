@@ -1,19 +1,14 @@
-[gd_scene load_steps=15 format=3 uid="uid://b2tpclb7bnyrx"]
+[gd_scene load_steps=10 format=3 uid="uid://b2tpclb7bnyrx"]
 
 [ext_resource type="Script" path="res://modules/gd/game/game.gd" id="1_mxke0"]
 [ext_resource type="PackedScene" uid="uid://qnm1p2evqemy" path="res://modules/remi/walker/walk_path_serie.tscn" id="2_2wk5a"]
-[ext_resource type="PackedScene" uid="uid://d0rlbbqthbae5" path="res://modules/gd/WalkDiago/WalkDiago45.tscn" id="3_8bmhj"]
-[ext_resource type="PackedScene" uid="uid://cf8u0w5bhcbtf" path="res://modules/gd/WalkTopDown/WalkTopMiddle.tscn" id="3_fe4xd"]
-[ext_resource type="PackedScene" uid="uid://dbjgfij280na0" path="res://modules/gd/WalkDiago/WalkDiago225.tscn" id="4_g38nw"]
+[ext_resource type="PackedScene" uid="uid://djw26uehiyl8e" path="res://modules/gd/WalkGosseDaronne/GrosseDaronne_0.tscn" id="3_7swlt"]
+[ext_resource type="PackedScene" uid="uid://d3t3ydtnn3r3p" path="res://modules/gd/WalkGosseDaronne/WalkGosseLeft_0.tscn" id="4_iq45n"]
 [ext_resource type="PackedScene" uid="uid://ds80bewvipu15" path="res://modules/remi/player/player_keyboard_left.tscn" id="5_8k4xr"]
-[ext_resource type="PackedScene" uid="uid://8x8smb0no3v8" path="res://modules/gd/WalkGalop/GalopLeft.tscn" id="6_6w8wy"]
+[ext_resource type="PackedScene" uid="uid://b140j2lkrkcf8" path="res://modules/gd/WalkGosseDaronne/WalkGosseRight_0.tscn" id="5_ppc4w"]
 [ext_resource type="PackedScene" uid="uid://b6eqmsu57y3fm" path="res://modules/remi/player/player_keyboard_right.tscn" id="6_xbvsv"]
-[ext_resource type="PackedScene" uid="uid://dlhwk0r63qxfw" path="res://modules/gd/WalkHandicap/WalkHandicapDownRight.tscn" id="7_1g443"]
 [ext_resource type="Texture2D" uid="uid://c6sqkrdec82wh" path="res://assets/background.png" id="7_kho7q"]
 [ext_resource type="PackedScene" uid="uid://b7friuadtnkwy" path="res://modules/remi/pigeon/pigeon.tscn" id="8_5bodc"]
-[ext_resource type="PackedScene" uid="uid://8eakbcn0m5ep" path="res://modules/gd/WalkLoop/WalkLoopDownLeft.tscn" id="8_lp26s"]
-[ext_resource type="PackedScene" uid="uid://dlnpbla8yj63r" path="res://modules/gd/WalkLoop/WalkLoopTopLeft.tscn" id="9_3jugr"]
-[ext_resource type="PackedScene" uid="uid://p1yn3ooaho8u" path="res://modules/gd/WalkDiago/WalkDiagoFar225.tscn" id="10_elrfv"]
 
 [node name="Game" type="Node"]
 script = ExtResource("1_mxke0")
@@ -22,8 +17,8 @@ script = ExtResource("1_mxke0")
 
 [node name="WalkPathSerie" parent="ProcessesGD" instance=ExtResource("2_2wk5a")]
 world_path = NodePath("../../World")
-walk_path_scenes = Array[PackedScene]([ExtResource("3_fe4xd"), ExtResource("4_g38nw"), ExtResource("3_8bmhj"), ExtResource("6_6w8wy"), ExtResource("7_1g443"), ExtResource("8_lp26s"), ExtResource("9_3jugr"), ExtResource("10_elrfv")])
-walk_path_delays = Array[float]([2.0, 4.0, 4.0, 3.0, 3.0, 4.0, 4.0, 4.0])
+walk_path_scenes = Array[PackedScene]([ExtResource("3_7swlt"), ExtResource("4_iq45n"), ExtResource("5_ppc4w")])
+walk_path_delays = Array[float]([1.0, 11.0, 0.01])
 
 [node name="Players" type="Node" parent="."]
 
