@@ -7,14 +7,14 @@
 [sub_resource type="Curve2D" id="Curve2D_1dm2y"]
 resource_local_to_scene = true
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 929, -1160, 0, 0, 0, 0, 912, -592, 569.551, -213.082, -569.551, 213.082, 437, 264, 170.357, 65.3833, -170.357, -65.3833, -114, 69, 76.1952, -131.754, -76.1952, 131.754, -706, -41, -246, -284, 246, 284, -671, 1604)
+"points": PackedVector2Array(0, 0, 0, 0, 929, -1160, 0, 0, 0, 0, 912, -592, 396.218, -101.889, -396.218, 101.889, 518, 180, 141.784, 127.292, -141.784, -127.292, -116, 68, 519.029, -442.18, -519.029, 442.18, -1112, -85, -246, -284, 246, 284, -671, 1604)
 }
 point_count = 6
 
 [node name="WalkPathPattern2" instance=ExtResource("1_ftnmw")]
 STEP_LENGTH_INTERVAL = Array[float]([0.0])
-STEP_TIME_INTERVAL = Array[float]([1.0])
-SLIDE_LENGTH_INTERVAL = Array[float]([512.0])
+STEP_TIME_INTERVAL = Array[float]([0.5])
+SLIDE_LENGTH_INTERVAL = Array[float]([800.0])
 SLIDE_TIME_INTERVAL = Array[float]([1.5])
 
 [node name="Path2D" parent="." index="0"]
