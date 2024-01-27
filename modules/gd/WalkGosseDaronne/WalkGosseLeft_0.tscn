@@ -27,9 +27,10 @@ position = Vector2(-286.503, 2955.09)
 rotation = -1.56596
 v_offset = -256.0
 
-[node name="FootBasicLeft" parent="Path2D/PathFollow2DLeft" index="0" instance=ExtResource("2_1yj3k")]
-
 [node name="PathFollow2DRight" parent="Path2D" index="1"]
 position = Vector2(225.491, 2957.57)
 rotation = -1.56596
 v_offset = 256.0
+
+[node name="FootBasicLeft" parent="Path2D/PathFollow2DRight" index="0" instance=ExtResource("2_1yj3k")]
+position = Vector2(-0.334601, -523.668)
