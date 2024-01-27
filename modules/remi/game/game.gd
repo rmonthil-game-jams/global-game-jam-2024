@@ -3,6 +3,7 @@ extends Node
 func _ready():
 	randomize()
 	$Processes/WalkPathSerie.start()
+	set_process_input(false)
 
 func on_pigeon_just_died():
 	# score
@@ -27,8 +28,32 @@ func on_pigeon_just_died():
 	$Back.queue_free()
 	$World.queue_free()
 	$Env.queue_free()
-	await get_tree().create_timer(4.0).timeout
-	tween_white = create_tween()
+	await get_tree().create_timer(1.0).timeout
+	# input
+	$CanvasLayerUI/Control/Info/Label.show()
+	$CanvasLayerUI/Control/Info/Label.modulate.a = 0.0
+	play_key_pressed_animation()
+	set_process_input(true)
+
+func _input(event: InputEvent):
+	if event is InputEventKey:
+		on_key_pressed()
+	elif event is InputEventMouseButton:
+		on_key_pressed()
+
+var tween_play_key_pressed: Tween
+func play_key_pressed_animation():
+	tween_play_key_pressed = create_tween()
+	tween_play_key_pressed.tween_property($CanvasLayerUI/Control/Info/Label, "modulate:a", 0.5, 1.0).set_trans(Tween.TRANS_QUAD)
+	tween_play_key_pressed.tween_property($CanvasLayerUI/Control/Info/Label, "modulate:a", 1.0, 1.0).set_trans(Tween.TRANS_QUAD)
+	await tween_play_key_pressed.finished
+	play_key_pressed_animation.call_deferred()
+
+func on_key_pressed():
+	set_process_input(false)
+	if tween_play_key_pressed:
+		tween_play_key_pressed.kill()
+	var tween_white: Tween = create_tween()
 	tween_white.tween_property($CanvasLayerUI/Control/Info, "modulate:a", 0.0, 1.0).set_trans(Tween.TRANS_QUAD)
 	await tween_white.finished
 	# restart

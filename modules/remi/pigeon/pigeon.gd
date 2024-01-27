@@ -65,3 +65,13 @@ func _on_timer_hit_right_timeout():
 func _on_timer_hit_left_timeout():
 	state_left = "cooling"
 	$TimerHitLeftCooldown.start()
+
+func _on_forearm_left_body_entered(body: StaticBody2D):
+	if state_left == "hitting":
+		score_left += 1
+		body.get_parent().play_hit_pigeon_animation()
+
+func _on_forearm_right_body_entered(body):
+	if state_right == "hitting":
+		score_right += 1
+		body.get_parent().play_hit_pigeon_animation()

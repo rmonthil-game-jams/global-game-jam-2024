@@ -17,6 +17,8 @@ position = Vector2(-32, 0)
 rotation = 1.5708
 collision_layer = 4
 collision_mask = 8
+max_contacts_reported = 1
+contact_monitor = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ForearmLeft"]
 shape = SubResource("CapsuleShape2D_kcqlp")
@@ -68,6 +70,8 @@ position = Vector2(32, 0)
 rotation = -1.5708
 collision_layer = 4
 collision_mask = 8
+max_contacts_reported = 1
+contact_monitor = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ForearmRight"]
 shape = SubResource("CapsuleShape2D_kcqlp")
@@ -114,6 +118,8 @@ one_shot = true
 [node name="TimerStunRight" type="Timer" parent="."]
 one_shot = true
 
+[connection signal="body_entered" from="ForearmLeft" to="." method="_on_forearm_left_body_entered"]
+[connection signal="body_entered" from="ForearmRight" to="." method="_on_forearm_right_body_entered"]
 [connection signal="timeout" from="TimerHitLeft" to="." method="_on_timer_hit_left_timeout"]
 [connection signal="timeout" from="TimerHitRight" to="." method="_on_timer_hit_right_timeout"]
 [connection signal="timeout" from="TimerHitLeftCooldown" to="." method="_on_time_hit_left_cooldown_timeout"]
