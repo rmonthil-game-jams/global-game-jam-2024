@@ -27,7 +27,7 @@ rotation = -1.57194
 v_offset = -256.0
 
 [node name="PathFollow2DRight" parent="Path2D" index="1"]
-position = Vector2(241.863, 2661.46)
+position = Vector2(241.863, 2661.47)
 rotation = -1.57194
 v_offset = 256.0
 

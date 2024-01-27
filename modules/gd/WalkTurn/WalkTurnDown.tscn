@@ -7,7 +7,7 @@
 [sub_resource type="Curve2D" id="Curve2D_1dm2y"]
 resource_local_to_scene = true
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 1434.63, -1744.58, 387.479, -276.628, -387.479, 276.628, 747, -271, 416.079, -0.542206, -416.079, 0.542206, -80, -1, 118.148, 233.833, -118.148, -233.833, -733, -438, 28.0983, 263.17, -28.0983, -263.17, -913, -1271)
+"points": PackedVector2Array(0, 0, 0, 0, -1162.69, -1711.35, -44.3447, -56.9823, 44.3447, 56.9823, -651.189, -580.536, -595.887, 15.0385, 595.887, -15.0385, 64.8447, -230.513, -63.5478, 86.679, 63.5478, -86.679, 765.081, -495.29, -202.153, 168.531, 202.153, -168.531, 1608.67, -2216.65)
 }
 point_count = 5
 
@@ -19,19 +19,19 @@ SLIDE_TIME_INTERVAL = Array[float]([1.0])
 
 [node name="Path2D" parent="." index="0"]
 position = Vector2(10, 63)
-rotation = -3.13563
+rotation = -6.26075
 curve = SubResource("Curve2D_1dm2y")
 
 [node name="PathFollow2DLeft" parent="Path2D" index="0"]
-position = Vector2(1666.62, -1636.33)
-rotation = 2.0074
+position = Vector2(-929.439, -1816.85)
+rotation = 1.14601
 v_offset = -256.0
 
 [node name="FootBasicLeft" parent="Path2D/PathFollow2DLeft" index="0" instance=ExtResource("2_t1rai")]
 
 [node name="PathFollow2DRight" parent="Path2D" index="1"]
-position = Vector2(1202.64, -1852.83)
-rotation = 2.0074
+position = Vector2(-1395.94, -1605.84)
+rotation = 1.14601
 v_offset = 256.0
 
 [node name="FootBasicRight" parent="Path2D/PathFollow2DRight" index="0" instance=ExtResource("3_gguy2")]
