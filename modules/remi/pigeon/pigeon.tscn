@@ -10,6 +10,7 @@
 
 [node name="Pigeon" type="Node2D"]
 script = ExtResource("1_skmlw")
+REACTION_TIME = 0.125
 
 [node name="ForearmLeft" type="RigidBody2D" parent="."]
 position = Vector2(-32, 0)

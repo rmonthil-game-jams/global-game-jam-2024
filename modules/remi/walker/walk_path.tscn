@@ -11,8 +11,6 @@ point_count = 4
 
 [node name="WalkPath" type="Node2D"]
 script = ExtResource("1_7m72w")
-LENGTH_INTERVAL = 256.0
-TIME_INTERVAL = 1.0
 
 [node name="Path2D" type="Path2D" parent="."]
 curve = SubResource("Curve2D_4qr7t")
@@ -30,3 +28,4 @@ v_offset = 64.0
 loop = false
 
 [node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.35, 0.35)

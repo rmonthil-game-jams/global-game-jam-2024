@@ -2,4 +2,4 @@ extends Node
 
 func _ready():
 	randomize()
-	$Processes/WalkPathSerie.start()
+	$ProcessesGD/WalkPathSerie.start()

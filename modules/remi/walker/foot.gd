@@ -14,19 +14,25 @@ func start_step():
 func end_step():
 	# check if pigeon is inside
 	var overlapping_bodies: Array = $FootShadow.get_overlapping_bodies()
-	if overlapping_bodies.is_empty():
-		# deactivating FootShadow
-		$FootShadow.hide()
-		# activating FootBody
-		$FootBody.show()
-		$FootBody.process_mode = Node.PROCESS_MODE_INHERIT
-	else:
+	# deactivating FootShadow
+	$FootShadow.hide()
+	# activating FootBody
+	$FootBody.show()
+	$FootBody.process_mode = Node.PROCESS_MODE_INHERIT
+	if not overlapping_bodies.is_empty():
+		var pigeon: Node2D = overlapping_bodies.front().get_parent()
 		for body in overlapping_bodies:
 			match body.name:
 				"ForearmLeft":
-					body.get_parent().stun_left()
+					pigeon.stun_left()
+					if pigeon.state_left == "hitting":
+						# TODO: hit animation
+						queue_free()
 				"ForearmRight":
-					body.get_parent().stun_right()
+					pigeon.stun_right()
+					if pigeon.state_right == "hitting":
+						# TODO: hit animation
+						queue_free()
 				"Body":
 					body.get_parent().die()
 				_:

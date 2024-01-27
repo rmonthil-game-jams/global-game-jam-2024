@@ -4,3 +4,5 @@
 
 [node name="PlayerKeyboardLeft" type="Node"]
 script = ExtResource("1_pjs8c")
+TARGET_VELOCITY = 128.0
+REACTION_TIME = 0.125

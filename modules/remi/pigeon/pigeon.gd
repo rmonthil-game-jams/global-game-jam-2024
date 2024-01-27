@@ -1,6 +1,6 @@
 extends Node2D
 
-const REACTION_TIME: float = 0.25
+@export var REACTION_TIME: float
 
 @onready var player_keyboard_left: Node = get_tree().root.get_node("Game/Players/PlayerKeyboardLeft")
 @onready var player_keyboard_right: Node = get_tree().root.get_node("Game/Players/PlayerKeyboardRight")

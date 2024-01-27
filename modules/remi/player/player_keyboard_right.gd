@@ -2,8 +2,8 @@ extends Node
 
 # parameters
 
-const TARGET_VELOCITY: float = 128.0
-const REACTION_TIME: float = 0.125
+@export var TARGET_VELOCITY: float
+@export var REACTION_TIME: float
 
 # to set
 

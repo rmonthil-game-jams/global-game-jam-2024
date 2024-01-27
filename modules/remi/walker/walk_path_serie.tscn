@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://qnm1p2evqemy"]
+
+[ext_resource type="Script" path="res://modules/remi/walker/walk_path_serie.gd" id="1_yx3qp"]
+
+[node name="WalkPathSerie" type="Node"]
+script = ExtResource("1_yx3qp")
