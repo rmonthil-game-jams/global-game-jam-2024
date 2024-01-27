@@ -52,7 +52,6 @@ func play_key_pressed_animation():
 	tween_play_key_pressed.tween_property($CanvasLayerUI/Control/Info/Label, "modulate:a", 0.5, 1.0).set_trans(Tween.TRANS_QUAD)
 	tween_play_key_pressed.tween_property($CanvasLayerUI/Control/Info/Label, "modulate:a", 1.0, 1.0).set_trans(Tween.TRANS_QUAD)
 	await tween_play_key_pressed.finished
-	play_key_pressed_animation.call_deferred()
 
 func on_key_pressed():
 	set_process_input(false)

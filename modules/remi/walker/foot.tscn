@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://bo5es8oypmu38"]
+[gd_scene load_steps=10 format=3 uid="uid://bo5es8oypmu38"]
 
 [ext_resource type="Script" path="res://modules/remi/walker/foot.gd" id="1_r6ydk"]
 [ext_resource type="PackedScene" uid="uid://bjhvvs1wqhrd8" path="res://modules/remi/walker/foot_shadow.tscn" id="2_6smw6"]
 [ext_resource type="PackedScene" uid="uid://bmg6ks0msnwjj" path="res://modules/remi/walker/foot_body.tscn" id="3_esohx"]
 [ext_resource type="Texture2D" uid="uid://3u4sree21d6x" path="res://assets/foot_shadow.png" id="3_wj7wp"]
+[ext_resource type="Texture2D" uid="uid://xfjht3is213q" path="res://assets/foot_0.png" id="5_f3ss8"]
 [ext_resource type="AudioStream" uid="uid://da1h1kqc0rgsw" path="res://audio/GGJ Stomp 1 layer.wav" id="5_l27vw"]
 [ext_resource type="AudioStream" uid="uid://c5u560oo13vbt" path="res://audio/GGJ Stomp 2 layer.wav" id="6_it2rj"]
 [ext_resource type="AudioStream" uid="uid://c23i0d1a1qhib" path="res://audio/GGJ Stomp 3 layer.wav" id="7_pqrdp"]
@@ -36,11 +37,11 @@ collision_layer = 8
 collision_mask = 6
 
 [node name="Sprite2D2" type="Sprite2D" parent="FootBody"]
-texture = ExtResource("3_wj7wp")
+texture = ExtResource("5_f3ss8")
 
 [node name="Sprite2DHitDove" type="Sprite2D" parent="FootBody"]
 visible = false
-texture = ExtResource("3_wj7wp")
+texture = ExtResource("5_f3ss8")
 
 [node name="Sprite2DHitPigeon" type="Sprite2D" parent="FootBody"]
 visible = false
