@@ -10,11 +10,11 @@ func on_pigeon_just_died():
 	var pigeon: Node2D = get_node("World/Pigeon")
 	$CanvasLayerUI/Control/Info/HBoxContainer/VBoxContainer/ScoreLeft.text = str(pigeon.score_left)
 	$CanvasLayerUI/Control/Info/HBoxContainer/VBoxContainer2/ScoreRight.text = str(pigeon.score_right)
-	# pigeon corps
-	var pigeon_corps: Node2D = get_node("World/PigeonCorps")
+	## pigeon corps
+	#var pigeon_corps: Node2D = get_node("World/PigeonCorps")
 	# zoom
 	var tween_zoom: Tween = create_tween()
-	tween_zoom.tween_property($Env/Camera2D, "global_position", pigeon_corps.global_position, 1.0).set_trans(Tween.TRANS_QUAD)
+	tween_zoom.tween_property($Env/Camera2D, "global_position", get_node("World/Pigeon/Body").global_position, 1.0).set_trans(Tween.TRANS_QUAD)
 	tween_zoom.parallel().tween_property($Env/Camera2D, "zoom", 1.5 * Vector2.ONE, 1.0).set_trans(Tween.TRANS_QUAD)
 	await tween_zoom.finished
 	# white

@@ -31,6 +31,9 @@ texture = ExtResource("3_wj7wp")
 
 [node name="Sprite2DHitPigeon" type="Sprite2D" parent="FootBody"]
 visible = false
-texture = ExtResource("3_wj7wp")
+
+[node name="Polygon2D" type="Polygon2D" parent="FootBody/Sprite2DHitPigeon"]
+color = Color(1, 0.0470588, 0, 1)
+polygon = PackedVector2Array(17, 64, -69, 50, -95, -60, 23, -96, 59, -2)
 
 [node name="WeakPoints" type="Node2D" parent="FootBody"]

@@ -43,10 +43,10 @@ func end_step():
 func play_hit_pigeon_animation():
 	$FootBody.process_mode = Node.PROCESS_MODE_DISABLED
 	## init
-	$FootBody/Sprite2D2HitPigeon.show()
+	$FootBody/Sprite2DHitPigeon.show()
 	## tween
 	var tween: Tween = create_tween()
-	tween.tween_property($FootBody/Sprite2DHitDove, "modulate:a", 0.0, 0.5).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN)
+	tween.tween_property($FootBody, "modulate:a", 0.0, 1.0).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN)
 	await tween.finished
 	# free
 	queue_free()
@@ -54,7 +54,7 @@ func play_hit_pigeon_animation():
 func play_hit_dove_animation():
 	## init
 	$FootBody/Sprite2D2.hide()
-	$FootBody/Sprite2D2HitDove.show()
+	$FootBody/Sprite2DHitDove.show()
 	## tween
 	var tween: Tween = create_tween()
 	tween.tween_property($FootBody/Sprite2DHitDove, "rotation", -0.125*PI, 0.125).set_trans(Tween.TRANS_CUBIC)

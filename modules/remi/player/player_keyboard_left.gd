@@ -46,21 +46,27 @@ func _input(event: InputEvent):
 						direction.y += 1.0
 					else:
 						direction.y -= 1.0
-				KEY_X:
+				#KEY_X:
+					#if event.pressed:
+						#if pigeon.state_left == "idle":
+							#pigeon.state_left = "holding"
+							#pigeon_forearm.freeze = true
+					#else:
+						#if pigeon.state_left == "holding":
+							#pigeon.state_left = "idle"
+							#pigeon_forearm.freeze = false
+				KEY_E:
 					if event.pressed:
 						if pigeon.state_left == "idle":
-							pigeon.state_left = "holding"
-							pigeon_forearm.freeze = true
-					else:
-						if pigeon.state_left == "holding":
-							pigeon.state_left = "idle"
-							pigeon_forearm.freeze = false
-				KEY_C:
+							pigeon.hit_left()
+				KEY_Q:
 					if event.pressed:
 						if pigeon.state_left == "idle":
-							pigeon.state_left = "hitting"
-							pigeon.get_node("TimerHitLeft").start()
-							pigeon_forearm.get_node("Polygon2D").modulate = Color.RED
+							pigeon.hit_left()
+				KEY_SPACE:
+					if event.pressed:
+						if pigeon.state_left == "idle":
+							pigeon.hit_left()
 
 func _physics_process(delta: float):
 	if direction:

@@ -15,9 +15,19 @@ func stun_left():
 	state_left = "stunned"
 	$TimerStunLeft.start()
 
+func hit_left():
+	state_left = "hitting"
+	$TimerHitLeft.start()
+	$ForearmLeft/Polygon2D.modulate = Color.RED
+
 func stun_right():
 	state_right = "stunned"
 	$TimerStunRight.start()
+
+func hit_right():
+	state_right = "hitting"
+	$TimerHitRight.start()
+	$ForearmRight/Polygon2D.modulate = Color.RED
 
 func die():
 	player_keyboard_left.queue_free()
@@ -60,6 +70,7 @@ func _on_time_hit_left_cooldown_timeout():
 
 func _on_timer_hit_right_timeout():
 	state_right = "cooling"
+	$ForearmRight.get_node("Polygon2D").modulate = Color.WHITE
 	$TimerHitRightCooldown.start()
 
 func _on_timer_hit_left_timeout():
@@ -75,4 +86,4 @@ func _on_forearm_left_body_entered(body: StaticBody2D):
 func _on_forearm_right_body_entered(body):
 	if state_right == "hitting":
 		score_right += 1
-		body.get_parent().play_hit_pigeon_animation()
+		body.get_parent().play_hit_dove_animation()
