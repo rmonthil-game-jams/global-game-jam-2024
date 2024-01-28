@@ -23,7 +23,7 @@ rotation = -6.26075
 curve = SubResource("Curve2D_1dm2y")
 
 [node name="PathFollow2DLeft" parent="Path2D" index="0"]
-position = Vector2(-929.439, -1816.85)
+position = Vector2(-929.442, -1816.86)
 rotation = 1.14601
 v_offset = -256.0
 

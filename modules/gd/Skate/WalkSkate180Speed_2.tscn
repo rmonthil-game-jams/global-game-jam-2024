@@ -1,0 +1,37 @@
+[gd_scene load_steps=4 format=3 uid="uid://bobvkrat7wbjt"]
+
+[ext_resource type="PackedScene" uid="uid://d0jbi2nl0tj8w" path="res://modules/remi/walker/walk_path.tscn" id="1_dlawa"]
+[ext_resource type="PackedScene" uid="uid://bgepy3ch5fouq" path="res://modules/remi/walker_instances/basic/foot_skate.tscn" id="2_cq4s5"]
+
+[sub_resource type="Curve2D" id="Curve2D_1dm2y"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 528.429, 2276.24, -3.82436, 357.858, 3.82436, -357.858, 507.729, -1360.88)
+}
+point_count = 2
+
+[node name="WalkSkate90" instance=ExtResource("1_dlawa")]
+position = Vector2(1, 0)
+rotation = -1.57553
+STEP_LENGTH_INTERVAL = Array[float]([0.0])
+STEP_TIME_INTERVAL = Array[float]([0.0])
+SLIDE_LENGTH_INTERVAL = Array[float]([4500.0])
+SLIDE_TIME_INTERVAL = Array[float]([5.0])
+
+[node name="Path2D" parent="." index="0"]
+position = Vector2(565.487, 109.678)
+rotation = -4.69849
+curve = SubResource("Curve2D_1dm2y")
+
+[node name="PathFollow2DLeft" parent="Path2D" index="0"]
+position = Vector2(272.433, 2277.7)
+rotation = -1.57649
+v_offset = -256.0
+
+[node name="PathFollow2DRight" parent="Path2D" index="1"]
+position = Vector2(784.425, 2274.78)
+rotation = -1.57649
+v_offset = 256.0
+
+[node name="FootSkate" parent="Path2D/PathFollow2DRight" index="0" instance=ExtResource("2_cq4s5")]
+position = Vector2(32.9816, -269.047)
