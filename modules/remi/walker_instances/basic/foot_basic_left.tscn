@@ -8,6 +8,9 @@
 rotation = 1.5708
 collision_mask = 6
 
+[node name="Sprite2D" parent="FootShadow" index="0"]
+self_modulate = Color(0, 0, 0, 1)
+
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="FootShadow" index="1"]
 polygon = PackedVector2Array(-98, 288, -179, 115, -204, -75, -46, -243, 194, -272, 203, -154, 139, 106)
 

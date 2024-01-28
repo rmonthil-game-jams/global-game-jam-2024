@@ -29,6 +29,7 @@ func end_step():
 				"ForearmLeft":
 					pigeon.stun_left()
 					if pigeon.state_left == "hitting":
+						$FootBody.process_mode = Node.PROCESS_MODE_DISABLED
 						pigeon.score_left += 1
 						play_hit_pigeon_animation()
 				"ForearmRight":
@@ -43,8 +44,10 @@ func end_step():
 					push_error("body name not recognised")
 
 func play_hit_pigeon_animation():
+	$FootShadow/Sprite2D.hide()
 	$FootBody.process_mode = Node.PROCESS_MODE_DISABLED
 	## init
+	$FootBody/Sprite2DHitPigeon.global_rotation = 0.0
 	$FootBody/Sprite2DHitPigeon.show()
 	## tween
 	var tween: Tween = create_tween()
@@ -54,20 +57,27 @@ func play_hit_pigeon_animation():
 	queue_free()
 
 func play_hit_dove_animation():
+	$FootShadow/Sprite2D.hide()
+	$FootBody.process_mode = Node.PROCESS_MODE_DISABLED
 	## init
 	$FootBody/Sprite2D2.hide()
 	$FootBody/Sprite2DHitDove.show()
 	## tween
-	var tween: Tween = create_tween()
-	tween.tween_property($FootBody/Sprite2DHitDove, "rotation", -0.125*PI, 0.125).set_trans(Tween.TRANS_CUBIC)
-	tween.tween_property($FootBody/Sprite2DHitDove, "rotation", 0.125*PI, 0.125).set_trans(Tween.TRANS_CUBIC)
-	tween.tween_property($FootBody/Sprite2DHitDove, "rotation", -0.125*PI, 0.125).set_trans(Tween.TRANS_CUBIC)
-	tween.tween_property($FootBody/Sprite2DHitDove, "rotation", 0.125*PI, 0.125).set_trans(Tween.TRANS_CUBIC)
-	tween.tween_property($FootBody/Sprite2DHitDove, "rotation", -0.125*PI, 0.125).set_trans(Tween.TRANS_CUBIC)
-	tween.tween_property($FootBody/Sprite2DHitDove, "rotation", 0.125*PI, 0.125).set_trans(Tween.TRANS_CUBIC)
-	tween.tween_property($FootBody/Sprite2DHitDove, "rotation", -0.125*PI, 0.125).set_trans(Tween.TRANS_CUBIC)
-	tween.tween_property($FootBody/Sprite2DHitDove, "rotation", 0.125*PI, 0.125).set_trans(Tween.TRANS_CUBIC)
-	tween.tween_property($FootBody/Sprite2DHitDove, "modulate:a", 0.0, 0.25).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN)
-	await tween.finished
+	var tween_scale: Tween = create_tween()
+	tween_scale.tween_property($FootBody/Sprite2DHitDove, "scale", 1.25 * $FootBody/Sprite2DHitDove.scale, 0.125).set_trans(Tween.TRANS_CUBIC)
+	tween_scale.tween_property($FootBody/Sprite2DHitDove, "scale", 1 * $FootBody/Sprite2DHitDove.scale, 0.125).set_trans(Tween.TRANS_CUBIC)
+	tween_scale.tween_property($FootBody/Sprite2DHitDove, "scale", 1.25 * $FootBody/Sprite2DHitDove.scale, 0.125).set_trans(Tween.TRANS_CUBIC)
+	tween_scale.tween_property($FootBody/Sprite2DHitDove, "scale", 1 * $FootBody/Sprite2DHitDove.scale, 0.125).set_trans(Tween.TRANS_CUBIC)
+	tween_scale.tween_property($FootBody/Sprite2DHitDove, "scale", 1.25 * $FootBody/Sprite2DHitDove.scale, 0.125).set_trans(Tween.TRANS_CUBIC)
+	tween_scale.tween_property($FootBody/Sprite2DHitDove, "scale", 1 * $FootBody/Sprite2DHitDove.scale, 0.125).set_trans(Tween.TRANS_CUBIC)
+	tween_scale.tween_property($FootBody/Sprite2DHitDove, "scale", 1.25 * $FootBody/Sprite2DHitDove.scale, 0.125).set_trans(Tween.TRANS_CUBIC)
+	tween_scale.tween_property($FootBody/Sprite2DHitDove, "scale", 1 * $FootBody/Sprite2DHitDove.scale, 0.125).set_trans(Tween.TRANS_CUBIC)
+	var tween_rotation: Tween = create_tween()
+	tween_rotation.tween_property($FootBody/Sprite2DHitDove, "rotation", -0.125*0.125*PI, 0.25).set_trans(Tween.TRANS_CUBIC)
+	tween_rotation.tween_property($FootBody/Sprite2DHitDove, "rotation", 0.125*0.125*PI, 0.25).set_trans(Tween.TRANS_CUBIC)
+	tween_rotation.tween_property($FootBody/Sprite2DHitDove, "rotation", -0.125*0.125*PI, 0.25).set_trans(Tween.TRANS_CUBIC)
+	tween_rotation.tween_property($FootBody/Sprite2DHitDove, "rotation", 0.125*0.125*PI, 0.25).set_trans(Tween.TRANS_CUBIC)
+	tween_rotation.tween_property($FootBody/Sprite2DHitDove, "modulate:a", 0.0, 0.25).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN)
+	await tween_rotation.finished
 	# free
 	queue_free()

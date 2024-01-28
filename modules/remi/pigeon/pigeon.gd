@@ -15,22 +15,28 @@ func stun_left():
 	state_left = "stunned"
 	$TimerStunLeft.start()
 	$ForearmLeft/AudioStreamPlayer2DStun.play()
+	$ForearmLeft.modulate.v = 0.5
 
 func hit_left():
 	state_left = "hitting"
 	$TimerHitLeft.start()
-	$ForearmLeft/Polygon2D.modulate = Color.RED
+	var tween: Tween = create_tween()
+	tween.tween_property($ForearmLeft/Sprite2D/Sprite2DBone, "position", $ForearmLeft/Sprite2D/Marker2DOut.position, 0.125).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUAD)
+	$ForearmLeft/Sprite2D2Hit.show()
 	$ForearmLeft/AudioStreamPlayer2DHit.play()
 
 func stun_right():
 	state_right = "stunned"
 	$TimerStunRight.start()
 	$ForearmRight/AudioStreamPlayer2DStun.play()
+	$ForearmRight.modulate.v = 0.5
 
 func hit_right():
 	state_right = "hitting"
 	$TimerHitRight.start()
-	$ForearmRight/Polygon2D.modulate = Color.RED
+	var tween: Tween = create_tween()
+	tween.tween_property($ForearmRight/Sprite2D/Sprite2DFeather, "position", $ForearmRight/Sprite2D/Marker2DOut.position, 0.125).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUAD)
+	$ForearmRight/Sprite2DHit.show()
 	$ForearmRight/AudioStreamPlayer2DHit.play()
 
 func die():
@@ -62,9 +68,11 @@ func _physics_process(delta: float):
 
 func _on_time_stun_left_timeout():
 	state_left = "idle"
+	$ForearmLeft.modulate.v = 1.0
 
 func _on_time_stun_right_timeout():
 	state_right = "idle"
+	$ForearmRight.modulate.v = 1.0
 
 func _on_time_hit_right_cooldown_timeout():
 	state_right = "idle"
@@ -74,22 +82,28 @@ func _on_time_hit_left_cooldown_timeout():
 
 func _on_timer_hit_right_timeout():
 	state_right = "cooling"
-	$ForearmRight.get_node("Polygon2D").modulate = Color.WHITE
+	var tween: Tween = create_tween()
+	tween.tween_property($ForearmRight/Sprite2D/Sprite2DFeather, "position", $ForearmRight/Sprite2D/Marker2DIn.position, 0.125).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUAD)
+	$ForearmRight/Sprite2DHit.hide()
 	$TimerHitRightCooldown.start()
 
 func _on_timer_hit_left_timeout():
+	var tween: Tween = create_tween()
+	tween.tween_property($ForearmLeft/Sprite2D/Sprite2DBone, "position", $ForearmLeft/Sprite2D/Marker2DIn.position, 0.125).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUAD)
+	$ForearmLeft/Sprite2D2Hit.hide()
 	state_left = "cooling"
-	$ForearmLeft.get_node("Polygon2D").modulate = Color.WHITE
 	$TimerHitLeftCooldown.start()
 
 func _on_forearm_left_body_entered(body: StaticBody2D):
 	if state_left == "hitting":
-		score_left += 1
-		body.get_parent().play_hit_pigeon_animation()
-		$ForearmLeft/AudioStreamPlayer2DHitFoot.play()
+		if body.get_parent().name != "Borders":
+			score_left += 1
+			body.get_parent().play_hit_pigeon_animation()
+			$ForearmLeft/AudioStreamPlayer2DHitFoot.play()
 
-func _on_forearm_right_body_entered(body):
+func _on_forearm_right_body_entered(body: StaticBody2D):
 	if state_right == "hitting":
-		score_right += 1
-		body.get_parent().play_hit_dove_animation()
-		$ForearmRight/AudioStreamPlayer2DHitFoot.play()
+		if body.get_parent().name != "Borders":
+			score_right += 1
+			body.get_parent().play_hit_dove_animation()
+			$ForearmRight/AudioStreamPlayer2DHitFoot.play()

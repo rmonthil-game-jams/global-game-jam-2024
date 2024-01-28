@@ -87,7 +87,7 @@ func _input(event: InputEvent):
 							pigeon.hit_right()
 				KEY_ENTER:
 					if event.pressed:
-						if pigeon.state_left == "idle":
+						if pigeon.state_right == "idle":
 							pigeon.hit_right()
 
 func _physics_process(delta: float):
