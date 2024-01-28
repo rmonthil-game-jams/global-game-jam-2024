@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://cytvxx4fjyqp4"]
+[gd_scene load_steps=4 format=3 uid="uid://cytvxx4fjyqp4"]
 
 [ext_resource type="PackedScene" uid="uid://bo5es8oypmu38" path="res://modules/remi/walker/foot.tscn" id="1_vjyct"]
+[ext_resource type="Texture2D" uid="uid://bp1wkdb03itfr" path="res://assets/foot_yellow_shadow.png" id="2_ngw0a"]
+[ext_resource type="Texture2D" uid="uid://da5j0q1pvgtx3" path="res://assets/foot_yellow.png" id="3_u4p85"]
 
 [node name="FootGrosseLeft" instance=ExtResource("1_vjyct")]
 
@@ -9,19 +11,20 @@ rotation = 1.5708
 collision_mask = 6
 
 [node name="Sprite2D" parent="FootShadow" index="0"]
-self_modulate = Color(0, 0, 0, 1)
+texture = ExtResource("2_ngw0a")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="FootShadow" index="1"]
-polygon = PackedVector2Array(-98, 288, -179, 115, -204, -75, -46, -243, 194, -272, 203, -154, 139, 106)
+polygon = PackedVector2Array(240, -76.0009, 111, 108, 53.0006, 167, 45.0009, 251, -32.9991, 256, -48.9994, 172, -133, 101, -244, -92.9991, -227, -90.9992, -148, -9.99946, -90.0001, -25.9997, -21.0005, -136, -19.0009, -260, 0.999055, -261, 10.9995, -135, 72.9999, -20.0003, 144, -7.00052, 233, -85.0008)
 
 [node name="FootBody" parent="." index="1"]
 rotation = 1.5708
 
 [node name="Sprite2D2" parent="FootBody" index="0"]
-modulate = Color(0.635294, 0.654902, 1, 1)
+texture = ExtResource("3_u4p85")
 
 [node name="Sprite2DHitDove" parent="FootBody" index="1"]
-modulate = Color(0.635294, 0.654902, 1, 0.501961)
+modulate = Color(1, 1, 1, 0.501961)
+texture = ExtResource("3_u4p85")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="FootBody" index="2"]
-polygon = PackedVector2Array(-98, 288, -179, 115, -204, -75, -46, -243, 194, -272, 203, -154, 139, 106)
+polygon = PackedVector2Array(240, -76.0009, 111, 108, 53.0006, 167, 45.0009, 251, -32.9991, 256, -48.9994, 172, -133, 101, -244, -92.9991, -227, -90.9992, -148, -9.99946, -90.0001, -25.9997, -21.0005, -136, -19.0009, -260, 0.999055, -261, 10.9995, -135, 72.9999, -20.0003, 144, -7.00052, 233, -85.0008)

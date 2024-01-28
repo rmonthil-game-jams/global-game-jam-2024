@@ -69,16 +69,18 @@ stream_5/weight = 1.0
 script = ExtResource("1_r6ydk")
 
 [node name="FootShadow" parent="." instance=ExtResource("2_6smw6")]
+z_index = 24
 collision_layer = 16
 collision_mask = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="FootShadow"]
-self_modulate = Color(0.25, 0.25, 0.25, 1)
+self_modulate = Color(0, 0, 0, 1)
 texture = ExtResource("3_wj7wp")
 
 [node name="WeakPoints" type="Node2D" parent="FootShadow"]
 
 [node name="FootBody" parent="." instance=ExtResource("3_esohx")]
+z_index = 16
 collision_layer = 8
 collision_mask = 6
 

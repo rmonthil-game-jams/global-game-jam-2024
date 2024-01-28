@@ -5,11 +5,25 @@ var is_ending: bool = false
 func _ready():
 	randomize()
 	$AudioStreamPlayerAmbiance.play()
-	$Processes/WalkPathSerie.start()
 	set_process_input(false)
+	
 	var tween_zoom: Tween = create_tween()
-	tween_zoom.parallel().tween_property($Env/Camera2D, "zoom", 0.35 * Vector2.ONE, 2.0).set_trans(Tween.TRANS_QUAD)
+	tween_zoom.tween_property($Env/Camera2D, "zoom", 0.35 * Vector2.ONE, 2.0).set_trans(Tween.TRANS_QUAD)
+	
+	var tween_zqsd: Tween = create_tween()
+	tween_zqsd.tween_interval(1.0)
+	tween_zqsd.tween_property($Controls/ZQSD, "modulate:a", 1.0, 1.0).set_trans(Tween.TRANS_QUAD)
+	tween_zqsd.tween_interval(2.0)
+	tween_zqsd.tween_property($Controls/ZQSD, "modulate:a", 0.0, 4.0).set_trans(Tween.TRANS_QUAD)
+	
+	var tween_arrows: Tween = create_tween()
+	tween_arrows.tween_interval(1.0)
+	tween_arrows.tween_property($Controls/Arrows, "modulate:a", 1.0, 1.0).set_trans(Tween.TRANS_QUAD)
+	tween_arrows.tween_interval(2.0)
+	tween_arrows.tween_property($Controls/Arrows, "modulate:a", 0.0, 4.0).set_trans(Tween.TRANS_QUAD)
+
 	await tween_zoom.finished
+	$Processes/WalkPathSerie.start()
 
 func on_pigeon_just_died():
 	is_ending = true
@@ -56,6 +70,7 @@ func play_key_pressed_animation():
 	tween_play_key_pressed.tween_property($CanvasLayerUI/Control/Info/Label, "modulate:a", 0.25, 1.0).set_trans(Tween.TRANS_QUAD)
 	tween_play_key_pressed.tween_property($CanvasLayerUI/Control/Info/Label, "modulate:a", 1.0, 1.0).set_trans(Tween.TRANS_QUAD)
 	await tween_play_key_pressed.finished
+	play_key_pressed_animation.call_deferred()
 
 func on_key_pressed():
 	set_process_input(false)

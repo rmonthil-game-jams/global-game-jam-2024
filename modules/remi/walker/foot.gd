@@ -44,6 +44,11 @@ func end_step():
 					push_error("body name not recognised")
 
 func play_hit_pigeon_animation():
+	## blood
+	var new_blood: Node2D = preload("res://modules/remi/blood_droper/blood.tscn").instantiate()
+	get_parent().get_parent().get_parent().get_parent().add_child(new_blood)
+	new_blood.global_position = global_position
+	## more
 	$FootShadow/Sprite2D.hide()
 	$FootBody.process_mode = Node.PROCESS_MODE_DISABLED
 	## audio

@@ -26,35 +26,6 @@ func _input(event: InputEvent):
 	if event is InputEventKey:
 		if not event.is_echo():
 			match event.physical_keycode:
-				KEY_W:
-					if event.pressed:
-						direction.y -= 1.0
-					else:
-						direction.y += 1.0
-				KEY_D:
-					if event.pressed:
-						direction.x += 1.0
-					else:
-						direction.x -= 1.0
-				KEY_A:
-					if event.pressed:
-						direction.x -= 1.0
-					else:
-						direction.x += 1.0
-				KEY_S:
-					if event.pressed:
-						direction.y += 1.0
-					else:
-						direction.y -= 1.0
-				#KEY_X:
-					#if event.pressed:
-						#if pigeon.state_left == "idle":
-							#pigeon.state_left = "holding"
-							#pigeon_forearm.freeze = true
-					#else:
-						#if pigeon.state_left == "holding":
-							#pigeon.state_left = "idle"
-							#pigeon_forearm.freeze = false
 				KEY_E:
 					if event.pressed:
 						if pigeon.state_left == "idle":
@@ -69,7 +40,18 @@ func _input(event: InputEvent):
 							pigeon.hit_left()
 
 func _physics_process(delta: float):
+	direction = Vector2.ZERO
+	if Input.is_physical_key_pressed(KEY_W):
+		direction.y -= 1.0
+	if Input.is_physical_key_pressed(KEY_D):
+		direction.x += 1.0
+	if Input.is_physical_key_pressed(KEY_A):
+		direction.x -= 1.0
+	if Input.is_physical_key_pressed(KEY_S):
+		direction.y += 1.0
+	# proc
 	if direction:
+		direction = direction.normalized()
 		var impulse: Vector2 = _get_velocity_control_impulse(direction, delta)
 		match pigeon.state_left:
 			"idle":

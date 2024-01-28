@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://b7friuadtnkwy"]
+[gd_scene load_steps=29 format=3 uid="uid://b7friuadtnkwy"]
 
 [ext_resource type="Script" path="res://modules/remi/pigeon/pigeon.gd" id="1_skmlw"]
 [ext_resource type="Texture2D" uid="uid://b2g3oeft2jyur" path="res://assets/pigeon_wing_1_white.png" id="2_m2uqi"]
@@ -14,11 +14,13 @@
 [ext_resource type="AudioStream" uid="uid://bm2ksoagvnro7" path="res://audio/GGJ Hit Bonefeather 3.wav" id="5_o8r74"]
 [ext_resource type="AudioStream" uid="uid://d3xklidpmowcf" path="res://audio/GGJ Hit Feather 3.wav" id="5_wnguy"]
 [ext_resource type="AudioStream" uid="uid://c68w636i27o04" path="res://audio/GGJ Hit foot 4.wav" id="6_36k10"]
+[ext_resource type="AudioStream" uid="uid://g5m578onalil" path="res://audio/GGJ Hit foot flesh 1v2 .wav" id="8_neikk"]
 [ext_resource type="Texture2D" uid="uid://dientdr33hmaj" path="res://assets/pigeon_wing_0_white.png" id="11_wvpv7"]
 [ext_resource type="Texture2D" uid="uid://c8rxaa2rhbduw" path="res://assets/dove_wing_1_white.png" id="12_iowq7"]
 [ext_resource type="Texture2D" uid="uid://kc1t333fjuug" path="res://assets/dove_feather_white.png" id="14_ytj1x"]
 [ext_resource type="Texture2D" uid="uid://deop5rjq34tyi" path="res://assets/dove_wing_0_white.png" id="16_k6by6"]
 [ext_resource type="Texture2D" uid="uid://drump4ipoqp7v" path="res://assets/pigeon_dove_body_white.png" id="17_jito3"]
+[ext_resource type="PackedScene" uid="uid://cjkv70dslbmne" path="res://modules/remi/blood_droper/blood_dropper.tscn" id="21_3paao"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_xytdf"]
 friction = 0.0
@@ -42,15 +44,9 @@ stream_2/weight = 1.0
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_4iryb"]
 random_pitch = 4.0
-streams_count = 4
-stream_0/stream = ExtResource("3_j4sjg")
+streams_count = 1
+stream_0/stream = ExtResource("8_neikk")
 stream_0/weight = 1.0
-stream_1/stream = ExtResource("4_y6sng")
-stream_1/weight = 1.0
-stream_2/stream = ExtResource("5_6ut5h")
-stream_2/weight = 1.0
-stream_3/stream = ExtResource("6_36k10")
-stream_3/weight = 1.0
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_lhkv2"]
 random_pitch = 4.0
@@ -81,6 +77,7 @@ stream_3/stream = ExtResource("6_36k10")
 stream_3/weight = 1.0
 
 [node name="Pigeon" type="Node2D"]
+z_index = 8
 script = ExtResource("1_skmlw")
 REACTION_TIME = 0.125
 
@@ -259,6 +256,8 @@ one_shot = true
 
 [node name="TimerStunRight" type="Timer" parent="."]
 one_shot = true
+
+[node name="BloodDropper" parent="." instance=ExtResource("21_3paao")]
 
 [connection signal="body_entered" from="ForearmLeft" to="." method="_on_forearm_left_body_entered"]
 [connection signal="body_entered" from="ForearmRight" to="." method="_on_forearm_right_body_entered"]
