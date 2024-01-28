@@ -79,8 +79,7 @@ func on_key_pressed():
 	await tween_color.finished
 	
 	await get_tree().create_timer(1.0).timeout
-	
-	get_tree().change_scene_to_file("res://modules/remi/game/game.tscn")
+	get_parent().get_parent().start()
 
 func _process(delta: float):
 	$Wheel.rotate(-4.0*PI*delta)
