@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://c680222pgv4ub"
+path="res://.godot/imported/GGJ Dove pigeon talk 6.wav-1dbd9c2ab6f7f6b79513be1fc7d7febd.sample"
+
+[deps]
+
+source_file="res://audio/GGJ Dove pigeon talk 6.wav"
+dest_files=["res://.godot/imported/GGJ Dove pigeon talk 6.wav-1dbd9c2ab6f7f6b79513be1fc7d7febd.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
