@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://mc2l6p7701mm"
+path="res://.godot/imported/GGJ Male laugh 2.wav-deecd5a1b9443671b077fc3cf823516f.sample"
+
+[deps]
+
+source_file="res://audio/GGJ Male laugh 2.wav"
+dest_files=["res://.godot/imported/GGJ Male laugh 2.wav-deecd5a1b9443671b077fc3cf823516f.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

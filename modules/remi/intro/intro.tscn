@@ -1,0 +1,72 @@
+[gd_scene load_steps=6 format=3 uid="uid://nee26ylti0lf"]
+
+[ext_resource type="Texture2D" uid="uid://cp8memsu68jls" path="res://assets/intro_dove.png" id="1_ks30q"]
+[ext_resource type="Script" path="res://modules/remi/intro/intro.gd" id="1_w2yew"]
+[ext_resource type="Texture2D" uid="uid://betcqgqrhkwqt" path="res://assets/intro_pigeon.png" id="2_aprm3"]
+[ext_resource type="FontFile" uid="uid://bchnvsiohxhtx" path="res://fonts/MaltesPencilRegular-jyVj.otf" id="4_3dudd"]
+[ext_resource type="Texture2D" uid="uid://dys1moti5lboe" path="res://assets/wheel.png" id="5_4n58j"]
+
+[node name="Intro" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_w2yew")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.5, 0.5, 0.5, 1)
+
+[node name="IntroDove" type="Sprite2D" parent="."]
+position = Vector2(903, 558)
+texture = ExtResource("1_ks30q")
+
+[node name="IntroPigeon" type="Sprite2D" parent="."]
+position = Vector2(253, 553)
+texture = ExtResource("2_aprm3")
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = -2.0
+offset_top = 73.0
+offset_right = -2.0
+offset_bottom = 186.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.25, 0.25, 0.25, 1)
+theme_override_fonts/font = ExtResource("4_3dudd")
+theme_override_font_sizes/font_size = 112
+text = "PIGEONUS PIETINUS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -57.0
+offset_bottom = -34.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.25, 0.25, 0.25, 1)
+theme_override_fonts/font = ExtResource("4_3dudd")
+theme_override_font_sizes/font_size = 48
+text = "press any key to start"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="Wheel" type="Sprite2D" parent="."]
+position = Vector2(1688, 133)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("5_4n58j")

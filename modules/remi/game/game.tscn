@@ -61,7 +61,7 @@ script = ExtResource("1_uo4oq")
 [node name="WalkPathSerie" parent="Processes" groups=["target_to_kill"] instance=ExtResource("2_mmp50")]
 world_path = NodePath("../../World")
 walk_path_scenes = Array[PackedScene]([ExtResource("3_mfnk6"), ExtResource("4_0nsdv"), ExtResource("5_2yrnq"), ExtResource("6_4p6gs"), ExtResource("7_dmv5s"), ExtResource("3_mfnk6"), ExtResource("8_gpylc"), ExtResource("9_rtbw8"), ExtResource("10_uok2w"), ExtResource("11_ksbo6"), ExtResource("12_ovllb"), ExtResource("13_bvktu"), ExtResource("6_4p6gs"), ExtResource("5_2yrnq"), ExtResource("14_c8gwj"), ExtResource("15_6x7md"), ExtResource("16_cxj4b"), ExtResource("17_2ppq2"), ExtResource("13_bvktu"), ExtResource("18_wmm8r"), ExtResource("19_csc53"), ExtResource("20_d3xem"), ExtResource("21_inn3d"), ExtResource("22_174t8"), ExtResource("23_v0hfd"), ExtResource("24_vkopx"), ExtResource("13_bvktu"), ExtResource("3_mfnk6"), ExtResource("25_3pmyh"), ExtResource("26_yrft0"), ExtResource("27_l75lh"), ExtResource("28_impa7")])
-walk_path_delays = Array[float]([5.0, 8.0, 7.0, 6.0, 6.0, 4.0, 10.0, 4.0, 6.0, 0.1, 4.0, 1.0, 1.0, 1.0, 1.0, 3.0, 0.01, 10.0, 3.0, 4.0, 1.0, 1.0, 1.0, 1.0, 2.0, 4.0, 1.0, 1.0, 0.0, 5.0, 0.01, 10.0])
+walk_path_delays = Array[float]([8.0, 8.0, 7.0, 6.0, 6.0, 4.0, 10.0, 4.0, 6.0, 0.1, 4.0, 1.0, 1.0, 1.0, 1.0, 3.0, 0.01, 10.0, 3.0, 4.0, 1.0, 1.0, 1.0, 1.0, 2.0, 4.0, 1.0, 1.0, 0.0, 5.0, 0.01, 10.0])
 
 [node name="Players" type="Node" parent="."]
 
@@ -97,6 +97,7 @@ position = Vector2(1800, 0)
 shape = SubResource("WorldBoundaryShape2D_yc7uu")
 
 [node name="Back" type="Node2D" parent="."]
+modulate = Color(0.65, 0.65, 0.65, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="Back"]
 rotation = 1.5708
@@ -129,7 +130,7 @@ texture = ExtResource("6_mdnv1")
 [node name="Env" type="Node2D" parent="."]
 
 [node name="Camera2D" type="Camera2D" parent="Env"]
-zoom = Vector2(0.35, 0.35)
+zoom = Vector2(0.9, 0.9)
 
 [node name="CanvasLayerUI" type="CanvasLayer" parent="."]
 visible = false
@@ -149,6 +150,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+color = Color(0.5, 0.5, 0.5, 1)
 
 [node name="Info" type="Control" parent="CanvasLayerUI/Control"]
 layout_mode = 1
@@ -158,55 +160,105 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayerUI/Control/Info"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayerUI/Control/Info"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 529.0
+grow_horizontal = 2
+theme_override_constants/separation = 32
+
+[node name="GameOver" type="Label" parent="CanvasLayerUI/Control/Info/VBoxContainer"]
 layout_mode = 2
-offset_left = 118.5
-offset_top = 202.0
-offset_right = 1033.5
-offset_bottom = 290.0
-theme_override_constants/separation = 50
+theme_override_colors/font_color = Color(0.25, 0.25, 0.25, 1)
+theme_override_fonts/font = ExtResource("8_l402d")
+theme_override_font_sizes/font_size = 128
+text = "GAME OVER"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayerUI/Control/Info/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 128
 alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayerUI/Control/Info/HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayerUI/Control/Info/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 alignment = 1
 
-[node name="LabelLeft" type="Label" parent="CanvasLayerUI/Control/Info/HBoxContainer/VBoxContainer"]
+[node name="LabelLeft" type="Label" parent="CanvasLayerUI/Control/Info/VBoxContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0.25, 0.25, 0.25, 1)
 theme_override_fonts/font = ExtResource("8_l402d")
 theme_override_font_sizes/font_size = 64
 text = "Pain Inflicted"
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="ScoreLeft" type="Label" parent="CanvasLayerUI/Control/Info/HBoxContainer/VBoxContainer"]
+[node name="ScoreLeft" type="Label" parent="CanvasLayerUI/Control/Info/VBoxContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0.25, 0.25, 0.25, 1)
 theme_override_fonts/font = ExtResource("8_l402d")
 theme_override_font_sizes/font_size = 64
 text = "0"
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayerUI/Control/Info/HBoxContainer"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayerUI/Control/Info/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 alignment = 1
 
-[node name="LabelRight" type="Label" parent="CanvasLayerUI/Control/Info/HBoxContainer/VBoxContainer2"]
+[node name="LabelRight" type="Label" parent="CanvasLayerUI/Control/Info/VBoxContainer/HBoxContainer/VBoxContainer2"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0.25, 0.25, 0.25, 1)
 theme_override_fonts/font = ExtResource("8_l402d")
 theme_override_font_sizes/font_size = 64
 text = "Laugh Brought"
 vertical_alignment = 1
 
-[node name="ScoreRight" type="Label" parent="CanvasLayerUI/Control/Info/HBoxContainer/VBoxContainer2"]
+[node name="ScoreRight" type="Label" parent="CanvasLayerUI/Control/Info/VBoxContainer/HBoxContainer/VBoxContainer2"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0.25, 0.25, 0.25, 1)
 theme_override_fonts/font = ExtResource("8_l402d")
 theme_override_font_sizes/font_size = 64
 text = "0"
+vertical_alignment = 1
+
+[node name="CreditsIntro" type="Label" parent="CanvasLayerUI/Control/Info/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.25, 0.25, 0.25, 1)
+theme_override_fonts/font = ExtResource("8_l402d")
+theme_override_font_sizes/font_size = 64
+text = "A Game By:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayerUI/Control/Info/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 64
+alignment = 1
+
+[node name="Credits0" type="Label" parent="CanvasLayerUI/Control/Info/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.25, 0.25, 0.25, 1)
+theme_override_fonts/font = ExtResource("8_l402d")
+theme_override_font_sizes/font_size = 32
+text = "Benoit PODEVIN
+Elouann GIACOMONI
+Lise CARTON
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Credits1" type="Label" parent="CanvasLayerUI/Control/Info/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.25, 0.25, 0.25, 1)
+theme_override_fonts/font = ExtResource("8_l402d")
+theme_override_font_sizes/font_size = 32
+text = "Mathieu BOTTELA
+Robin BRECH
+Rémi MONTHILLER"
+horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Label" type="Label" parent="CanvasLayerUI/Control/Info"]
@@ -220,29 +272,22 @@ offset_top = -57.0
 offset_bottom = -34.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0.25, 0.25, 0.25, 1)
 theme_override_fonts/font = ExtResource("8_l402d")
-theme_override_font_sizes/font_size = 32
+theme_override_font_sizes/font_size = 48
 text = "press any key to try again"
 horizontal_alignment = 1
 vertical_alignment = 1
+uppercase = true
 
-[node name="CanvasLayerUI2" type="CanvasLayer" parent="."]
-visible = false
-
-[node name="ColorRect" type="ColorRect" parent="CanvasLayerUI2"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="IntroDove" type="Sprite2D" parent="CanvasLayerUI2"]
-position = Vector2(887, 367)
+[node name="IntroDove" type="Sprite2D" parent="CanvasLayerUI"]
+position = Vector2(1115, 480)
+scale = Vector2(0.8, 0.8)
 texture = ExtResource("9_78duw")
 
-[node name="IntroPigeon" type="Sprite2D" parent="CanvasLayerUI2"]
-position = Vector2(264, 369)
+[node name="IntroPigeon" type="Sprite2D" parent="CanvasLayerUI"]
+position = Vector2(25, 468)
+scale = Vector2(0.8, 0.8)
 texture = ExtResource("10_15li1")
 
 [node name="TimerWinCheck" type="Timer" parent="."]
