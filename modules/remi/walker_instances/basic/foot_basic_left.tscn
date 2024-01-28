@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://cwwacayr62ogp"]
+[gd_scene load_steps=4 format=3 uid="uid://cwwacayr62ogp"]
 
 [ext_resource type="PackedScene" uid="uid://bo5es8oypmu38" path="res://modules/remi/walker/foot.tscn" id="1_pxem4"]
+[ext_resource type="Texture2D" uid="uid://b8qlk367k8fli" path="res://assets/foot_purple_shadow.png" id="2_othcm"]
+[ext_resource type="Texture2D" uid="uid://cgfkqlywmautj" path="res://assets/foot_purple.png" id="3_1eqq6"]
 
 [node name="FootBasicLeft" instance=ExtResource("1_pxem4")]
 
@@ -9,13 +11,25 @@ rotation = 1.5708
 collision_mask = 6
 
 [node name="Sprite2D" parent="FootShadow" index="0"]
-self_modulate = Color(0, 0, 0, 1)
+scale = Vector2(2, 2)
+texture = ExtResource("2_othcm")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="FootShadow" index="1"]
-polygon = PackedVector2Array(-98, 288, -179, 115, -204, -75, -46, -243, 194, -272, 203, -154, 139, 106)
+polygon = PackedVector2Array(132, -110, 121.999, -179, 75.9993, -186, -119, -105, -138, -59.9995, -83.9994, 171, -56.9993, 192)
 
 [node name="FootBody" parent="." index="1"]
 rotation = 1.5708
 
+[node name="Sprite2D2" parent="FootBody" index="0"]
+scale = Vector2(2, 2)
+texture = ExtResource("3_1eqq6")
+
+[node name="Sprite2DHitDove" parent="FootBody" index="1"]
+scale = Vector2(2, 2)
+texture = ExtResource("3_1eqq6")
+
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="FootBody" index="2"]
-polygon = PackedVector2Array(-98, 288, -179, 115, -204, -75, -46, -243, 194, -272, 203, -154, 139, 106)
+polygon = PackedVector2Array(132, -110, 121.999, -179, 75.9993, -186, -119, -105, -138, -59.9995, -83.9994, 171, -56.9993, 192)
+
+[node name="Sprite2DHitPigeon" parent="FootBody" index="3"]
+position = Vector2(-21.0001, -20.9999)

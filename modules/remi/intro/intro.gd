@@ -12,6 +12,7 @@ func _ready():
 	play_key_pressed_animation()
 
 func play_pigeon_animation():
+	$IntroPigeon/AudioStreamPlayer2D.play()
 	tween_pigeon = create_tween()
 	tween_pigeon.tween_property($IntroPigeon, "position", init_pigeon_position + Vector2(randf_range(-64, 64), randf_range(-64, 64)), randf_range(0.125, 1.0))
 	tween_pigeon.parallel().tween_property($IntroPigeon, "rotation", randf_range(-0.125*0.125*PI, 0.125*0.125*PI), randf_range(0.125, 1.0))
@@ -19,6 +20,7 @@ func play_pigeon_animation():
 	play_pigeon_animation.call_deferred()
 
 func play_dove_animation():
+	$IntroDove/AudioStreamPlayer2D.play()
 	tween_dove = create_tween()
 	tween_dove.tween_property($IntroDove, "position", init_dove_position + Vector2(randf_range(-64, 64), randf_range(-64, 64)), randf_range(0.125, 1.0))
 	tween_dove.parallel().tween_property($IntroDove, "rotation", randf_range(-0.125*0.125*PI, 0.125*0.125*PI), randf_range(0.125, 1.0))
@@ -52,15 +54,20 @@ func on_key_pressed():
 	tween_pigeon = create_tween()
 	tween_pigeon.tween_property($IntroPigeon, "position", init_pigeon_position, 0.125)
 	tween_pigeon.parallel().tween_property($IntroPigeon, "rotation", 0.0, 0.125)
-	tween_pigeon.tween_interval(0.5)
-	tween_pigeon.tween_property($IntroPigeon, "position:x", -$Wheel.position.x, 0.25)
+	tween_pigeon.tween_interval(2.25)
+	tween_pigeon.tween_property($IntroPigeon, "position:x", -$Wheel.position.x, 0.125)
 	tween_dove = create_tween()
 	tween_dove.tween_property($IntroDove, "position", init_dove_position, 0.125)
 	tween_dove.parallel().tween_property($IntroDove, "rotation", 0.0, 0.125)
-	tween_dove.tween_interval(0.5)
-	tween_dove.tween_property($IntroDove, "position:x", -$Wheel.position.x, 0.25)
+	tween_dove.tween_interval(2.25)
+	tween_dove.tween_property($IntroDove, "position:x", -$Wheel.position.x, 0.125)
+	
+	$AudioStreamPlayerHorn.play()
+	$AudioStreamPlayerCrash.play()
+	await get_tree().create_timer(2.0).timeout
+	
 	var tween_wheel: Tween = create_tween()
-	tween_wheel.tween_property($Wheel, "position:x", -$Wheel.position.x, 2.0).set_trans(Tween.TRANS_QUAD)
+	tween_wheel.tween_property($Wheel, "position:x", -$Wheel.position.x, 1.0).set_trans(Tween.TRANS_QUAD)
 	await tween_wheel.finished
 	get_tree().change_scene_to_file("res://modules/remi/game/game.tscn")
 

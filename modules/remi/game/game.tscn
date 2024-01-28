@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://bfo0n2gerr7h2"]
+[gd_scene load_steps=50 format=3 uid="uid://bfo0n2gerr7h2"]
 
 [ext_resource type="Script" path="res://modules/remi/game/game.gd" id="1_uo4oq"]
 [ext_resource type="PackedScene" uid="uid://qnm1p2evqemy" path="res://modules/remi/walker/walk_path_serie.tscn" id="2_mmp50"]
@@ -37,6 +37,13 @@
 [ext_resource type="PackedScene" uid="uid://d3t3ydtnn3r3p" path="res://modules/gd/WalkGosseDaronne/WalkGosseLeft_0.tscn" id="26_yrft0"]
 [ext_resource type="PackedScene" uid="uid://b140j2lkrkcf8" path="res://modules/gd/WalkGosseDaronne/WalkGosseRight_0.tscn" id="27_l75lh"]
 [ext_resource type="PackedScene" uid="uid://c3j3nrt1p3w6q" path="res://modules/gd/WalkLoop/WalkLoopDownRight.tscn" id="28_impa7"]
+[ext_resource type="Texture2D" uid="uid://dvfws8mpu2bxn" path="res://assets/d.png" id="38_1c036"]
+[ext_resource type="Texture2D" uid="uid://co2eooh3uaief" path="res://assets/enter.png" id="39_2n7j3"]
+[ext_resource type="Texture2D" uid="uid://bphmwqnrwe165" path="res://assets/q.png" id="40_k6qs4"]
+[ext_resource type="Texture2D" uid="uid://cykk0ix5rac0p" path="res://assets/s.png" id="41_o7xh3"]
+[ext_resource type="Texture2D" uid="uid://d024l1f3vrjyw" path="res://assets/space.png" id="42_knbgu"]
+[ext_resource type="Texture2D" uid="uid://byxdu3ivu7gvj" path="res://assets/up.png" id="43_g4mdo"]
+[ext_resource type="Texture2D" uid="uid://dlqawn3on367k" path="res://assets/z.png" id="44_yfjc7"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ejv2u"]
 friction = 0.0
@@ -60,8 +67,10 @@ script = ExtResource("1_uo4oq")
 
 [node name="WalkPathSerie" parent="Processes" groups=["target_to_kill"] instance=ExtResource("2_mmp50")]
 world_path = NodePath("../../World")
+game_over_path = NodePath("../../CanvasLayerUI/Control/Info/VBoxContainer/GameOver")
+levels_path = NodePath("../../CanvasLayerLevels/Control")
 walk_path_scenes = Array[PackedScene]([ExtResource("3_mfnk6"), ExtResource("4_0nsdv"), ExtResource("5_2yrnq"), ExtResource("6_4p6gs"), ExtResource("7_dmv5s"), ExtResource("3_mfnk6"), ExtResource("8_gpylc"), ExtResource("9_rtbw8"), ExtResource("10_uok2w"), ExtResource("11_ksbo6"), ExtResource("12_ovllb"), ExtResource("13_bvktu"), ExtResource("6_4p6gs"), ExtResource("5_2yrnq"), ExtResource("14_c8gwj"), ExtResource("15_6x7md"), ExtResource("16_cxj4b"), ExtResource("17_2ppq2"), ExtResource("13_bvktu"), ExtResource("18_wmm8r"), ExtResource("19_csc53"), ExtResource("20_d3xem"), ExtResource("21_inn3d"), ExtResource("22_174t8"), ExtResource("23_v0hfd"), ExtResource("24_vkopx"), ExtResource("13_bvktu"), ExtResource("3_mfnk6"), ExtResource("25_3pmyh"), ExtResource("26_yrft0"), ExtResource("27_l75lh"), ExtResource("28_impa7")])
-walk_path_delays = Array[float]([8.0, 8.0, 7.0, 6.0, 6.0, 4.0, 10.0, 4.0, 6.0, 0.1, 4.0, 1.0, 1.0, 1.0, 1.0, 3.0, 0.01, 10.0, 3.0, 4.0, 1.0, 1.0, 1.0, 1.0, 2.0, 4.0, 1.0, 1.0, 0.0, 5.0, 0.01, 10.0])
+walk_path_delays = Array[float]([4.0, 8.0, 7.0, 6.0, 6.0, 4.0, 10.0, 4.0, 6.0, 0.1, 4.0, 1.0, 1.0, 1.0, 1.0, 3.0, 0.01, 10.0, 3.0, 4.0, 1.0, 1.0, 1.0, 1.0, 2.0, 4.0, 1.0, 1.0, 0.0, 5.0, 0.01, 10.0])
 
 [node name="Players" type="Node" parent="."]
 
@@ -123,6 +132,61 @@ position = Vector2(-1680, 0)
 rotation = 1.5708
 texture = ExtResource("6_mdnv1")
 
+[node name="Controls" type="Node2D" parent="."]
+
+[node name="ZQSD" type="Node2D" parent="Controls"]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(-1172, -180)
+scale = Vector2(0.75, 0.75)
+
+[node name="D" type="Sprite2D" parent="Controls/ZQSD"]
+position = Vector2(544.5, 383)
+texture = ExtResource("38_1c036")
+
+[node name="Q" type="Sprite2D" parent="Controls/ZQSD"]
+position = Vector2(-375.5, 375)
+texture = ExtResource("40_k6qs4")
+
+[node name="S" type="Sprite2D" parent="Controls/ZQSD"]
+position = Vector2(80.5, 379)
+texture = ExtResource("41_o7xh3")
+
+[node name="Z" type="Sprite2D" parent="Controls/ZQSD"]
+position = Vector2(88.5, -45)
+texture = ExtResource("44_yfjc7")
+
+[node name="Space" type="Sprite2D" parent="Controls/ZQSD"]
+position = Vector2(668, 887)
+texture = ExtResource("42_knbgu")
+
+[node name="Arrows" type="Node2D" parent="Controls"]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(-34, 156)
+scale = Vector2(0.75, 0.75)
+
+[node name="Enter" type="Sprite2D" parent="Controls/Arrows"]
+position = Vector2(1506, -337)
+texture = ExtResource("39_2n7j3")
+
+[node name="Up" type="Sprite2D" parent="Controls/Arrows"]
+position = Vector2(1024, -3)
+texture = ExtResource("43_g4mdo")
+
+[node name="Down" type="Sprite2D" parent="Controls/Arrows"]
+position = Vector2(1007, 442)
+rotation = 3.14159
+texture = ExtResource("43_g4mdo")
+
+[node name="Left" type="Sprite2D" parent="Controls/Arrows"]
+position = Vector2(542, 446)
+rotation = -1.5708
+texture = ExtResource("43_g4mdo")
+
+[node name="Left2" type="Sprite2D" parent="Controls/Arrows"]
+position = Vector2(1470, 463)
+rotation = 1.5708
+texture = ExtResource("43_g4mdo")
+
 [node name="World" type="Node2D" parent="."]
 
 [node name="Pigeon" parent="World" instance=ExtResource("2_vruvg")]
@@ -131,6 +195,72 @@ texture = ExtResource("6_mdnv1")
 
 [node name="Camera2D" type="Camera2D" parent="Env"]
 zoom = Vector2(0.9, 0.9)
+
+[node name="CanvasLayerLevels" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayerLevels"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="CanvasLayerLevels/Control"]
+visible = false
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 23.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.45, 0.9, 0.45, 1)
+theme_override_fonts/font = ExtResource("8_l402d")
+theme_override_font_sizes/font_size = 128
+text = "LEVEL 1"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="CanvasLayerLevels/Control"]
+visible = false
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 23.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.45, 0.9, 0.45, 1)
+theme_override_fonts/font = ExtResource("8_l402d")
+theme_override_font_sizes/font_size = 128
+text = "LEVEL 2"
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="CanvasLayerLevels/Control"]
+visible = false
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 23.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.45, 0.9, 0.45, 1)
+theme_override_fonts/font = ExtResource("8_l402d")
+theme_override_font_sizes/font_size = 128
+text = "LEVEL 3"
+horizontal_alignment = 1
+
+[node name="Label4" type="Label" parent="CanvasLayerLevels/Control"]
+visible = false
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 23.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.45, 0.9, 0.45, 1)
+theme_override_fonts/font = ExtResource("8_l402d")
+theme_override_font_sizes/font_size = 128
+text = "FINAL LEVEL"
+horizontal_alignment = 1
 
 [node name="CanvasLayerUI" type="CanvasLayer" parent="."]
 visible = false
@@ -173,7 +303,35 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0.25, 0.25, 0.25, 1)
 theme_override_fonts/font = ExtResource("8_l402d")
 theme_override_font_sizes/font_size = 128
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GameOver" type="Label" parent="CanvasLayerUI/Control/Info/VBoxContainer/GameOver"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.25, 0.25, 0.25, 1)
+theme_override_fonts/font = ExtResource("8_l402d")
+theme_override_font_sizes/font_size = 128
 text = "GAME OVER"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DevAlwaysWins" type="Label" parent="CanvasLayerUI/Control/Info/VBoxContainer/GameOver"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.25, 0.25, 0.25, 1)
+theme_override_fonts/font = ExtResource("8_l402d")
+theme_override_font_sizes/font_size = 128
+text = "DEVS ALWAYS WIN"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -280,12 +438,12 @@ horizontal_alignment = 1
 vertical_alignment = 1
 uppercase = true
 
-[node name="IntroDove" type="Sprite2D" parent="CanvasLayerUI"]
+[node name="IntroDove" type="Sprite2D" parent="CanvasLayerUI/Control"]
 position = Vector2(1115, 480)
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("9_78duw")
 
-[node name="IntroPigeon" type="Sprite2D" parent="CanvasLayerUI"]
+[node name="IntroPigeon" type="Sprite2D" parent="CanvasLayerUI/Control"]
 position = Vector2(25, 468)
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("10_15li1")

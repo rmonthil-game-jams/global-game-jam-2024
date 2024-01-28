@@ -28,55 +28,6 @@ func _input(event: InputEvent):
 	if event is InputEventKey:
 		if not event.is_echo():
 			match event.physical_keycode:
-				KEY_UP:
-					if event.pressed:
-						direction.y -= 1.0
-					else:
-						direction.y += 1.0
-				KEY_RIGHT:
-					if event.pressed:
-						direction.x += 1.0
-					else:
-						direction.x -= 1.0
-				KEY_LEFT:
-					if event.pressed:
-						direction.x -= 1.0
-					else:
-						direction.x += 1.0
-				KEY_DOWN:
-					if event.pressed:
-						direction.y += 1.0
-					else:
-						direction.y -= 1.0
-				KEY_I:
-					if event.pressed:
-						direction.y -= 1.0
-					else:
-						direction.y += 1.0
-				KEY_L:
-					if event.pressed:
-						direction.x += 1.0
-					else:
-						direction.x -= 1.0
-				KEY_J:
-					if event.pressed:
-						direction.x -= 1.0
-					else:
-						direction.x += 1.0
-				KEY_K:
-					if event.pressed:
-						direction.y += 1.0
-					else:
-						direction.y -= 1.0
-				#KEY_O:
-					#if event.pressed:
-						#if pigeon.state_right == "idle":
-							#pigeon.state_right = "holding"
-							#pigeon_forearm.freeze = true
-					#else:
-						#if pigeon.state_right == "holding":
-							#pigeon.state_right = "idle"
-							#pigeon_forearm.freeze = false
 				KEY_O:
 					if event.pressed:
 						if pigeon.state_right == "idle":
@@ -91,7 +42,17 @@ func _input(event: InputEvent):
 							pigeon.hit_right()
 
 func _physics_process(delta: float):
+	direction = Vector2.ZERO
+	if Input.is_physical_key_pressed(KEY_UP) or Input.is_physical_key_pressed(KEY_I):
+		direction.y -= 1.0
+	if Input.is_physical_key_pressed(KEY_RIGHT) or Input.is_physical_key_pressed(KEY_L):
+		direction.x += 1.0
+	if Input.is_physical_key_pressed(KEY_LEFT) or Input.is_physical_key_pressed(KEY_J):
+		direction.x -= 1.0
+	if Input.is_physical_key_pressed(KEY_DOWN) or Input.is_physical_key_pressed(KEY_K):
+		direction.y += 1.0
 	if direction:
+		direction = direction.normalized()
 		var impulse: Vector2 = _get_velocity_control_impulse(direction, delta)
 		match pigeon.state_right:
 			"idle":

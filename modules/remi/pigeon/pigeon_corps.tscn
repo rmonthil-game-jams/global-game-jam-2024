@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://cgx8newy7g24h" path="res://assets/pigeon_dead_corps_white.png" id="1_jhpj7"]
 
 [node name="PigeonCorps" type="Node2D"]
+z_index = 8
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_jhpj7")

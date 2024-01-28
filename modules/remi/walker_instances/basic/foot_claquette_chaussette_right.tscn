@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=3 uid="uid://daact20m0vqie"]
+
+[ext_resource type="PackedScene" uid="uid://bo5es8oypmu38" path="res://modules/remi/walker/foot.tscn" id="1_p0fbk"]
+[ext_resource type="Texture2D" uid="uid://ceo3q57c0ugyn" path="res://assets/foot_claquette_chaussette_shadow.png" id="2_qlaol"]
+[ext_resource type="Texture2D" uid="uid://bq5ssl06xujt7" path="res://assets/foot_claquette_chaussette.png" id="3_c3lwj"]
+
+[node name="FootBasicRight" instance=ExtResource("1_p0fbk")]
+
+[node name="FootShadow" parent="." index="0"]
+rotation = 1.5708
+collision_mask = 6
+
+[node name="Sprite2D" parent="FootShadow" index="0"]
+scale = Vector2(-3, 3)
+texture = ExtResource("2_qlaol")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="FootShadow" index="1"]
+polygon = PackedVector2Array(1633.01, 2675.99, -1695.99, 2708.01, -1746.01, -2893.99, 1617.99, -2951.01)
+
+[node name="FootBody" parent="." index="1"]
+rotation = 1.5708
+
+[node name="Sprite2D2" parent="FootBody" index="0"]
+scale = Vector2(-3, 3)
+texture = ExtResource("3_c3lwj")
+
+[node name="Sprite2DHitDove" parent="FootBody" index="1"]
+scale = Vector2(-3, 3)
+texture = ExtResource("3_c3lwj")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="FootBody" index="2"]
+polygon = PackedVector2Array(1650.01, 2675.99, -1695.99, 2708.01, -1746.01, -2893.99, 1617.99, -2951.01)
+
+[node name="Sprite2DHitPigeon" parent="FootBody" index="3"]
+position = Vector2(29.9999, -26.0001)

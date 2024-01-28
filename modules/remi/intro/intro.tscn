@@ -1,10 +1,50 @@
-[gd_scene load_steps=6 format=3 uid="uid://nee26ylti0lf"]
+[gd_scene load_steps=16 format=3 uid="uid://nee26ylti0lf"]
 
 [ext_resource type="Texture2D" uid="uid://cp8memsu68jls" path="res://assets/intro_dove.png" id="1_ks30q"]
 [ext_resource type="Script" path="res://modules/remi/intro/intro.gd" id="1_w2yew"]
 [ext_resource type="Texture2D" uid="uid://betcqgqrhkwqt" path="res://assets/intro_pigeon.png" id="2_aprm3"]
+[ext_resource type="AudioStream" uid="uid://dsk8gyljuddiw" path="res://audio/GGJ Dove pigeon talk 1.wav" id="3_jgusc"]
 [ext_resource type="FontFile" uid="uid://bchnvsiohxhtx" path="res://fonts/MaltesPencilRegular-jyVj.otf" id="4_3dudd"]
+[ext_resource type="AudioStream" uid="uid://blpg46jwdj0mr" path="res://audio/GGJ Dove pigeon talk 2.wav" id="4_ysw5n"]
 [ext_resource type="Texture2D" uid="uid://dys1moti5lboe" path="res://assets/wheel.png" id="5_4n58j"]
+[ext_resource type="AudioStream" uid="uid://bcdpuwxvbnkvy" path="res://audio/GGJ Dove pigeon talk 3.wav" id="5_thf3r"]
+[ext_resource type="AudioStream" uid="uid://d4hxm37j7sne2" path="res://audio/GGJ Dove pigeon talk 4.wav" id="6_3jbws"]
+[ext_resource type="AudioStream" uid="uid://bwy0vlegmeb2a" path="res://audio/GGJ Dove pigeon talk 5.wav" id="7_gl23n"]
+[ext_resource type="AudioStream" uid="uid://c680222pgv4ub" path="res://audio/GGJ Dove pigeon talk 6.wav" id="8_skdxk"]
+[ext_resource type="AudioStream" uid="uid://c3sc0jbke8m7a" path="res://audio/GGJ Car crash intro.wav" id="12_i44au"]
+[ext_resource type="AudioStream" uid="uid://cxwxkhrdhmv5w" path="res://audio/GGJ Horn intro.wav" id="13_011ed"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_ikqkp"]
+random_pitch = 2.0
+streams_count = 6
+stream_0/stream = ExtResource("3_jgusc")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("4_ysw5n")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("5_thf3r")
+stream_2/weight = 1.0
+stream_3/stream = ExtResource("6_3jbws")
+stream_3/weight = 1.0
+stream_4/stream = ExtResource("7_gl23n")
+stream_4/weight = 1.0
+stream_5/stream = ExtResource("8_skdxk")
+stream_5/weight = 1.0
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_j8c3c"]
+random_pitch = 2.0
+streams_count = 6
+stream_0/stream = ExtResource("3_jgusc")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("4_ysw5n")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("5_thf3r")
+stream_2/weight = 1.0
+stream_3/stream = ExtResource("6_3jbws")
+stream_3/weight = 1.0
+stream_4/stream = ExtResource("7_gl23n")
+stream_4/weight = 1.0
+stream_5/stream = ExtResource("8_skdxk")
+stream_5/weight = 1.0
 
 [node name="Intro" type="Control"]
 layout_mode = 3
@@ -28,9 +68,19 @@ color = Color(0.5, 0.5, 0.5, 1)
 position = Vector2(903, 558)
 texture = ExtResource("1_ks30q")
 
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="IntroDove"]
+position = Vector2(-171, -195)
+stream = SubResource("AudioStreamRandomizer_ikqkp")
+volume_db = -16.0
+
 [node name="IntroPigeon" type="Sprite2D" parent="."]
 position = Vector2(253, 553)
 texture = ExtResource("2_aprm3")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="IntroPigeon"]
+position = Vector2(161, -192)
+stream = SubResource("AudioStreamRandomizer_j8c3c")
+volume_db = -16.0
 
 [node name="Title" type="Label" parent="."]
 layout_mode = 1
@@ -70,3 +120,11 @@ uppercase = true
 position = Vector2(1688, 133)
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("5_4n58j")
+
+[node name="AudioStreamPlayerCrash" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_i44au")
+volume_db = -5.0
+
+[node name="AudioStreamPlayerHorn" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_011ed")
+volume_db = -12.0
