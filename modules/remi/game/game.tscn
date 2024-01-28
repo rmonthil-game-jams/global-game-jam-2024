@@ -1,4 +1,4 @@
-[gd_scene load_steps=86 format=3 uid="uid://bfo0n2gerr7h2"]
+[gd_scene load_steps=79 format=3 uid="uid://bfo0n2gerr7h2"]
 
 [ext_resource type="Script" path="res://modules/remi/game/game.gd" id="1_uo4oq"]
 [ext_resource type="PackedScene" uid="uid://qnm1p2evqemy" path="res://modules/remi/walker/walk_path_serie.tscn" id="2_mmp50"]
@@ -45,11 +45,10 @@
 [ext_resource type="PackedScene" path="res://modules/gd/Skate/WalkSkateCustom2.tscn" id="34_0k1j7"]
 [ext_resource type="PackedScene" path="res://modules/gd/MoonWalk/MoonWalkCustom.tscn" id="35_fxra1"]
 [ext_resource type="PackedScene" path="res://modules/gd/WalkGalop/GalopRightcustom.tscn" id="36_eb2fx"]
-[ext_resource type="PackedScene" path="res://modules/gd/Salto/Salto1Left.tscn" id="37_5bm34"]
+[ext_resource type="PackedScene" path="res://modules/gd/WalkJoint/WalkJointLeft_0_Speed.tscn" id="37_fma2x"]
 [ext_resource type="Texture2D" uid="uid://dvfws8mpu2bxn" path="res://assets/d.png" id="38_1c036"]
-[ext_resource type="PackedScene" path="res://modules/gd/Salto/Salto1Right.tscn" id="38_2435r"]
+[ext_resource type="PackedScene" path="res://modules/gd/WalkJoint/WalkJointRight_0_Speed.tscn" id="38_tr5vd"]
 [ext_resource type="Texture2D" uid="uid://co2eooh3uaief" path="res://assets/enter.png" id="39_2n7j3"]
-[ext_resource type="PackedScene" path="res://modules/gd/WalkTurn/WalkTurnTopSpeed.tscn" id="39_hhwde"]
 [ext_resource type="PackedScene" path="res://modules/gd/MoonWalk/MoonWalkBackMid.tscn" id="40_6bq12"]
 [ext_resource type="Texture2D" uid="uid://bphmwqnrwe165" path="res://assets/q.png" id="40_k6qs4"]
 [ext_resource type="Texture2D" uid="uid://cykk0ix5rac0p" path="res://assets/s.png" id="41_o7xh3"]
@@ -63,9 +62,7 @@
 [ext_resource type="PackedScene" path="res://modules/gd/MoonWalk/MoonWalkLeftRight.tscn" id="45_x53mu"]
 [ext_resource type="PackedScene" path="res://modules/gd/WalkJoint/WalkJointRight_135SpeedLeft.tscn" id="46_g1onc"]
 [ext_resource type="PackedScene" path="res://modules/gd/WalkJoint/WalkJointRight_135SppedRight.tscn" id="47_6hpnk"]
-[ext_resource type="PackedScene" path="res://modules/gd/Skate/WalkSkate180Speed.tscn" id="48_x1q7i"]
-[ext_resource type="PackedScene" path="res://modules/gd/WalkStraight/WalkBotTopSpeed.tscn" id="49_tnmpu"]
-[ext_resource type="PackedScene" path="res://modules/gd/MoonWalk/MoonWalkRightLeft.tscn" id="50_7ivg1"]
+[ext_resource type="PackedScene" path="res://modules/gd/MoonWalk/MoonWalkRightLeft_2.tscn" id="48_fdam3"]
 [ext_resource type="PackedScene" path="res://modules/gd/Skate/WalkSkate180Speed_1.tscn" id="51_s4sa8"]
 [ext_resource type="PackedScene" path="res://modules/gd/Skate/WalkSkate180Speed_2.tscn" id="52_olvvp"]
 [ext_resource type="PackedScene" path="res://modules/gd/Skate/WalkSkate180Speed_3.tscn" id="53_dxr4e"]
@@ -74,11 +71,7 @@
 [ext_resource type="PackedScene" uid="uid://cyqrq683ueudc" path="res://modules/gd/WalkTurn/WalkTurnLeft.tscn" id="56_8ax0g"]
 [ext_resource type="PackedScene" uid="uid://casc5lopu6t3g" path="res://modules/gd/WalkTurn/WalkTurnRight.tscn" id="57_hfoxm"]
 [ext_resource type="PackedScene" uid="uid://d3frupx6qtk47" path="res://modules/gd/WalkTurn/WalkTurnTop.tscn" id="58_56215"]
-[ext_resource type="PackedScene" path="res://modules/gd/WalkTurn/WalkTurnRightSpeed.tscn" id="59_15og7"]
-[ext_resource type="PackedScene" path="res://modules/gd/WalkStraight/WalkTopBotSpeed.tscn" id="60_lqtie"]
 [ext_resource type="PackedScene" path="res://modules/gd/WalkTurn/WalkTurnDownFast.tscn" id="61_4kim5"]
-[ext_resource type="PackedScene" path="res://modules/gd/WalkJoint/WalkJointLeft_45VerySpeed.tscn" id="62_wlu7m"]
-[ext_resource type="PackedScene" path="res://modules/gd/Skate/WalkSkate270Spped.tscn" id="63_xqxna"]
 [ext_resource type="PackedScene" uid="uid://cryp3ns87p7ng" path="res://modules/gd/Gospieds/GrosPiedsEnd.tscn" id="64_8xean"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ejv2u"]
@@ -104,9 +97,8 @@ script = ExtResource("1_uo4oq")
 [node name="WalkPathSerie" parent="Processes" groups=["target_to_kill"] instance=ExtResource("2_mmp50")]
 world_path = NodePath("../../World")
 game_over_path = NodePath("../../CanvasLayerUI/Control/Info/VBoxContainer/GameOver")
-levels_path = NodePath("../../CanvasLayerLevels/Control")
-walk_path_scenes = Array[PackedScene]([ExtResource("3_mfnk6"), ExtResource("4_0nsdv"), ExtResource("5_2yrnq"), ExtResource("6_4p6gs"), ExtResource("7_dmv5s"), ExtResource("3_mfnk6"), ExtResource("8_gpylc"), ExtResource("9_rtbw8"), ExtResource("10_uok2w"), ExtResource("11_ksbo6"), ExtResource("12_ovllb"), ExtResource("13_bvktu"), ExtResource("6_4p6gs"), ExtResource("5_2yrnq"), ExtResource("14_c8gwj"), ExtResource("15_6x7md"), ExtResource("16_cxj4b"), ExtResource("17_2ppq2"), ExtResource("13_bvktu"), ExtResource("18_wmm8r"), ExtResource("19_csc53"), ExtResource("20_d3xem"), ExtResource("21_inn3d"), ExtResource("22_174t8"), ExtResource("23_v0hfd"), ExtResource("24_vkopx"), ExtResource("13_bvktu"), ExtResource("3_mfnk6"), ExtResource("25_3pmyh"), ExtResource("26_yrft0"), ExtResource("27_l75lh"), ExtResource("28_impa7"), ExtResource("29_eb0ws"), ExtResource("30_10khc"), ExtResource("31_uxx61"), ExtResource("32_7822s"), ExtResource("9_rtbw8"), ExtResource("28_impa7"), ExtResource("10_uok2w"), ExtResource("11_ksbo6"), ExtResource("33_qmn66"), ExtResource("34_0k1j7"), ExtResource("35_fxra1"), ExtResource("36_eb2fx"), ExtResource("37_5bm34"), ExtResource("38_2435r"), ExtResource("39_hhwde"), ExtResource("40_6bq12"), ExtResource("41_pqin3"), ExtResource("42_xctar"), ExtResource("43_1bmdq"), ExtResource("44_vvwug"), ExtResource("45_x53mu"), ExtResource("46_g1onc"), ExtResource("47_6hpnk"), ExtResource("48_x1q7i"), ExtResource("49_tnmpu"), ExtResource("50_7ivg1"), ExtResource("51_s4sa8"), ExtResource("52_olvvp"), ExtResource("53_dxr4e"), ExtResource("54_gdkd3"), ExtResource("55_fwq08"), ExtResource("7_dmv5s"), ExtResource("56_8ax0g"), ExtResource("57_hfoxm"), ExtResource("58_56215"), ExtResource("59_15og7"), ExtResource("60_lqtie"), ExtResource("61_4kim5"), ExtResource("50_7ivg1"), ExtResource("62_wlu7m"), ExtResource("63_xqxna"), ExtResource("64_8xean")])
-walk_path_delays = Array[float]([5.0, 8.0, 7.0, 6.0, 6.0, 4.0, 10.0, 4.0, 6.0, 0.1, 4.0, 1.0, 1.0, 1.0, 1.0, 3.0, 0.01, 15.0, 3.0, 4.0, 1.0, 1.0, 1.0, 1.0, 2.0, 4.0, 1.0, 1.0, 0.0, 5.0, 0.01, 0.0, 15.0, 0.0, 4.0, 0.0, 4.0, 0.0, 4.0, 0.01, 4.0, 0.0, 0.0, 0.0, 4.0, 0.0, 0.0, 0.0, 0.0, 2.0, 4.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 2.0, 0.5, 0.5, 0.5, 0.5, 0.5, 2.0, 0.0, 0.0, 0.0, 3.0, 0.0, 0.0, 1.0, 0.0, 0.0, 8.0])
+walk_path_scenes = Array[PackedScene]([ExtResource("3_mfnk6"), ExtResource("4_0nsdv"), ExtResource("5_2yrnq"), ExtResource("6_4p6gs"), ExtResource("7_dmv5s"), ExtResource("3_mfnk6"), ExtResource("8_gpylc"), ExtResource("9_rtbw8"), ExtResource("10_uok2w"), ExtResource("11_ksbo6"), ExtResource("12_ovllb"), ExtResource("13_bvktu"), ExtResource("6_4p6gs"), ExtResource("5_2yrnq"), ExtResource("14_c8gwj"), ExtResource("15_6x7md"), ExtResource("16_cxj4b"), ExtResource("17_2ppq2"), ExtResource("13_bvktu"), ExtResource("18_wmm8r"), ExtResource("19_csc53"), ExtResource("20_d3xem"), ExtResource("21_inn3d"), ExtResource("22_174t8"), ExtResource("23_v0hfd"), ExtResource("24_vkopx"), ExtResource("13_bvktu"), ExtResource("3_mfnk6"), ExtResource("25_3pmyh"), ExtResource("26_yrft0"), ExtResource("27_l75lh"), ExtResource("28_impa7"), ExtResource("29_eb0ws"), ExtResource("30_10khc"), ExtResource("31_uxx61"), ExtResource("32_7822s"), ExtResource("9_rtbw8"), ExtResource("28_impa7"), ExtResource("10_uok2w"), ExtResource("11_ksbo6"), ExtResource("33_qmn66"), ExtResource("34_0k1j7"), ExtResource("35_fxra1"), ExtResource("36_eb2fx"), ExtResource("37_fma2x"), ExtResource("38_tr5vd"), ExtResource("40_6bq12"), ExtResource("41_pqin3"), ExtResource("42_xctar"), ExtResource("43_1bmdq"), ExtResource("44_vvwug"), ExtResource("45_x53mu"), ExtResource("46_g1onc"), ExtResource("47_6hpnk"), ExtResource("61_4kim5"), ExtResource("48_fdam3"), ExtResource("51_s4sa8"), ExtResource("52_olvvp"), ExtResource("53_dxr4e"), ExtResource("54_gdkd3"), ExtResource("55_fwq08"), ExtResource("7_dmv5s"), ExtResource("56_8ax0g"), ExtResource("57_hfoxm"), ExtResource("58_56215"), ExtResource("64_8xean")])
+walk_path_delays = Array[float]([5.0, 8.0, 7.0, 6.0, 6.0, 4.0, 10.0, 4.0, 6.0, 0.1, 4.0, 1.0, 1.0, 1.0, 1.0, 3.0, 0.01, 15.0, 3.0, 4.0, 1.0, 1.0, 1.0, 1.0, 2.0, 4.0, 1.0, 1.0, 0.0, 5.0, 0.01, 0.0, 15.0, 0.0, 4.0, 0.0, 4.0, 0.0, 4.0, 0.01, 4.0, 0.0, 0.0, 0.0, 4.0, 0.0, 0.0, 2.0, 5.0, 4.0, 0.0, 0.0, 5.0, 0.0, 0.0, 9.0, 0.5, 0.75, 0.75, 1.0, 1.15, 6.0, 0.0, 0.0, 0.0, 12.0])
 
 [node name="Players" type="Node" parent="."]
 
@@ -297,6 +289,20 @@ theme_override_colors/font_color = Color(0.45, 0.9, 0.45, 1)
 theme_override_fonts/font = ExtResource("8_l402d")
 theme_override_font_sizes/font_size = 128
 text = "FINAL LEVEL"
+horizontal_alignment = 1
+
+[node name="Label5" type="Label" parent="CanvasLayerLevels/Control"]
+visible = false
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 23.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.45, 0.9, 0.45, 1)
+theme_override_fonts/font = ExtResource("8_l402d")
+theme_override_font_sizes/font_size = 128
+text = "LEVEL 5"
 horizontal_alignment = 1
 
 [node name="CanvasLayerUI" type="CanvasLayer" parent="."]
