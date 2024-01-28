@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://0bwuel6hf4ao"]
+
+[ext_resource type="PackedScene" uid="uid://d0jbi2nl0tj8w" path="res://modules/remi/walker/walk_path.tscn" id="1_h8161"]
+[ext_resource type="PackedScene" uid="uid://cytvxx4fjyqp4" path="res://modules/remi/walker_instances/basic/foot_grosse_left.tscn" id="2_oqm13"]
+[ext_resource type="PackedScene" uid="uid://bfnsorhnjrj08" path="res://modules/remi/walker_instances/basic/foot_grosse_right.tscn" id="3_prr3h"]
+
+[sub_resource type="Curve2D" id="Curve2D_1dm2y"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 341.828, 2947.42, 1.48457, 342.459, -1.48457, -342.459, 326, 774, 20.686, 293.453, -20.686, -293.453, 310, -280, 0, 0, 0, 0, 313, -1428)
+}
+point_count = 4
+
+[node name="WalkPathPattern2" instance=ExtResource("1_h8161")]
+STEP_LENGTH_INTERVAL = Array[float]([1536.0])
+STEP_TIME_INTERVAL = Array[float]([1.0])
+SLIDE_LENGTH_INTERVAL = Array[float]([0.0])
+SLIDE_TIME_INTERVAL = Array[float]([1.0])
+
+[node name="Path2D" parent="." index="0"]
+position = Vector2(353, -230)
+rotation = -0.645867
+curve = SubResource("Curve2D_1dm2y")
+
+[node name="PathFollow2DLeft" parent="Path2D" index="0"]
+position = Vector2(85.8343, 2949.28)
+rotation = -1.57808
+v_offset = -256.0
+
+[node name="FootGrosseLeft" parent="Path2D/PathFollow2DLeft" index="0" instance=ExtResource("2_oqm13")]
+
+[node name="PathFollow2DRight" parent="Path2D" index="1"]
+position = Vector2(597.821, 2945.55)
+rotation = -1.57808
+v_offset = 256.0
+
+[node name="FootGrosseRight" parent="Path2D/PathFollow2DRight" index="0" instance=ExtResource("3_prr3h")]

@@ -7,7 +7,7 @@
 [sub_resource type="Curve2D" id="Curve2D_1dm2y"]
 resource_local_to_scene = true
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 1594.86, 1883.11, 435.425, 352.661, -435.425, -352.661, 20, 595, 176.35, 155.282, -176.35, -155.282, -519, 139, 184.073, 161.914, -184.073, -161.914, -1198.02, -498.694, -246, -284, 246, 284, -1508.84, -772.526)
+"points": PackedVector2Array(0, 0, 0, 0, 945.83, 1316.8, 435.425, 352.661, -435.425, -352.661, 20, 595, 176.35, 155.282, -176.35, -155.282, -519, 139, 184.073, 161.914, -184.073, -161.914, -1198.02, -498.694, -246, -284, 246, 284, -1508.84, -772.526)
 }
 point_count = 5
 
@@ -23,15 +23,15 @@ rotation = 0.88238
 curve = SubResource("Curve2D_1dm2y")
 
 [node name="PathFollow2DLeft" parent="Path2D" index="0"]
-position = Vector2(1432.78, 2081.27)
-rotation = -2.45602
+position = Vector2(788.429, 1518.69)
+rotation = -2.4794
 v_offset = -256.0
 
 [node name="FootBasicLeft" parent="Path2D/PathFollow2DLeft" index="0" instance=ExtResource("2_aiwem")]
 
 [node name="PathFollow2DRight" parent="Path2D" index="1"]
-position = Vector2(1756.94, 1684.95)
-rotation = -2.45602
+position = Vector2(1103.23, 1114.9)
+rotation = -2.4794
 v_offset = 256.0
 
 [node name="FootBasicRight" parent="Path2D/PathFollow2DRight" index="0" instance=ExtResource("3_howf0")]

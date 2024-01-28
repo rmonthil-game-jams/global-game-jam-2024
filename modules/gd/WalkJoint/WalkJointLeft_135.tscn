@@ -6,16 +6,17 @@
 [sub_resource type="Curve2D" id="Curve2D_1dm2y"]
 resource_local_to_scene = true
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 10.0522, 2366.22, -0.740829, 461.605, 0.740829, -461.605, -17, 161, 62.7223, 327.743, -62.7223, -327.743, 0.640625, -3322.57)
+"points": PackedVector2Array(0, 0, 0, 0, -20.7187, 1957.65, -0.740829, 461.605, 0.740829, -461.605, -17, 161, 62.7223, 327.743, -62.7223, -327.743, 0.640625, -3322.57)
 }
 point_count = 3
 
 [node name="WalkJointLeft" instance=ExtResource("1_scet2")]
+position = Vector2(-21, -14)
 scale = Vector2(1.01619, 1.04014)
 STEP_LENGTH_INTERVAL = Array[float]([512.0])
-STEP_TIME_INTERVAL = Array[float]([1.0])
+STEP_TIME_INTERVAL = Array[float]([0.5])
 SLIDE_LENGTH_INTERVAL = Array[float]([0.0])
-SLIDE_TIME_INTERVAL = Array[float]([0.5])
+SLIDE_TIME_INTERVAL = Array[float]([0.25])
 
 [node name="Path2D" parent="." index="0"]
 position = Vector2(11, -48)
@@ -23,13 +24,13 @@ rotation = -2.0546
 curve = SubResource("Curve2D_1dm2y")
 
 [node name="PathFollow2DLeft" parent="Path2D" index="0"]
-position = Vector2(-245.929, 2369.36)
-rotation = -1.58306
+position = Vector2(-276.718, 1957.12)
+rotation = -1.56873
 v_offset = -256.0
 
 [node name="PathFollow2DRight" parent="Path2D" index="1"]
-position = Vector2(266.033, 2363.08)
-rotation = -1.58306
+position = Vector2(235.281, 1958.18)
+rotation = -1.56873
 v_offset = 256.0
 
 [node name="FootJumpLeft" parent="Path2D/PathFollow2DRight" index="0" instance=ExtResource("3_45svc")]

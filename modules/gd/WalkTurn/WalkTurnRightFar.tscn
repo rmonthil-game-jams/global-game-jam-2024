@@ -13,9 +13,9 @@ point_count = 5
 
 [node name="WalkTurnTop" instance=ExtResource("1_3tgvr")]
 STEP_LENGTH_INTERVAL = Array[float]([1500.0])
-STEP_TIME_INTERVAL = Array[float]([3.0])
+STEP_TIME_INTERVAL = Array[float]([1.5])
 SLIDE_LENGTH_INTERVAL = Array[float]([0.0])
-SLIDE_TIME_INTERVAL = Array[float]([1.0])
+SLIDE_TIME_INTERVAL = Array[float]([0.5])
 
 [node name="Path2D" parent="." index="0"]
 position = Vector2(659, 26)
