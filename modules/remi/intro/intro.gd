@@ -66,9 +66,20 @@ func on_key_pressed():
 	$AudioStreamPlayerCrash.play()
 	await get_tree().create_timer(2.0).timeout
 	
+	var tween_color: Tween = create_tween()
+	tween_color.tween_interval(0.5)
+	tween_color.tween_property($ColorRect, "modulate", Color(0.5, 0.25, 0.25), 0.45).set_trans(Tween.TRANS_QUAD)
+	
 	var tween_wheel: Tween = create_tween()
 	tween_wheel.tween_property($Wheel, "position:x", -$Wheel.position.x, 1.0).set_trans(Tween.TRANS_QUAD)
 	await tween_wheel.finished
+	
+	tween_color = create_tween()
+	tween_color.tween_property($ColorRect, "modulate:a", 0.0, 0.25).set_trans(Tween.TRANS_QUAD)
+	await tween_color.finished
+	
+	await get_tree().create_timer(1.0).timeout
+	
 	get_tree().change_scene_to_file("res://modules/remi/game/game.tscn")
 
 func _process(delta: float):

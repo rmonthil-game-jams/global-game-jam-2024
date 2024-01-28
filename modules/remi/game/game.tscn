@@ -190,6 +190,7 @@ texture = ExtResource("43_g4mdo")
 [node name="World" type="Node2D" parent="."]
 
 [node name="Pigeon" parent="World" instance=ExtResource("2_vruvg")]
+position = Vector2(0, 120)
 
 [node name="Env" type="Node2D" parent="."]
 

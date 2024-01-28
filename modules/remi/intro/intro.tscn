@@ -1,18 +1,27 @@
-[gd_scene load_steps=16 format=3 uid="uid://nee26ylti0lf"]
+[gd_scene load_steps=25 format=3 uid="uid://nee26ylti0lf"]
 
 [ext_resource type="Texture2D" uid="uid://cp8memsu68jls" path="res://assets/intro_dove.png" id="1_ks30q"]
+[ext_resource type="Script" path="res://modules/remi/intro/intro_root.gd" id="1_l5cu7"]
 [ext_resource type="Script" path="res://modules/remi/intro/intro.gd" id="1_w2yew"]
 [ext_resource type="Texture2D" uid="uid://betcqgqrhkwqt" path="res://assets/intro_pigeon.png" id="2_aprm3"]
+[ext_resource type="Texture2D" uid="uid://b2g3oeft2jyur" path="res://assets/pigeon_wing_1_white.png" id="3_1rjdy"]
 [ext_resource type="AudioStream" uid="uid://dsk8gyljuddiw" path="res://audio/GGJ Dove pigeon talk 1.wav" id="3_jgusc"]
 [ext_resource type="FontFile" uid="uid://bchnvsiohxhtx" path="res://fonts/MaltesPencilRegular-jyVj.otf" id="4_3dudd"]
+[ext_resource type="Texture2D" uid="uid://bulwxpadj4acd" path="res://assets/pigeon_bone_white.png" id="4_82ipv"]
 [ext_resource type="AudioStream" uid="uid://blpg46jwdj0mr" path="res://audio/GGJ Dove pigeon talk 2.wav" id="4_ysw5n"]
+[ext_resource type="Texture2D" uid="uid://dientdr33hmaj" path="res://assets/pigeon_wing_0_white.png" id="5_3abge"]
 [ext_resource type="Texture2D" uid="uid://dys1moti5lboe" path="res://assets/wheel.png" id="5_4n58j"]
 [ext_resource type="AudioStream" uid="uid://bcdpuwxvbnkvy" path="res://audio/GGJ Dove pigeon talk 3.wav" id="5_thf3r"]
 [ext_resource type="AudioStream" uid="uid://d4hxm37j7sne2" path="res://audio/GGJ Dove pigeon talk 4.wav" id="6_3jbws"]
+[ext_resource type="Texture2D" uid="uid://c8rxaa2rhbduw" path="res://assets/dove_wing_1_white.png" id="6_38ag7"]
 [ext_resource type="AudioStream" uid="uid://bwy0vlegmeb2a" path="res://audio/GGJ Dove pigeon talk 5.wav" id="7_gl23n"]
+[ext_resource type="Texture2D" uid="uid://kc1t333fjuug" path="res://assets/dove_feather_white.png" id="7_ly0e0"]
+[ext_resource type="Texture2D" uid="uid://deop5rjq34tyi" path="res://assets/dove_wing_0_white.png" id="8_juyyh"]
 [ext_resource type="AudioStream" uid="uid://c680222pgv4ub" path="res://audio/GGJ Dove pigeon talk 6.wav" id="8_skdxk"]
+[ext_resource type="Texture2D" uid="uid://drump4ipoqp7v" path="res://assets/pigeon_dove_body_white.png" id="9_305qr"]
 [ext_resource type="AudioStream" uid="uid://c3sc0jbke8m7a" path="res://audio/GGJ Car crash intro.wav" id="12_i44au"]
 [ext_resource type="AudioStream" uid="uid://cxwxkhrdhmv5w" path="res://audio/GGJ Horn intro.wav" id="13_011ed"]
+[ext_resource type="Texture2D" uid="uid://c6sqkrdec82wh" path="res://assets/background.png" id="14_dlsqy"]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_ikqkp"]
 random_pitch = 2.0
@@ -46,7 +55,86 @@ stream_4/weight = 1.0
 stream_5/stream = ExtResource("8_skdxk")
 stream_5/weight = 1.0
 
-[node name="Intro" type="Control"]
+[node name="Intro" type="Node"]
+script = ExtResource("1_l5cu7")
+
+[node name="Back" type="Node2D" parent="."]
+modulate = Color(0.65, 0.65, 0.65, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="Back"]
+rotation = 1.5708
+texture = ExtResource("14_dlsqy")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Back"]
+position = Vector2(840, 0)
+rotation = 1.57079
+texture = ExtResource("14_dlsqy")
+
+[node name="Sprite2D4" type="Sprite2D" parent="Back"]
+position = Vector2(1680, 0)
+rotation = 1.57079
+texture = ExtResource("14_dlsqy")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Back"]
+position = Vector2(-840, 0)
+rotation = 1.5708
+texture = ExtResource("14_dlsqy")
+
+[node name="Sprite2D5" type="Sprite2D" parent="Back"]
+position = Vector2(-1680, 0)
+rotation = 1.5708
+texture = ExtResource("14_dlsqy")
+
+[node name="World" type="Node2D" parent="."]
+
+[node name="Pigeon" type="Node2D" parent="World"]
+position = Vector2(0, 120)
+
+[node name="Sprite2D" type="Sprite2D" parent="World/Pigeon"]
+modulate = Color(0.694118, 0.596078, 0.537255, 1)
+position = Vector2(-287, -240)
+rotation = -1.00136e-05
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_1rjdy")
+
+[node name="Sprite2DBone" type="Sprite2D" parent="World/Pigeon/Sprite2D"]
+position = Vector2(-139.998, -168.001)
+texture = ExtResource("4_82ipv")
+
+[node name="Sprite2D2" type="Sprite2D" parent="World/Pigeon"]
+modulate = Color(0.694118, 0.596078, 0.537255, 1)
+position = Vector2(-166, -128)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_3abge")
+
+[node name="Sprite2D3" type="Sprite2D" parent="World/Pigeon"]
+modulate = Color(0.733333, 0.858824, 1, 1)
+position = Vector2(311, -214)
+rotation = 0.0481552
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6_38ag7")
+
+[node name="Sprite2DFeather" type="Sprite2D" parent="World/Pigeon/Sprite2D3"]
+position = Vector2(65.2979, -99.2584)
+texture = ExtResource("7_ly0e0")
+
+[node name="Sprite2D4" type="Sprite2D" parent="World/Pigeon"]
+modulate = Color(0.733333, 0.858824, 1, 1)
+position = Vector2(167, -104)
+rotation = 0.244163
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("8_juyyh")
+
+[node name="Sprite2D5" type="Sprite2D" parent="World/Pigeon"]
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("9_305qr")
+
+[node name="Camera2D" type="Camera2D" parent="World"]
+zoom = Vector2(0.9, 0.9)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="IntroControl" type="Control" parent="CanvasLayer"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -55,7 +143,9 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_w2yew")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="CanvasLayer/IntroControl"]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/IntroControl"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -64,25 +154,25 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.5, 0.5, 0.5, 1)
 
-[node name="IntroDove" type="Sprite2D" parent="."]
+[node name="IntroDove" type="Sprite2D" parent="CanvasLayer/IntroControl"]
 position = Vector2(903, 558)
 texture = ExtResource("1_ks30q")
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="IntroDove"]
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="CanvasLayer/IntroControl/IntroDove"]
 position = Vector2(-171, -195)
 stream = SubResource("AudioStreamRandomizer_ikqkp")
 volume_db = -16.0
 
-[node name="IntroPigeon" type="Sprite2D" parent="."]
+[node name="IntroPigeon" type="Sprite2D" parent="CanvasLayer/IntroControl"]
 position = Vector2(253, 553)
 texture = ExtResource("2_aprm3")
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="IntroPigeon"]
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="CanvasLayer/IntroControl/IntroPigeon"]
 position = Vector2(161, -192)
 stream = SubResource("AudioStreamRandomizer_j8c3c")
 volume_db = -16.0
 
-[node name="Title" type="Label" parent="."]
+[node name="Title" type="Label" parent="CanvasLayer/IntroControl"]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -98,7 +188,7 @@ text = "PIGEONUS PIETINUS"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Label" type="Label" parent="."]
+[node name="Label" type="Label" parent="CanvasLayer/IntroControl"]
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
@@ -116,15 +206,15 @@ horizontal_alignment = 1
 vertical_alignment = 1
 uppercase = true
 
-[node name="Wheel" type="Sprite2D" parent="."]
+[node name="Wheel" type="Sprite2D" parent="CanvasLayer/IntroControl"]
 position = Vector2(1688, 133)
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("5_4n58j")
 
-[node name="AudioStreamPlayerCrash" type="AudioStreamPlayer" parent="."]
+[node name="AudioStreamPlayerCrash" type="AudioStreamPlayer" parent="CanvasLayer/IntroControl"]
 stream = ExtResource("12_i44au")
 volume_db = -5.0
 
-[node name="AudioStreamPlayerHorn" type="AudioStreamPlayer" parent="."]
+[node name="AudioStreamPlayerHorn" type="AudioStreamPlayer" parent="CanvasLayer/IntroControl"]
 stream = ExtResource("13_011ed")
 volume_db = -12.0
