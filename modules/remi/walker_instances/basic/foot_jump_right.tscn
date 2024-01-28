@@ -1,0 +1,30 @@
+[gd_scene load_steps=2 format=3 uid="uid://cyvtrr4at6jb5"]
+
+[ext_resource type="PackedScene" uid="uid://bo5es8oypmu38" path="res://modules/remi/walker/foot.tscn" id="1_4egpv"]
+
+[node name="FootJumpRight" instance=ExtResource("1_4egpv")]
+
+[node name="FootShadow" parent="." index="0"]
+rotation = 1.5708
+collision_mask = 6
+
+[node name="Sprite2D" parent="FootShadow" index="0"]
+self_modulate = Color(0, 0, 0, 1)
+scale = Vector2(-1, 1)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="FootShadow" index="1"]
+polygon = PackedVector2Array(95.0011, 296, -132, 111, -206.001, -162.999, -200.001, -281.999, 194, -272, 202, -55.0007, 185, 122.999)
+
+[node name="FootBody" parent="." index="1"]
+rotation = 1.5708
+
+[node name="Sprite2D2" parent="FootBody" index="0"]
+modulate = Color(1, 0.980392, 0.639216, 1)
+scale = Vector2(-1, 1)
+
+[node name="Sprite2DHitDove" parent="FootBody" index="1"]
+modulate = Color(1, 0.982, 0.64, 0.501961)
+scale = Vector2(-1, 1)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="FootBody" index="2"]
+polygon = PackedVector2Array(95.0011, 296, -132, 111, -206.001, -162.999, -200.001, -281.999, 194, -272, 202, -55.0007, 185, 122.999)

@@ -46,6 +46,8 @@ func end_step():
 func play_hit_pigeon_animation():
 	$FootShadow/Sprite2D.hide()
 	$FootBody.process_mode = Node.PROCESS_MODE_DISABLED
+	## audio
+	$AudioStreamPlayer2DPain.play()
 	## init
 	$FootBody/Sprite2DHitPigeon.global_rotation = 0.0
 	$FootBody/Sprite2DHitPigeon.show()
@@ -59,6 +61,8 @@ func play_hit_pigeon_animation():
 func play_hit_dove_animation():
 	$FootShadow/Sprite2D.hide()
 	$FootBody.process_mode = Node.PROCESS_MODE_DISABLED
+	## audio
+	$AudioStreamPlayer2DLaugh.play()
 	## init
 	$FootBody/Sprite2D2.hide()
 	$FootBody/Sprite2DHitDove.show()

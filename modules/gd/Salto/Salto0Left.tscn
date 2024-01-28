@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bff6o7ci3crbm"]
 
 [ext_resource type="PackedScene" uid="uid://d0jbi2nl0tj8w" path="res://modules/remi/walker/walk_path.tscn" id="1_07gnd"]
-[ext_resource type="PackedScene" uid="uid://cwwacayr62ogp" path="res://modules/remi/walker_instances/basic/foot_basic_left.tscn" id="2_imemx"]
+[ext_resource type="PackedScene" uid="uid://ba2dkau0g2ojw" path="res://modules/remi/walker_instances/basic/foot_jump_left.tscn" id="2_l1bik"]
 
 [sub_resource type="Curve2D" id="Curve2D_1dm2y"]
 resource_local_to_scene = true
@@ -30,5 +30,5 @@ position = Vector2(966.999, 1030.7)
 rotation = -1.56808
 v_offset = 256.0
 
-[node name="FootBasicLeft" parent="Path2D/PathFollow2DRight" index="0" instance=ExtResource("2_imemx")]
+[node name="FootJumpLeft" parent="Path2D/PathFollow2DRight" index="0" instance=ExtResource("2_l1bik")]
 position = Vector2(-1.69626, -511.996)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bo5es8oypmu38"]
+[gd_scene load_steps=26 format=3 uid="uid://bo5es8oypmu38"]
 
 [ext_resource type="Script" path="res://modules/remi/walker/foot.gd" id="1_r6ydk"]
 [ext_resource type="PackedScene" uid="uid://bjhvvs1wqhrd8" path="res://modules/remi/walker/foot_shadow.tscn" id="2_6smw6"]
@@ -10,6 +10,18 @@
 [ext_resource type="AudioStream" uid="uid://c5u560oo13vbt" path="res://audio/GGJ Stomp 2 layer.wav" id="6_it2rj"]
 [ext_resource type="Texture2D" uid="uid://bulwxpadj4acd" path="res://assets/pigeon_bone_white.png" id="7_p6gmu"]
 [ext_resource type="AudioStream" uid="uid://c23i0d1a1qhib" path="res://audio/GGJ Stomp 3 layer.wav" id="7_pqrdp"]
+[ext_resource type="AudioStream" uid="uid://b70rn8ftt83g8" path="res://audio/GGJ Female laugh 1.wav" id="11_d6cc4"]
+[ext_resource type="AudioStream" uid="uid://luvvstsg006c" path="res://audio/GGJ Female laugh 2.wav" id="12_quiqg"]
+[ext_resource type="AudioStream" uid="uid://cli1ghr654bdt" path="res://audio/GGJ Female laugh 3.wav" id="13_0isdm"]
+[ext_resource type="AudioStream" uid="uid://bfa01c5gejk4t" path="res://audio/GGJ Male laugh 1.wav" id="14_1ib4f"]
+[ext_resource type="AudioStream" uid="uid://mc2l6p7701mm" path="res://audio/GGJ Male laugh 2.wav" id="15_ithsx"]
+[ext_resource type="AudioStream" uid="uid://d1fb6el7efsx0" path="res://audio/GGJ Male laugh 3.wav" id="16_5e6g1"]
+[ext_resource type="AudioStream" uid="uid://1xl3qfp273p7" path="res://audio/GGJ Male pain 1.wav" id="17_cdj53"]
+[ext_resource type="AudioStream" uid="uid://cx8r22nk3p3gk" path="res://audio/GGJ Male pain 2.wav" id="18_lvipp"]
+[ext_resource type="AudioStream" uid="uid://ctxvincd7ivta" path="res://audio/GGJ Male pain 3.wav" id="19_tyt7l"]
+[ext_resource type="AudioStream" uid="uid://b2hdfowfha8b1" path="res://audio/GGJ Female pain 1.wav" id="20_ek57w"]
+[ext_resource type="AudioStream" uid="uid://dq0gwf6bxec0b" path="res://audio/GGJ Female pain 2.wav" id="21_rrcwg"]
+[ext_resource type="AudioStream" uid="uid://7prqd53ga1uu" path="res://audio/GGJ Female pain 3.wav" id="22_mpqgq"]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_k6i68"]
 random_pitch = 4.0
@@ -20,6 +32,38 @@ stream_1/stream = ExtResource("6_it2rj")
 stream_1/weight = 1.0
 stream_2/stream = ExtResource("7_pqrdp")
 stream_2/weight = 1.0
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_dgpyi"]
+random_pitch = 4.0
+streams_count = 6
+stream_0/stream = ExtResource("11_d6cc4")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("12_quiqg")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("13_0isdm")
+stream_2/weight = 1.0
+stream_3/stream = ExtResource("14_1ib4f")
+stream_3/weight = 1.0
+stream_4/stream = ExtResource("15_ithsx")
+stream_4/weight = 1.0
+stream_5/stream = ExtResource("16_5e6g1")
+stream_5/weight = 1.0
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_e8872"]
+random_pitch = 4.0
+streams_count = 6
+stream_0/stream = ExtResource("17_cdj53")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("18_lvipp")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("19_tyt7l")
+stream_2/weight = 1.0
+stream_3/stream = ExtResource("20_ek57w")
+stream_3/weight = 1.0
+stream_4/stream = ExtResource("21_rrcwg")
+stream_4/weight = 1.0
+stream_5/stream = ExtResource("22_mpqgq")
+stream_5/weight = 1.0
 
 [node name="Foot" type="Node2D" groups=["target_to_kill"]]
 script = ExtResource("1_r6ydk")
@@ -62,3 +106,9 @@ texture = ExtResource("7_p6gmu")
 
 [node name="AudioStreamPlayer2DStomp" type="AudioStreamPlayer2D" parent="."]
 stream = SubResource("AudioStreamRandomizer_k6i68")
+
+[node name="AudioStreamPlayer2DLaugh" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamRandomizer_dgpyi")
+
+[node name="AudioStreamPlayer2DPain" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamRandomizer_e8872")

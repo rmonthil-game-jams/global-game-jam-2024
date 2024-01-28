@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://8x8smb0no3v8"]
 
 [ext_resource type="PackedScene" uid="uid://d0jbi2nl0tj8w" path="res://modules/remi/walker/walk_path.tscn" id="1_p1vc4"]
-[ext_resource type="PackedScene" uid="uid://cwwacayr62ogp" path="res://modules/remi/walker_instances/basic/foot_basic_left.tscn" id="2_gjema"]
-[ext_resource type="PackedScene" uid="uid://ryb28enm4f81" path="res://modules/remi/walker_instances/basic/foot_basic_right.tscn" id="3_lt1gi"]
+[ext_resource type="PackedScene" uid="uid://hugdo4v3qo2m" path="res://modules/remi/walker_instances/basic/foot_more_left.tscn" id="2_iosf8"]
+[ext_resource type="PackedScene" uid="uid://dqcn2c15d3v23" path="res://modules/remi/walker_instances/basic/foot_more_right.tscn" id="3_g1fdf"]
 
 [sub_resource type="Curve2D" id="Curve2D_1dm2y"]
 resource_local_to_scene = true
@@ -26,11 +26,11 @@ position = Vector2(2192.27, 820.683)
 rotation = -3.09183
 v_offset = -256.0
 
-[node name="FootBasicLeft" parent="Path2D/PathFollow2DLeft" index="0" instance=ExtResource("2_gjema")]
+[node name="FootMoreLeft" parent="Path2D/PathFollow2DLeft" index="0" instance=ExtResource("2_iosf8")]
 
 [node name="PathFollow2DRight" parent="Path2D" index="1"]
 position = Vector2(2217.73, 309.317)
 rotation = -3.09183
 v_offset = 256.0
 
-[node name="FootBasicRight" parent="Path2D/PathFollow2DRight" index="0" instance=ExtResource("3_lt1gi")]
+[node name="FootMoreRight" parent="Path2D/PathFollow2DRight" index="0" instance=ExtResource("3_g1fdf")]
