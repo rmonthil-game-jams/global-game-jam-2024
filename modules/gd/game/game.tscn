@@ -1,4 +1,4 @@
-[gd_scene load_steps=79 format=3 uid="uid://bf262m1hs2gay"]
+[gd_scene load_steps=72 format=3 uid="uid://bf262m1hs2gay"]
 
 [ext_resource type="Script" path="res://modules/gd/game/game.gd" id="1_og7jg"]
 [ext_resource type="PackedScene" uid="uid://qnm1p2evqemy" path="res://modules/remi/walker/walk_path_serie.tscn" id="2_porj6"]
@@ -44,10 +44,9 @@
 [ext_resource type="Texture2D" uid="uid://betcqgqrhkwqt" path="res://assets/intro_pigeon.png" id="35_roqwd"]
 [ext_resource type="AudioStream" uid="uid://b3mhlfots7pv" path="res://audio/GGJ Ambiance.mp3" id="36_12iva"]
 [ext_resource type="PackedScene" uid="uid://da27syk77m1hr" path="res://modules/gd/WalkGalop/GalopRightcustom.tscn" id="36_vusyl"]
+[ext_resource type="PackedScene" uid="uid://bvixvnhp0jrl1" path="res://modules/gd/WalkJoint/WalkJointLeft_0_Speed.tscn" id="37_7mgx2"]
 [ext_resource type="AudioStream" uid="uid://k33bh2lcjfae" path="res://audio/GGJ Lose.wav" id="37_ecxrm"]
-[ext_resource type="PackedScene" uid="uid://dsy3i6efh5wbr" path="res://modules/gd/Salto/Salto1Left.tscn" id="37_nldc2"]
-[ext_resource type="PackedScene" uid="uid://dxdcmmqikm4a" path="res://modules/gd/Salto/Salto1Right.tscn" id="38_q6a1k"]
-[ext_resource type="PackedScene" uid="uid://b4j2vw4fruckh" path="res://modules/gd/WalkTurn/WalkTurnTopSpeed.tscn" id="39_r74av"]
+[ext_resource type="PackedScene" uid="uid://p70n61g1jklw" path="res://modules/gd/WalkJoint/WalkJointRight_0_Speed.tscn" id="38_83oxx"]
 [ext_resource type="PackedScene" uid="uid://c7mfbtksgtp7t" path="res://modules/gd/MoonWalk/MoonWalkBackMid.tscn" id="40_7r3pd"]
 [ext_resource type="PackedScene" uid="uid://bqlasanubqr7b" path="res://modules/gd/Skate/WalkSkate90Speed.tscn" id="41_0wr05"]
 [ext_resource type="PackedScene" uid="uid://0bwuel6hf4ao" path="res://modules/gd/WalkGosseDaronne/GrosseDaronne_1.tscn" id="42_clv2e"]
@@ -56,9 +55,7 @@
 [ext_resource type="PackedScene" uid="uid://ooqnu4uqsxa6" path="res://modules/gd/MoonWalk/MoonWalkLeftRight.tscn" id="45_1v1qg"]
 [ext_resource type="PackedScene" uid="uid://d3ekdoan05khm" path="res://modules/gd/WalkJoint/WalkJointRight_135SpeedLeft.tscn" id="46_pgw3k"]
 [ext_resource type="PackedScene" uid="uid://cw0agqra5hhf0" path="res://modules/gd/WalkJoint/WalkJointRight_135SppedRight.tscn" id="47_5jwnc"]
-[ext_resource type="PackedScene" uid="uid://fq6k0ibxp75f" path="res://modules/gd/Skate/WalkSkate180Speed.tscn" id="48_oslkp"]
-[ext_resource type="PackedScene" uid="uid://bm38gxr253fwd" path="res://modules/gd/WalkStraight/WalkBotTopSpeed.tscn" id="49_ueted"]
-[ext_resource type="PackedScene" uid="uid://bc8wb6gbps41y" path="res://modules/gd/MoonWalk/MoonWalkRightLeft.tscn" id="50_edxce"]
+[ext_resource type="PackedScene" uid="uid://bfkl20wnuqyol" path="res://modules/gd/MoonWalk/MoonWalkRightLeft_2.tscn" id="48_vbwk8"]
 [ext_resource type="PackedScene" uid="uid://bbefbdv7xjh60" path="res://modules/gd/Skate/WalkSkate180Speed_1.tscn" id="51_ucq85"]
 [ext_resource type="PackedScene" uid="uid://bobvkrat7wbjt" path="res://modules/gd/Skate/WalkSkate180Speed_2.tscn" id="52_077wq"]
 [ext_resource type="PackedScene" uid="uid://bm5oa7fex1ao4" path="res://modules/gd/Skate/WalkSkate180Speed_3.tscn" id="53_p68lp"]
@@ -67,11 +64,7 @@
 [ext_resource type="PackedScene" uid="uid://cyqrq683ueudc" path="res://modules/gd/WalkTurn/WalkTurnLeft.tscn" id="56_ykesk"]
 [ext_resource type="PackedScene" uid="uid://casc5lopu6t3g" path="res://modules/gd/WalkTurn/WalkTurnRight.tscn" id="57_7afjw"]
 [ext_resource type="PackedScene" uid="uid://d3frupx6qtk47" path="res://modules/gd/WalkTurn/WalkTurnTop.tscn" id="58_vrxwu"]
-[ext_resource type="PackedScene" uid="uid://bq7uo1gulsbu8" path="res://modules/gd/WalkTurn/WalkTurnRightSpeed.tscn" id="59_27mph"]
-[ext_resource type="PackedScene" uid="uid://dlevobndm0ihk" path="res://modules/gd/WalkStraight/WalkTopBotSpeed.tscn" id="60_spb75"]
 [ext_resource type="PackedScene" uid="uid://bmobv73uhaknu" path="res://modules/gd/WalkTurn/WalkTurnDownFast.tscn" id="61_h0hr7"]
-[ext_resource type="PackedScene" uid="uid://cxjhno8jq3vb8" path="res://modules/gd/WalkJoint/WalkJointLeft_45VerySpeed.tscn" id="62_pll67"]
-[ext_resource type="PackedScene" uid="uid://cfok01411so1y" path="res://modules/gd/Skate/WalkSkate270Spped.tscn" id="63_uc2fg"]
 [ext_resource type="PackedScene" uid="uid://cryp3ns87p7ng" path="res://modules/gd/Gospieds/GrosPiedsEnd.tscn" id="64_hwf65"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ejv2u"]
@@ -96,8 +89,8 @@ script = ExtResource("1_og7jg")
 
 [node name="WalkPathSerie" parent="Processes" groups=["target_to_kill"] instance=ExtResource("2_porj6")]
 world_path = NodePath("../../World")
-walk_path_scenes = Array[PackedScene]([ExtResource("3_jxcp4"), ExtResource("4_e3olb"), ExtResource("5_f83yx"), ExtResource("6_k6h5s"), ExtResource("7_irfwm"), ExtResource("3_jxcp4"), ExtResource("8_a6hsy"), ExtResource("9_r5ira"), ExtResource("10_tw8ft"), ExtResource("11_0xex0"), ExtResource("12_nhiw5"), ExtResource("13_w2idg"), ExtResource("6_k6h5s"), ExtResource("5_f83yx"), ExtResource("14_pke37"), ExtResource("15_sqd8j"), ExtResource("16_mtewt"), ExtResource("17_p2wtr"), ExtResource("13_w2idg"), ExtResource("18_a2w1n"), ExtResource("19_ygm84"), ExtResource("20_2jv5f"), ExtResource("21_q53vi"), ExtResource("22_3tri5"), ExtResource("23_epnje"), ExtResource("24_247tk"), ExtResource("13_w2idg"), ExtResource("3_jxcp4"), ExtResource("25_yue1p"), ExtResource("26_wcek5"), ExtResource("27_p5gy3"), ExtResource("28_st5o2"), ExtResource("29_c133t"), ExtResource("30_rdx2o"), ExtResource("31_bka1d"), ExtResource("32_7qtvc"), ExtResource("9_r5ira"), ExtResource("28_st5o2"), ExtResource("10_tw8ft"), ExtResource("11_0xex0"), ExtResource("33_mgtpb"), ExtResource("34_u5nbj"), ExtResource("35_fxnrr"), ExtResource("36_vusyl"), ExtResource("37_nldc2"), ExtResource("38_q6a1k"), ExtResource("39_r74av"), ExtResource("40_7r3pd"), ExtResource("41_0wr05"), ExtResource("42_clv2e"), ExtResource("43_jqysd"), ExtResource("44_yj6ka"), ExtResource("45_1v1qg"), ExtResource("46_pgw3k"), ExtResource("47_5jwnc"), ExtResource("48_oslkp"), ExtResource("49_ueted"), ExtResource("50_edxce"), ExtResource("51_ucq85"), ExtResource("52_077wq"), ExtResource("53_p68lp"), ExtResource("54_cei7n"), ExtResource("55_qmh27"), ExtResource("7_irfwm"), ExtResource("56_ykesk"), ExtResource("57_7afjw"), ExtResource("58_vrxwu"), ExtResource("59_27mph"), ExtResource("60_spb75"), ExtResource("61_h0hr7"), ExtResource("50_edxce"), ExtResource("62_pll67"), ExtResource("63_uc2fg"), ExtResource("64_hwf65")])
-walk_path_delays = Array[float]([5.0, 8.0, 7.0, 6.0, 6.0, 4.0, 10.0, 4.0, 6.0, 0.1, 4.0, 1.0, 1.0, 1.0, 1.0, 3.0, 0.01, 15.0, 3.0, 4.0, 1.0, 1.0, 1.0, 1.0, 2.0, 4.0, 1.0, 1.0, 0.0, 5.0, 0.01, 0.0, 15.0, 0.0, 4.0, 0.0, 4.0, 0.0, 4.0, 0.01, 4.0, 0.0, 0.0, 0.0, 4.0, 0.0, 0.0, 0.0, 0.0, 2.0, 4.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 2.0, 0.5, 0.5, 0.5, 0.5, 0.5, 2.0, 0.0, 0.0, 0.0, 3.0, 0.0, 0.0, 1.0, 0.0, 0.0, 8.0])
+walk_path_scenes = Array[PackedScene]([ExtResource("3_jxcp4"), ExtResource("4_e3olb"), ExtResource("5_f83yx"), ExtResource("6_k6h5s"), ExtResource("7_irfwm"), ExtResource("3_jxcp4"), ExtResource("8_a6hsy"), ExtResource("9_r5ira"), ExtResource("10_tw8ft"), ExtResource("11_0xex0"), ExtResource("12_nhiw5"), ExtResource("13_w2idg"), ExtResource("6_k6h5s"), ExtResource("5_f83yx"), ExtResource("14_pke37"), ExtResource("15_sqd8j"), ExtResource("16_mtewt"), ExtResource("17_p2wtr"), ExtResource("13_w2idg"), ExtResource("18_a2w1n"), ExtResource("19_ygm84"), ExtResource("20_2jv5f"), ExtResource("21_q53vi"), ExtResource("22_3tri5"), ExtResource("23_epnje"), ExtResource("24_247tk"), ExtResource("13_w2idg"), ExtResource("3_jxcp4"), ExtResource("25_yue1p"), ExtResource("26_wcek5"), ExtResource("27_p5gy3"), ExtResource("28_st5o2"), ExtResource("29_c133t"), ExtResource("30_rdx2o"), ExtResource("31_bka1d"), ExtResource("32_7qtvc"), ExtResource("9_r5ira"), ExtResource("28_st5o2"), ExtResource("10_tw8ft"), ExtResource("11_0xex0"), ExtResource("33_mgtpb"), ExtResource("34_u5nbj"), ExtResource("35_fxnrr"), ExtResource("36_vusyl"), ExtResource("37_7mgx2"), ExtResource("38_83oxx"), ExtResource("40_7r3pd"), ExtResource("41_0wr05"), ExtResource("42_clv2e"), ExtResource("43_jqysd"), ExtResource("44_yj6ka"), ExtResource("45_1v1qg"), ExtResource("46_pgw3k"), ExtResource("47_5jwnc"), ExtResource("61_h0hr7"), ExtResource("48_vbwk8"), ExtResource("51_ucq85"), ExtResource("52_077wq"), ExtResource("53_p68lp"), ExtResource("54_cei7n"), ExtResource("55_qmh27"), ExtResource("7_irfwm"), ExtResource("56_ykesk"), ExtResource("57_7afjw"), ExtResource("58_vrxwu"), ExtResource("64_hwf65")])
+walk_path_delays = Array[float]([5.0, 8.0, 7.0, 6.0, 6.0, 4.0, 10.0, 4.0, 6.0, 0.1, 4.0, 1.0, 1.0, 1.0, 1.0, 3.0, 0.01, 15.0, 3.0, 4.0, 1.0, 1.0, 1.0, 1.0, 2.0, 4.0, 1.0, 1.0, 0.0, 5.0, 0.01, 0.0, 15.0, 0.0, 4.0, 0.0, 4.0, 0.0, 4.0, 0.01, 4.0, 0.0, 0.0, 0.0, 4.0, 0.0, 0.0, 2.0, 5.0, 4.0, 0.0, 0.0, 5.0, 0.0, 0.0, 9.0, 0.5, 0.75, 0.75, 1.0, 1.15, 6.0, 0.0, 0.0, 0.0, 8.0])
 
 [node name="Players" type="Node" parent="."]
 
