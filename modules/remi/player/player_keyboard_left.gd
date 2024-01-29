@@ -69,5 +69,5 @@ func _physics_process(delta: float):
 		var impulse: Vector2 = _get_velocity_control_impulse(Vector2.ZERO, delta)
 		pigeon_forearm.apply_impulse(0.5 * impulse)
 
-func _get_velocity_control_impulse(direction: Vector2, delta: float) -> Vector2:
-	return pigeon_forearm.mass * (direction * TARGET_VELOCITY - pigeon_forearm.linear_velocity) * delta / REACTION_TIME
+func _get_velocity_control_impulse(dir: Vector2, delta: float) -> Vector2:
+	return pigeon_forearm.mass * (dir * TARGET_VELOCITY - pigeon_forearm.linear_velocity) * delta / REACTION_TIME

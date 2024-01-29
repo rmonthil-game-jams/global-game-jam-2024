@@ -41,6 +41,9 @@ func _input(event: InputEvent):
 	elif event is InputEventMouseButton:
 		if event.pressed:
 			on_key_pressed()
+	elif event is InputEventJoypadButton:
+		if event.pressed:
+			on_key_pressed()
 
 func on_key_pressed():
 	set_process_input(false)

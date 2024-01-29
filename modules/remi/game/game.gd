@@ -63,6 +63,9 @@ func _input(event: InputEvent):
 	elif event is InputEventMouseButton:
 		if event.pressed:
 			on_key_pressed()
+	elif event is InputEventJoypadButton:
+		if event.pressed:
+			on_key_pressed()
 
 var tween_play_key_pressed: Tween
 func play_key_pressed_animation():
@@ -80,13 +83,13 @@ func on_key_pressed():
 	tween_white.tween_property($CanvasLayerUI/Control/Info, "modulate:a", 0.0, 1.0).set_trans(Tween.TRANS_QUAD)
 	await tween_white.finished
 	# restart
-	get_tree().change_scene_to_file("res://modules/remi/intro/intro.tscn")
+	get_tree().change_scene_to_file("res://modules/remi/game/game.tscn")
 
 func _on_timer_win_check_timeout():
 	if not is_ending and get_tree().get_nodes_in_group("target_to_kill").is_empty():
 		# victory
-		$Players/PlayerKeyboardLeft.queue_free()
-		$Players/PlayerKeyboardRight.queue_free()
+		for player in $Players.get_children():
+			player.queue_free()
 		# kill pigeon
 		on_pigeon_just_died()
 

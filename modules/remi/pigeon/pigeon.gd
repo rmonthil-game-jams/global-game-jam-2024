@@ -2,8 +2,7 @@ extends Node2D
 
 @export var REACTION_TIME: float
 
-@onready var player_keyboard_left: Node = get_tree().root.get_node("Game/Players/PlayerKeyboardLeft")
-@onready var player_keyboard_right: Node = get_tree().root.get_node("Game/Players/PlayerKeyboardRight")
+@onready var players: Node = get_tree().root.get_node("Game/Players")
 
 var state_left: String = "idle"
 var state_right: String = "idle"
@@ -40,8 +39,8 @@ func hit_right():
 	$ForearmRight/AudioStreamPlayer2DHit.play()
 
 func die():
-	player_keyboard_left.queue_free()
-	player_keyboard_right.queue_free()
+	for player in players.get_children():
+		player.queue_free()
 	# corps
 	var new_corps: Node2D = preload("res://modules/remi/pigeon/pigeon_corps.tscn").instantiate()
 	new_corps.position = transform * $Body.position

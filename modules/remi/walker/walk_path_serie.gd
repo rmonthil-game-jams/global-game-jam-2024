@@ -7,11 +7,13 @@ extends Node
 @export var walk_path_scenes: Array[PackedScene]
 @export var walk_path_delays: Array[float]
 
+@export var WALK_PATH_START_INDEX: int
+
 var level_index: int = 1
 
 func start():
 	_play_anim(get_node(levels_path).get_child(0))
-	for index in range(walk_path_scenes.size()):
+	for index in range(WALK_PATH_START_INDEX, walk_path_scenes.size()):
 		if walk_path_delays[index] >= 10.0:
 			await get_tree().create_timer(walk_path_delays[index] - 4.0).timeout
 			_play_anim(get_node(levels_path).get_child(level_index))

@@ -6,10 +6,3 @@
 script = ExtResource("1_d2fxq")
 TARGET_VELOCITY = 128.0
 REACTION_TIME = 0.125
-
-[node name="TimerHit" type="Timer" parent="."]
-
-[node name="TimeHitCooldown" type="Timer" parent="."]
-
-[connection signal="timeout" from="TimerHit" to="." method="_on_timer_hit_timeout"]
-[connection signal="timeout" from="TimeHitCooldown" to="." method="_on_time_hit_cooldown_timeout"]

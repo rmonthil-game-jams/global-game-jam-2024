@@ -111,6 +111,8 @@ stream = SubResource("AudioStreamRandomizer_k6i68")
 
 [node name="AudioStreamPlayer2DLaugh" type="AudioStreamPlayer2D" parent="."]
 stream = SubResource("AudioStreamRandomizer_dgpyi")
+volume_db = 3.0
 
 [node name="AudioStreamPlayer2DPain" type="AudioStreamPlayer2D" parent="."]
 stream = SubResource("AudioStreamRandomizer_e8872")
+volume_db = 3.0

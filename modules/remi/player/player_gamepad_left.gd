@@ -21,40 +21,38 @@ var pigeon_impulse_anchor: Marker2D
 func _ready():
 	pigeon = get_node(pigeon_path)
 	pigeon_body = pigeon.get_node("Body")
-	pigeon_forearm = pigeon.get_node("ForearmRight")
-	pigeon_impulse_anchor = pigeon_forearm.get_node("Marker2DAnchorRight")
+	pigeon_forearm = pigeon.get_node("ForearmLeft")
+	pigeon_impulse_anchor = pigeon_forearm.get_node("Marker2DAnchorLeft")
 
 func _input(event: InputEvent):
-	if event is InputEventKey:
-		if not event.is_echo():
-			match event.physical_keycode:
-				KEY_O:
+	if event is InputEventJoypadButton:
+		if event.device == 0:
+			match event.button_index:
+				JOY_BUTTON_A:
 					if event.pressed:
-						if pigeon.state_right == "idle":
-							pigeon.hit_right()
-				KEY_U:
+						if pigeon.state_left == "idle":
+							pigeon.hit_left()
+				JOY_BUTTON_B:
 					if event.pressed:
-						if pigeon.state_right == "idle":
-							pigeon.hit_right()
-				KEY_ENTER:
+						if pigeon.state_left == "idle":
+							pigeon.hit_left()
+				JOY_BUTTON_X:
 					if event.pressed:
-						if pigeon.state_right == "idle":
-							pigeon.hit_right()
+						if pigeon.state_left == "idle":
+							pigeon.hit_left()
+				JOY_BUTTON_Y:
+					if event.pressed:
+						if pigeon.state_left == "idle":
+							pigeon.hit_left()
 
 func _physics_process(delta: float):
 	direction = Vector2.ZERO
-	if Input.is_physical_key_pressed(KEY_UP) or Input.is_physical_key_pressed(KEY_I):
-		direction.y -= 1.0
-	if Input.is_physical_key_pressed(KEY_RIGHT) or Input.is_physical_key_pressed(KEY_L):
-		direction.x += 1.0
-	if Input.is_physical_key_pressed(KEY_LEFT) or Input.is_physical_key_pressed(KEY_J):
-		direction.x -= 1.0
-	if Input.is_physical_key_pressed(KEY_DOWN) or Input.is_physical_key_pressed(KEY_K):
-		direction.y += 1.0
-	if direction:
-		direction = direction.normalized()
+	direction.x = Input.get_joy_axis(0, JOY_AXIS_LEFT_X)
+	direction.y = Input.get_joy_axis(0, JOY_AXIS_LEFT_Y)
+	if direction and direction.length() > 0.5:
+		#direction = direction.normalized()
 		var impulse: Vector2 = _get_velocity_control_impulse(direction, delta)
-		match pigeon.state_right:
+		match pigeon.state_left:
 			"idle":
 				pigeon_forearm.apply_impulse(impulse, pigeon_impulse_anchor.global_position - pigeon_forearm.global_position)
 				pigeon_body.apply_impulse(-0.5*impulse)
